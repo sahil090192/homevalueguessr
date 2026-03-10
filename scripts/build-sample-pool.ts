@@ -5,7 +5,15 @@ const VALUES_PATH = path.join(process.cwd(), 'data', 'processed', 'sample_zip_va
 const COORDS_PATH = path.join(process.cwd(), 'data', 'processed', 'sample_zip_coords.json');
 const OUTPUT_PATH = path.join(process.cwd(), 'public', 'data', 'sample_pool.json');
 
-async function ensureStreetView(lat: number, lon: number): Promise<boolean> {
+type StreetViewMeta = {
+  lat: number;
+  lng: number;
+  description?: string;
+};
+
+const DISCOURAGED_KEYWORDS = ['highway', 'freeway', 'expressway', 'interstate', 'toll road', 'bridge', 'ramp'];
+
+async function fetchStreetViewMetadata(lat: number, lon: number): Promise<StreetViewMeta | null> {
   const key = process.env.GOOGLE_STREETVIEW_KEY;
   if (!key) {
     throw new Error('GOOGLE_STREETVIEW_KEY missing from environment');
@@ -22,10 +30,24 @@ async function ensureStreetView(lat: number, lon: number): Promise<boolean> {
       console.warn('Street View metadata request failed', res.status, res.statusText);
       continue;
     }
-    const data = (await res.json()) as { status: string };
-    if (data.status === 'OK') return true;
+    const data = (await res.json()) as {
+      status: string;
+      location?: { lat: number; lng: number; description?: string };
+      copyright?: string;
+    };
+    if (data.status !== 'OK' || !data.location) continue;
+    const description = data.location.description?.toLowerCase() ?? '';
+    const looksHighway = DISCOURAGED_KEYWORDS.some((keyword) => description.includes(keyword));
+    if (looksHighway) {
+      continue;
+    }
+    return {
+      lat: data.location.lat,
+      lng: data.location.lng,
+      description: data.location.description,
+    };
   }
-  return false;
+  return null;
 }
 
 async function main() {
@@ -62,9 +84,9 @@ async function main() {
       console.warn(`Missing coordinates for ${zipRow.zip}, skipping`);
       continue;
     }
-    const hasStreetView = await ensureStreetView(coord.lat, coord.lon);
-    if (!hasStreetView) {
-      console.warn(`No Street View coverage for ${zipRow.zip}, skipping`);
+    const metadata = await fetchStreetViewMetadata(coord.lat, coord.lon);
+    if (!metadata) {
+      console.warn(`No suitable Street View pano for ${zipRow.zip}, skipping`);
       continue;
     }
     locations.push({
@@ -73,8 +95,8 @@ async function main() {
       state: zipRow.state,
       metro: zipRow.metro,
       county: zipRow.county,
-      lat: coord.lat,
-      lng: coord.lon,
+      lat: metadata.lat,
+      lng: metadata.lng,
       homeValue: zipRow.latestValue,
     });
     await new Promise((resolve) => setTimeout(resolve, 200));
