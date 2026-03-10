@@ -34,3 +34,22 @@ body {
   background: color-mix(in srgb, var(--accent) 60%, white);
   color: var(--ink);
 }
+
+@keyframes score-slam {
+  0% {
+    transform: scale(0.85) rotate(-1.5deg);
+    opacity: 0;
+  }
+  60% {
+    transform: scale(1.05) rotate(0.6deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.score-flare {
+  animation: score-slam 650ms cubic-bezier(0.19, 1, 0.22, 1);
+}

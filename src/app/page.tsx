@@ -7,6 +7,25 @@ import { formatCurrency } from "@/lib/scoring";
 
 const TOTAL_ROUNDS = 5;
 const QUICK_CHOICES = [180000, 320000, 550000, 850000, 1200000, 2000000];
+const HEADING_OFFSETS = [0, 70];
+const SCORE_BANDS = [
+  { label: "Laser accurate", error: "0 – 10% error", points: "≈ 4.5k – 5k pts" },
+  { label: "Dialed in", error: "10 – 25%", points: "≈ 3k – 4.5k pts" },
+  { label: "Close-ish", error: "25 – 50%", points: "≈ 1k – 3k pts" },
+  { label: "Wild swing", error: "50%+", points: "0 – 1k pts" },
+];
+const PRAISE_QUOTES = [
+  "You're pricing neighborhoods like you moonlight as a county assessor.",
+  "Zillow just rage-quit thanks to you.",
+  "Realtors hate how on-point you are right now.",
+  "That gut read just made appraisers sweat.",
+];
+const ROAST_QUOTES = [
+  "That guess missed so hard the MLS filed a missing property report.",
+  "You priced that bungalow like it came with its own launch pad.",
+  "Even Zillow spit out its coffee at that number.",
+  "Mortgage bankers just added you to the watchlist.",
+];
 
 type Stage = "intro" | "loading" | "guess" | "reveal" | "summary";
 
@@ -51,12 +70,25 @@ export default function HomePage() {
     const total = history.reduce((sum, entry) => sum + entry.result.percentageError, 0);
     return total / history.length;
   }, [history]);
+  const summaryComment = useMemo(() => {
+    if (!history.length) return "";
+    const pool = averageError < 0.2 ? PRAISE_QUOTES : ROAST_QUOTES;
+    const seed = (totalScore + history.length) % pool.length;
+    return pool[seed];
+  }, [averageError, history.length, totalScore]);
   const totalScoreDisplay = history.length ? totalScore.toLocaleString() : "0";
   const averageErrorDisplay = history.length ? `${(averageError * 100).toFixed(1)}%` : "—";
 
-  const streetViewUrl = round
-    ? `/api/streetview?lat=${round.location.lat}&lng=${round.location.lng}&heading=${round.heading}&ts=${round.roundId}`
-    : "";
+  const streetViewUrls = useMemo(() => {
+    if (!round) return [];
+    return HEADING_OFFSETS.map((offset, index) => {
+      const heading = (round.heading + offset + 360) % 360;
+      return {
+        heading,
+        url: `/api/streetview?lat=${round.location.lat}&lng=${round.location.lng}&heading=${heading}&ts=${round.roundId}-${index}`,
+      };
+    });
+  }, [round]);
 
   const handleStart = async () => {
     try {
@@ -168,7 +200,24 @@ export default function HomePage() {
                 </div>
               </div>
             </div>
-
+            <div className="rounded-3xl border border-dashed border-[var(--border-strong)] bg-white/80 p-6 shadow-[6px_6px_0_var(--border-strong)]">
+              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Scoring key</p>
+              <p className="mt-2 text-sm text-[var(--ink-muted)]">
+                Log-based: score = max(0, 5000 − 2500 × |ln(guess / actual)|). Percentage error keeps mega-mansions and
+                starter homes equally spicy.
+              </p>
+              <div className="mt-4 space-y-3">
+                {SCORE_BANDS.map((band) => (
+                  <div key={band.label} className="flex items-center justify-between rounded-2xl bg-[var(--surface)] px-4 py-3">
+                    <div>
+                      <p className="text-sm font-semibold">{band.label}</p>
+                      <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">{band.error}</p>
+                    </div>
+                    <p className="text-sm font-semibold text-[var(--accent-dark)]">{band.points}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="space-y-6">
               {stage === "intro" && (
                 <button
@@ -253,6 +302,12 @@ export default function HomePage() {
                   >
                     Play again
                   </button>
+                  {summaryComment && (
+                    <div className="score-flare rounded-2xl border border-[var(--border-strong)] bg-[var(--surface)] px-5 py-4 shadow-[5px_5px_0_var(--border-strong)]">
+                      <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Edgelord verdict</p>
+                      <p className="mt-2 text-lg font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
+                    </div>
+                  )}
                 </div>
               )}
 
@@ -277,22 +332,32 @@ export default function HomePage() {
           </section>
 
           <aside className="space-y-4">
-            <div className="overflow-hidden rounded-[28px] border border-[var(--border-strong)] bg-black shadow-[12px_12px_0_var(--border-strong)]">
-              {round ? (
-                <Image
-                  src={streetViewUrl}
-                  alt={`Street view for ${round.location.city}`}
-                  width={800}
-                  height={600}
-                  className="h-[360px] w-full object-cover sm:h-[440px]"
-                  priority
-                  unoptimized
-                />
-              ) : (
-                <div className="flex h-[360px] items-center justify-center bg-[#1d1d1d] text-white sm:h-[440px]">
-                  Loading street imagery…
-                </div>
-              )}
+            <div className="grid gap-4 lg:grid-cols-2">
+              {streetViewUrls.length
+                ? streetViewUrls.map((view) => (
+                    <div
+                      key={view.url}
+                      className="overflow-hidden rounded-[28px] border border-[var(--border-strong)] bg-black shadow-[12px_12px_0_var(--border-strong)]"
+                    >
+                      <Image
+                        src={view.url}
+                        alt={`Street view for ${round?.location.city ?? "current round"}, heading ${view.heading}°`}
+                        width={640}
+                        height={480}
+                        className="h-[260px] w-full object-cover sm:h-[320px]"
+                        priority
+                        unoptimized
+                      />
+                      <p className="bg-[var(--ink)] px-4 py-2 text-xs uppercase tracking-[0.4em] text-[var(--sand)]">
+                        Heading {view.heading}°
+                      </p>
+                    </div>
+                  ))
+                : (
+                    <div className="rounded-[28px] border border-dashed border-[var(--border-strong)] bg-[#1d1d1d] p-8 text-center text-white shadow-[12px_12px_0_var(--border-strong)] lg:col-span-2">
+                      Loading street imagery…
+                    </div>
+                  )}
             </div>
             {round && (
               <div className="rounded-3xl border border-[var(--border-strong)] bg-white px-5 py-4 shadow-[6px_6px_0_var(--border-strong)]">

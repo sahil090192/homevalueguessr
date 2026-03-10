@@ -1,60 +1,6525 @@
 {
-  "generatedAt": "2026-03-10T20:14:36.601Z",
+  "generatedAt": "2026-03-10T20:33:45.562Z",
   "coords": {
+    "10002": {
+      "lat": 40.715969,
+      "lon": -73.986895,
+      "label": "New York, NY"
+    },
+    "10003": {
+      "lat": 40.731865,
+      "lon": -73.989124,
+      "label": "New York, NY"
+    },
+    "10011": {
+      "lat": 40.74184,
+      "lon": -74.000528,
+      "label": "New York, NY"
+    },
+    "10016": {
+      "lat": 40.745182,
+      "lon": -73.978053,
+      "label": "New York, NY"
+    },
+    "10023": {
+      "lat": 40.774567,
+      "lon": -73.979016,
+      "label": "New York, NY"
+    },
+    "10024": {
+      "lat": 40.78566,
+      "lon": -73.971269,
+      "label": "New York, NY"
+    },
+    "10025": {
+      "lat": 40.798251,
+      "lon": -73.968336,
+      "label": "New York, NY"
+    },
+    "10027": {
+      "lat": 40.812657,
+      "lon": -73.954983,
+      "label": "New York, NY"
+    },
+    "10029": {
+      "lat": 40.792249,
+      "lon": -73.947333,
+      "label": "New York, NY"
+    },
+    "10031": {
+      "lat": 40.824804,
+      "lon": -73.950206,
+      "label": "New York, NY"
+    },
+    "10032": {
+      "lat": 40.839041,
+      "lon": -73.942812,
+      "label": "New York, NY"
+    },
+    "10128": {
+      "lat": 40.781498,
+      "lon": -73.950199,
+      "label": "New York, NY"
+    },
+    "10305": {
+      "lat": 40.596549,
+      "lon": -74.075779,
+      "label": "Staten Island, NY"
+    },
+    "10306": {
+      "lat": 40.571714,
+      "lon": -74.124264,
+      "label": "Staten Island, NY"
+    },
+    "10312": {
+      "lat": 40.545237,
+      "lon": -74.180443,
+      "label": "Staten Island, NY"
+    },
+    "10314": {
+      "lat": 40.600699,
+      "lon": -74.164314,
+      "label": "Staten Island, NY"
+    },
+    "10451": {
+      "lat": 40.822168,
+      "lon": -73.922616,
+      "label": "Bronx, NY"
+    },
+    "10452": {
+      "lat": 40.837791,
+      "lon": -73.923339,
+      "label": "Bronx, NY"
+    },
+    "10453": {
+      "lat": 40.852508,
+      "lon": -73.913291,
+      "label": "Bronx, NY"
+    },
+    "10456": {
+      "lat": 40.830669,
+      "lon": -73.908161,
+      "label": "Bronx, NY"
+    },
+    "10457": {
+      "lat": 40.845707,
+      "lon": -73.897923,
+      "label": "Bronx, NY"
+    },
+    "10458": {
+      "lat": 40.862486,
+      "lon": -73.886448,
+      "label": "Bronx, NY"
+    },
+    "10459": {
+      "lat": 40.825692,
+      "lon": -73.892998,
+      "label": "Bronx, NY"
+    },
+    "10460": {
+      "lat": 40.842344,
+      "lon": -73.879062,
+      "label": "Bronx, NY"
+    },
+    "10461": {
+      "lat": 40.846741,
+      "lon": -73.840788,
+      "label": "Bronx, NY"
+    },
+    "10462": {
+      "lat": 40.843267,
+      "lon": -73.860417,
+      "label": "Bronx, NY"
+    },
+    "10463": {
+      "lat": 40.886345,
+      "lon": -73.901547,
+      "label": "Bronx, NY"
+    },
+    "10465": {
+      "lat": 40.827329,
+      "lon": -73.82217,
+      "label": "Bronx, NY"
+    },
+    "10466": {
+      "lat": 40.890964,
+      "lon": -73.846239,
+      "label": "Bronx, NY"
+    },
+    "10467": {
+      "lat": 40.875262,
+      "lon": -73.872027,
+      "label": "Bronx, NY"
+    },
+    "10468": {
+      "lat": 40.86894,
+      "lon": -73.899995,
+      "label": "Bronx, NY"
+    },
+    "10469": {
+      "lat": 40.868509,
+      "lon": -73.846691,
+      "label": "Bronx, NY"
+    },
+    "10472": {
+      "lat": 40.829685,
+      "lon": -73.869373,
+      "label": "Bronx, NY"
+    },
+    "10473": {
+      "lat": 40.81869,
+      "lon": -73.858474,
+      "label": "Bronx, NY"
+    },
+    "10701": {
+      "lat": 40.946966,
+      "lon": -73.88042,
+      "label": "Yonkers, NY"
+    },
+    "10940": {
+      "lat": 41.446544,
+      "lon": -74.478741,
+      "label": "Middletown, NY"
+    },
+    "10950": {
+      "lat": 41.317346,
+      "lon": -74.199881,
+      "label": "Monroe, NY"
+    },
+    "10952": {
+      "lat": 41.111118,
+      "lon": -74.07854,
+      "label": "Monsey, NY"
+    },
+    "10977": {
+      "lat": 41.118914,
+      "lon": -74.048154,
+      "label": "Spring Valley, NY"
+    },
+    "11201": {
+      "lat": 40.6937,
+      "lon": -73.989859,
+      "label": "Brooklyn, NY"
+    },
+    "11203": {
+      "lat": 40.649569,
+      "lon": -73.934327,
+      "label": "Brooklyn, NY"
+    },
+    "11204": {
+      "lat": 40.618815,
+      "lon": -73.984942,
+      "label": "Brooklyn, NY"
+    },
+    "11205": {
+      "lat": 40.696891,
+      "lon": -73.968074,
+      "label": "Brooklyn, NY"
+    },
+    "11206": {
+      "lat": 40.70187,
+      "lon": -73.942552,
+      "label": "Brooklyn, NY"
+    },
+    "11207": {
+      "lat": 40.670157,
+      "lon": -73.893835,
+      "label": "Brooklyn, NY"
+    },
+    "11208": {
+      "lat": 40.674847,
+      "lon": -73.87248,
+      "label": "Brooklyn, NY"
+    },
+    "11209": {
+      "lat": 40.621803,
+      "lon": -74.03015,
+      "label": "Brooklyn, NY"
+    },
+    "11210": {
+      "lat": 40.62806,
+      "lon": -73.946309,
+      "label": "Brooklyn, NY"
+    },
+    "11211": {
+      "lat": 40.714084,
+      "lon": -73.945168,
+      "label": "Brooklyn, NY"
+    },
+    "11212": {
+      "lat": 40.662905,
+      "lon": -73.913071,
+      "label": "Brooklyn, NY"
+    },
+    "11213": {
+      "lat": 40.671155,
+      "lon": -73.936266,
+      "label": "Brooklyn, NY"
+    },
+    "11214": {
+      "lat": 40.59969,
+      "lon": -73.996372,
+      "label": "Brooklyn, NY"
+    },
+    "11215": {
+      "lat": 40.662688,
+      "lon": -73.98674,
+      "label": "Brooklyn, NY"
+    },
+    "11216": {
+      "lat": 40.680844,
+      "lon": -73.949222,
+      "label": "Brooklyn, NY"
+    },
+    "11218": {
+      "lat": 40.64312,
+      "lon": -73.976446,
+      "label": "Brooklyn, NY"
+    },
+    "11219": {
+      "lat": 40.63262,
+      "lon": -73.99677,
+      "label": "Brooklyn, NY"
+    },
+    "11220": {
+      "lat": 40.641026,
+      "lon": -74.016688,
+      "label": "Brooklyn, NY"
+    },
+    "11221": {
+      "lat": 40.691426,
+      "lon": -73.927626,
+      "label": "Brooklyn, NY"
+    },
+    "11223": {
+      "lat": 40.597091,
+      "lon": -73.973469,
+      "label": "Brooklyn, NY"
+    },
+    "11224": {
+      "lat": 40.577372,
+      "lon": -73.988706,
+      "label": "Brooklyn, NY"
+    },
+    "11225": {
+      "lat": 40.663119,
+      "lon": -73.953867,
+      "label": "Brooklyn, NY"
+    },
+    "11226": {
+      "lat": 40.646409,
+      "lon": -73.956663,
+      "label": "Brooklyn, NY"
+    },
+    "11228": {
+      "lat": 40.616725,
+      "lon": -74.013432,
+      "label": "Brooklyn, NY"
+    },
+    "11229": {
+      "lat": 40.601293,
+      "lon": -73.944493,
+      "label": "Brooklyn, NY"
+    },
+    "11230": {
+      "lat": 40.622089,
+      "lon": -73.96519,
+      "label": "Brooklyn, NY"
+    },
+    "11233": {
+      "lat": 40.678301,
+      "lon": -73.919932,
+      "label": "Brooklyn, NY"
+    },
+    "11234": {
+      "lat": 40.607723,
+      "lon": -73.910649,
+      "label": "Brooklyn, NY"
+    },
+    "11235": {
+      "lat": 40.58422,
+      "lon": -73.943167,
+      "label": "Brooklyn, NY"
+    },
+    "11236": {
+      "lat": 40.639413,
+      "lon": -73.900664,
+      "label": "Brooklyn, NY"
+    },
+    "11237": {
+      "lat": 40.70416,
+      "lon": -73.921139,
+      "label": "Brooklyn, NY"
+    },
+    "11238": {
+      "lat": 40.671331,
+      "lon": -73.965937,
+      "label": "Brooklyn, NY"
+    },
+    "11354": {
+      "lat": 40.768213,
+      "lon": -73.827392,
+      "label": "Flushing, NY"
+    },
+    "11355": {
+      "lat": 40.751435,
+      "lon": -73.821227,
+      "label": "Flushing, NY"
+    },
     "11368": {
       "lat": 40.7480859,
       "lon": -73.8606378,
       "label": "11368, Queens, Queens County, New York, United States"
+    },
+    "11372": {
+      "lat": 40.751719,
+      "lon": -73.88367,
+      "label": "Jackson Heights, NY"
+    },
+    "11373": {
+      "lat": 40.738945,
+      "lon": -73.878561,
+      "label": "Elmhurst, NY"
+    },
+    "11374": {
+      "lat": 40.726457,
+      "lon": -73.861459,
+      "label": "Rego Park, NY"
+    },
+    "11375": {
+      "lat": 40.722975,
+      "lon": -73.843179,
+      "label": "Forest Hills, NY"
+    },
+    "11377": {
+      "lat": 40.744775,
+      "lon": -73.90516,
+      "label": "Woodside, NY"
+    },
+    "11385": {
+      "lat": 40.700647,
+      "lon": -73.889423,
+      "label": "Ridgewood, NY"
+    },
+    "11413": {
+      "lat": 40.67117,
+      "lon": -73.752063,
+      "label": "Springfield Gardens, NY"
+    },
+    "11419": {
+      "lat": 40.688612,
+      "lon": -73.823062,
+      "label": "South Richmond Hill, NY"
+    },
+    "11420": {
+      "lat": 40.673502,
+      "lon": -73.817702,
+      "label": "South Ozone Park, NY"
+    },
+    "11432": {
+      "lat": 40.714934,
+      "lon": -73.792955,
+      "label": "Jamaica, NY"
+    },
+    "11434": {
+      "lat": 40.677857,
+      "lon": -73.777073,
+      "label": "Jamaica, NY"
+    },
+    "11435": {
+      "lat": 40.70108,
+      "lon": -73.80964,
+      "label": "Jamaica, NY"
+    },
+    "11550": {
+      "lat": 40.701475,
+      "lon": -73.621108,
+      "label": "Hempstead, NY"
+    },
+    "11590": {
+      "lat": 40.755182,
+      "lon": -73.574338,
+      "label": "Westbury, NY"
+    },
+    "11691": {
+      "lat": 40.602096,
+      "lon": -73.761794,
+      "label": "Far Rockaway, NY"
+    },
+    "11706": {
+      "lat": 40.710632,
+      "lon": -73.242913,
+      "label": "Bay Shore, NY"
+    },
+    "11717": {
+      "lat": 40.784072,
+      "lon": -73.252235,
+      "label": "Brentwood, NY"
+    },
+    "11746": {
+      "lat": 40.814268,
+      "lon": -73.362276,
+      "label": "Huntington Station, NY"
+    },
+    "11757": {
+      "lat": 40.689009,
+      "lon": -73.37335,
+      "label": "Lindenhurst, NY"
+    },
+    "11758": {
+      "lat": 40.653822,
+      "lon": -73.457076,
+      "label": "Massapequa, NY"
+    },
+    "12180": {
+      "lat": 42.748588,
+      "lon": -73.599536,
+      "label": "Troy, NY"
+    },
+    "12550": {
+      "lat": 41.539574,
+      "lon": -74.057223,
+      "label": "Newburgh, NY"
+    },
+    "14094": {
+      "lat": 43.157758,
+      "lon": -78.701995,
+      "label": "Lockport, NY"
+    },
+    "14221": {
+      "lat": 42.984481,
+      "lon": -78.722761,
+      "label": "Buffalo, NY"
+    },
+    "14580": {
+      "lat": 43.217283,
+      "lon": -77.444534,
+      "label": "Webster, NY"
+    },
+    "14850": {
+      "lat": 42.431831,
+      "lon": -76.500228,
+      "label": "Ithaca, NY"
+    },
+    "15108": {
+      "lat": 40.500472,
+      "lon": -80.201802,
+      "label": "Coraopolis, PA"
+    },
+    "15301": {
+      "lat": 40.164274,
+      "lon": -80.252356,
+      "label": "Washington, PA"
+    },
+    "15601": {
+      "lat": 40.313271,
+      "lon": -79.536379,
+      "label": "Greensburg, PA"
+    },
+    "15642": {
+      "lat": 40.319284,
+      "lon": -79.723697,
+      "label": "Irwin, PA"
+    },
+    "16801": {
+      "lat": 40.78521,
+      "lon": -77.842297,
+      "label": "State College, PA"
+    },
+    "17331": {
+      "lat": 39.791218,
+      "lon": -76.980323,
+      "label": "Hanover, PA"
+    },
+    "17543": {
+      "lat": 40.181032,
+      "lon": -76.29538,
+      "label": "Lititz, PA"
+    },
+    "17601": {
+      "lat": 40.072957,
+      "lon": -76.313729,
+      "label": "Lancaster, PA"
+    },
+    "17602": {
+      "lat": 40.014623,
+      "lon": -76.246351,
+      "label": "Lancaster, PA"
+    },
+    "17603": {
+      "lat": 40.030839,
+      "lon": -76.330432,
+      "label": "Lancaster, PA"
+    },
+    "18102": {
+      "lat": 40.607938,
+      "lon": -75.476203,
+      "label": "Allentown, PA"
+    },
+    "18103": {
+      "lat": 40.570308,
+      "lon": -75.488926,
+      "label": "Allentown, PA"
+    },
+    "18104": {
+      "lat": 40.611658,
+      "lon": -75.546853,
+      "label": "Allentown, PA"
+    },
+    "19020": {
+      "lat": 40.105952,
+      "lon": -74.936276,
+      "label": "Bensalem, PA"
+    },
+    "19067": {
+      "lat": 40.229997,
+      "lon": -74.85935,
+      "label": "Morrisville, PA"
+    },
+    "19104": {
+      "lat": 39.958518,
+      "lon": -75.198856,
+      "label": "Philadelphia, PA"
+    },
+    "19111": {
+      "lat": 40.060612,
+      "lon": -75.080176,
+      "label": "Philadelphia, PA"
+    },
+    "19120": {
+      "lat": 40.034147,
+      "lon": -75.119198,
+      "label": "Philadelphia, PA"
+    },
+    "19124": {
+      "lat": 40.017257,
+      "lon": -75.095261,
+      "label": "Philadelphia, PA"
+    },
+    "19131": {
+      "lat": 39.986937,
+      "lon": -75.219246,
+      "label": "Philadelphia, PA"
+    },
+    "19134": {
+      "lat": 39.989223,
+      "lon": -75.108756,
+      "label": "Philadelphia, PA"
+    },
+    "19140": {
+      "lat": 40.012279,
+      "lon": -75.145084,
+      "label": "Philadelphia, PA"
+    },
+    "19143": {
+      "lat": 39.943806,
+      "lon": -75.226551,
+      "label": "Philadelphia, PA"
+    },
+    "19144": {
+      "lat": 40.031929,
+      "lon": -75.176099,
+      "label": "Philadelphia, PA"
+    },
+    "19145": {
+      "lat": 39.914501,
+      "lon": -75.191217,
+      "label": "Philadelphia, PA"
+    },
+    "19148": {
+      "lat": 39.911612,
+      "lon": -75.151475,
+      "label": "Philadelphia, PA"
+    },
+    "19149": {
+      "lat": 40.03783,
+      "lon": -75.065542,
+      "label": "Philadelphia, PA"
+    },
+    "19320": {
+      "lat": 39.962991,
+      "lon": -75.832026,
+      "label": "Coatesville, PA"
+    },
+    "19335": {
+      "lat": 40.022618,
+      "lon": -75.721218,
+      "label": "Downingtown, PA"
+    },
+    "19380": {
+      "lat": 39.987218,
+      "lon": -75.603138,
+      "label": "West Chester, PA"
+    },
+    "19382": {
+      "lat": 39.927665,
+      "lon": -75.613166,
+      "label": "West Chester, PA"
+    },
+    "19446": {
+      "lat": 40.23068,
+      "lon": -75.303647,
+      "label": "Lansdale, PA"
+    },
+    "19464": {
+      "lat": 40.258928,
+      "lon": -75.615861,
+      "label": "Pottstown, PA"
+    },
+    "19702": {
+      "lat": 39.6182,
+      "lon": -75.729724,
+      "label": "Newark, DE"
+    },
+    "19711": {
+      "lat": 39.713781,
+      "lon": -75.740826,
+      "label": "Newark, DE"
+    },
+    "19720": {
+      "lat": 39.645467,
+      "lon": -75.604496,
+      "label": "New Castle, DE"
+    },
+    "20001": {
+      "lat": 38.910353,
+      "lon": -77.017739,
+      "label": "Washington, DC"
+    },
+    "20002": {
+      "lat": 38.905026,
+      "lon": -76.983607,
+      "label": "Washington, DC"
+    },
+    "20009": {
+      "lat": 38.919144,
+      "lon": -77.037381,
+      "label": "Washington, DC"
+    },
+    "20011": {
+      "lat": 38.952514,
+      "lon": -77.022991,
+      "label": "Washington, DC"
+    },
+    "20019": {
+      "lat": 38.892246,
+      "lon": -76.941772,
+      "label": "Washington, DC"
+    },
+    "20020": {
+      "lat": 38.860382,
+      "lon": -76.978961,
+      "label": "Washington, DC"
+    },
+    "20110": {
+      "lat": 38.746071,
+      "lon": -77.487673,
+      "label": "Manassas, VA"
+    },
+    "20147": {
+      "lat": 39.041947,
+      "lon": -77.47813,
+      "label": "Ashburn, VA"
+    },
+    "20148": {
+      "lat": 38.993905,
+      "lon": -77.532196,
+      "label": "Ashburn, VA"
+    },
+    "20171": {
+      "lat": 38.926874,
+      "lon": -77.396775,
+      "label": "Herndon, VA"
+    },
+    "20176": {
+      "lat": 39.180323,
+      "lon": -77.533459,
+      "label": "Leesburg, VA"
+    },
+    "20706": {
+      "lat": 38.96588,
+      "lon": -76.851092,
+      "label": "Lanham, MD"
+    },
+    "20744": {
+      "lat": 38.745892,
+      "lon": -76.983201,
+      "label": "Fort Washington, MD"
+    },
+    "20772": {
+      "lat": 38.780274,
+      "lon": -76.76699,
+      "label": "Upper Marlboro, MD"
+    },
+    "20774": {
+      "lat": 38.876255,
+      "lon": -76.769603,
+      "label": "Upper Marlboro, MD"
+    },
+    "20783": {
+      "lat": 38.997067,
+      "lon": -76.966783,
+      "label": "Hyattsville, MD"
+    },
+    "20850": {
+      "lat": 39.089211,
+      "lon": -77.180501,
+      "label": "Rockville, MD"
+    },
+    "20852": {
+      "lat": 39.051511,
+      "lon": -77.123973,
+      "label": "Rockville, MD"
+    },
+    "20854": {
+      "lat": 39.032772,
+      "lon": -77.22083,
+      "label": "Potomac, MD"
+    },
+    "20874": {
+      "lat": 39.133056,
+      "lon": -77.301828,
+      "label": "Germantown, MD"
+    },
+    "20878": {
+      "lat": 39.112637,
+      "lon": -77.250436,
+      "label": "Gaithersburg, MD"
+    },
+    "20902": {
+      "lat": 39.043755,
+      "lon": -77.042369,
+      "label": "Silver Spring, MD"
+    },
+    "20904": {
+      "lat": 39.070379,
+      "lon": -76.977379,
+      "label": "Silver Spring, MD"
+    },
+    "20906": {
+      "lat": 39.087235,
+      "lon": -77.054952,
+      "label": "Silver Spring, MD"
+    },
+    "20910": {
+      "lat": 39.00286,
+      "lon": -77.036646,
+      "label": "Silver Spring, MD"
+    },
+    "21043": {
+      "lat": 39.255836,
+      "lon": -76.801491,
+      "label": "Ellicott City, MD"
+    },
+    "21061": {
+      "lat": 39.160897,
+      "lon": -76.632112,
+      "label": "Glen Burnie, MD"
+    },
+    "21117": {
+      "lat": 39.427569,
+      "lon": -76.775759,
+      "label": "Owings Mills, MD"
+    },
+    "21122": {
+      "lat": 39.114283,
+      "lon": -76.487394,
+      "label": "Pasadena, MD"
+    },
+    "21206": {
+      "lat": 39.338428,
+      "lon": -76.538877,
+      "label": "Baltimore, MD"
+    },
+    "21207": {
+      "lat": 39.324167,
+      "lon": -76.719484,
+      "label": "Gwynn Oak, MD"
+    },
+    "21215": {
+      "lat": 39.345947,
+      "lon": -76.682206,
+      "label": "Baltimore, MD"
+    },
+    "21218": {
+      "lat": 39.330107,
+      "lon": -76.601451,
+      "label": "Baltimore, MD"
+    },
+    "21222": {
+      "lat": 39.264602,
+      "lon": -76.495557,
+      "label": "Dundalk, MD"
+    },
+    "21224": {
+      "lat": 39.275909,
+      "lon": -76.541928,
+      "label": "Baltimore, MD"
+    },
+    "21228": {
+      "lat": 39.272857,
+      "lon": -76.747741,
+      "label": "Catonsville, MD"
+    },
+    "21234": {
+      "lat": 39.393254,
+      "lon": -76.531822,
+      "label": "Parkville, MD"
+    },
+    "21740": {
+      "lat": 39.631905,
+      "lon": -77.743908,
+      "label": "Hagerstown, MD"
+    },
+    "21921": {
+      "lat": 39.627145,
+      "lon": -75.859891,
+      "label": "Elkton, MD"
+    },
+    "22003": {
+      "lat": 38.830236,
+      "lon": -77.214725,
+      "label": "Annandale, VA"
+    },
+    "22030": {
+      "lat": 38.837185,
+      "lon": -77.34048,
+      "label": "Fairfax, VA"
+    },
+    "22191": {
+      "lat": 38.622914,
+      "lon": -77.262938,
+      "label": "Woodbridge, VA"
+    },
+    "22192": {
+      "lat": 38.684218,
+      "lon": -77.317942,
+      "label": "Woodbridge, VA"
+    },
+    "22193": {
+      "lat": 38.644065,
+      "lon": -77.350545,
+      "label": "Woodbridge, VA"
+    },
+    "22204": {
+      "lat": 38.860742,
+      "lon": -77.098955,
+      "label": "Arlington, VA"
+    },
+    "22304": {
+      "lat": 38.813204,
+      "lon": -77.112268,
+      "label": "Alexandria, VA"
+    },
+    "22407": {
+      "lat": 38.28492,
+      "lon": -77.580598,
+      "label": "Fredericksburg, VA"
+    },
+    "22554": {
+      "lat": 38.42068,
+      "lon": -77.37468,
+      "label": "Stafford, VA"
+    },
+    "22903": {
+      "lat": 38.006972,
+      "lon": -78.59506,
+      "label": "Charlottesville, VA"
+    },
+    "23112": {
+      "lat": 37.432553,
+      "lon": -77.655051,
+      "label": "Midlothian, VA"
+    },
+    "23185": {
+      "lat": 37.239658,
+      "lon": -76.701436,
+      "label": "Williamsburg, VA"
+    },
+    "23188": {
+      "lat": 37.341605,
+      "lon": -76.747782,
+      "label": "Williamsburg, VA"
+    },
+    "23223": {
+      "lat": 37.557767,
+      "lon": -77.378886,
+      "label": "Richmond, VA"
+    },
+    "23320": {
+      "lat": 36.751734,
+      "lon": -76.217637,
+      "label": "Chesapeake, VA"
+    },
+    "23322": {
+      "lat": 36.625988,
+      "lon": -76.267768,
+      "label": "Chesapeake, VA"
+    },
+    "23434": {
+      "lat": 36.703003,
+      "lon": -76.592105,
+      "label": "Suffolk, VA"
+    },
+    "23452": {
+      "lat": 36.845812,
+      "lon": -76.091964,
+      "label": "Virginia Beach, VA"
+    },
+    "23454": {
+      "lat": 36.864599,
+      "lon": -76.055124,
+      "label": "Virginia Beach, VA"
+    },
+    "23455": {
+      "lat": 36.883814,
+      "lon": -76.143237,
+      "label": "Virginia Beach, VA"
+    },
+    "23456": {
+      "lat": 36.736954,
+      "lon": -76.035987,
+      "label": "Virginia Beach, VA"
+    },
+    "23462": {
+      "lat": 36.836242,
+      "lon": -76.145948,
+      "label": "Virginia Beach, VA"
+    },
+    "23464": {
+      "lat": 36.796917,
+      "lon": -76.187631,
+      "label": "Virginia Beach, VA"
+    },
+    "23666": {
+      "lat": 37.057009,
+      "lon": -76.408083,
+      "label": "Hampton, VA"
+    },
+    "24060": {
+      "lat": 37.260526,
+      "lon": -80.416722,
+      "label": "Blacksburg, VA"
+    },
+    "27106": {
+      "lat": 36.14391,
+      "lon": -80.323157,
+      "label": "Winston Salem, NC"
+    },
+    "27107": {
+      "lat": 36.013158,
+      "lon": -80.175491,
+      "label": "Winston Salem, NC"
+    },
+    "27215": {
+      "lat": 36.019137,
+      "lon": -79.5137,
+      "label": "Burlington, NC"
+    },
+    "27265": {
+      "lat": 36.009229,
+      "lon": -80.032388,
+      "label": "High Point, NC"
+    },
+    "27284": {
+      "lat": 36.116121,
+      "lon": -80.081865,
+      "label": "Kernersville, NC"
+    },
+    "27405": {
+      "lat": 36.115379,
+      "lon": -79.734641,
+      "label": "Greensboro, NC"
+    },
+    "27406": {
+      "lat": 35.99795,
+      "lon": -79.766734,
+      "label": "Greensboro, NC"
+    },
+    "27407": {
+      "lat": 36.013367,
+      "lon": -79.871391,
+      "label": "Greensboro, NC"
+    },
+    "27410": {
+      "lat": 36.118615,
+      "lon": -79.894851,
+      "label": "Greensboro, NC"
+    },
+    "27513": {
+      "lat": 35.80198,
+      "lon": -78.802573,
+      "label": "Cary, NC"
+    },
+    "27516": {
+      "lat": 35.906197,
+      "lon": -79.154855,
+      "label": "Chapel Hill, NC"
+    },
+    "27519": {
+      "lat": 35.808392,
+      "lon": -78.886546,
+      "label": "Cary, NC"
+    },
+    "27526": {
+      "lat": 35.543991,
+      "lon": -78.829796,
+      "label": "Fuquay Varina, NC"
+    },
+    "27529": {
+      "lat": 35.64118,
+      "lon": -78.584349,
+      "label": "Garner, NC"
+    },
+    "27587": {
+      "lat": 35.980838,
+      "lon": -78.55105,
+      "label": "Wake Forest, NC"
+    },
+    "27603": {
+      "lat": 35.664796,
+      "lon": -78.653677,
+      "label": "Raleigh, NC"
+    },
+    "27604": {
+      "lat": 35.822932,
+      "lon": -78.562057,
+      "label": "Raleigh, NC"
+    },
+    "27606": {
+      "lat": 35.742323,
+      "lon": -78.715478,
+      "label": "Raleigh, NC"
+    },
+    "27610": {
+      "lat": 35.7444,
+      "lon": -78.546278,
+      "label": "Raleigh, NC"
+    },
+    "27616": {
+      "lat": 35.866514,
+      "lon": -78.541313,
+      "label": "Raleigh, NC"
+    },
+    "27703": {
+      "lat": 35.961286,
+      "lon": -78.805228,
+      "label": "Durham, NC"
+    },
+    "27705": {
+      "lat": 36.025112,
+      "lon": -78.982067,
+      "label": "Durham, NC"
+    },
+    "27707": {
+      "lat": 35.954525,
+      "lon": -78.953317,
+      "label": "Durham, NC"
+    },
+    "27713": {
+      "lat": 35.883522,
+      "lon": -78.935541,
+      "label": "Durham, NC"
+    },
+    "27834": {
+      "lat": 35.65677,
+      "lon": -77.379527,
+      "label": "Greenville, NC"
+    },
+    "27858": {
+      "lat": 35.532451,
+      "lon": -77.282787,
+      "label": "Greenville, NC"
+    },
+    "28025": {
+      "lat": 35.382565,
+      "lon": -80.523443,
+      "label": "Concord, NC"
+    },
+    "28027": {
+      "lat": 35.413317,
+      "lon": -80.67547,
+      "label": "Concord, NC"
+    },
+    "28078": {
+      "lat": 35.404779,
+      "lon": -80.866541,
+      "label": "Huntersville, NC"
+    },
+    "28110": {
+      "lat": 35.066044,
+      "lon": -80.509089,
+      "label": "Monroe, NC"
+    },
+    "28173": {
+      "lat": 34.919177,
+      "lon": -80.730565,
+      "label": "Waxhaw, NC"
+    },
+    "28205": {
+      "lat": 35.218774,
+      "lon": -80.789616,
+      "label": "Charlotte, NC"
+    },
+    "28210": {
+      "lat": 35.130509,
+      "lon": -80.856685,
+      "label": "Charlotte, NC"
+    },
+    "28213": {
+      "lat": 35.286229,
+      "lon": -80.735231,
+      "label": "Charlotte, NC"
+    },
+    "28215": {
+      "lat": 35.24557,
+      "lon": -80.69893,
+      "label": "Charlotte, NC"
+    },
+    "28216": {
+      "lat": 35.31019,
+      "lon": -80.889636,
+      "label": "Charlotte, NC"
+    },
+    "28227": {
+      "lat": 35.189567,
+      "lon": -80.645408,
+      "label": "Charlotte, NC"
+    },
+    "28262": {
+      "lat": 35.322061,
+      "lon": -80.739972,
+      "label": "Charlotte, NC"
+    },
+    "28269": {
+      "lat": 35.337313,
+      "lon": -80.803472,
+      "label": "Charlotte, NC"
+    },
+    "28273": {
+      "lat": 35.123659,
+      "lon": -80.948455,
+      "label": "Charlotte, NC"
+    },
+    "28277": {
+      "lat": 35.049856,
+      "lon": -80.818019,
+      "label": "Charlotte, NC"
+    },
+    "28314": {
+      "lat": 35.053208,
+      "lon": -79.01547,
+      "label": "Fayetteville, NC"
+    },
+    "28540": {
+      "lat": 34.744324,
+      "lon": -77.499048,
+      "label": "Jacksonville, NC"
+    },
+    "28546": {
+      "lat": 34.827304,
+      "lon": -77.391062,
+      "label": "Jacksonville, NC"
+    },
+    "28601": {
+      "lat": 35.772393,
+      "lon": -81.326659,
+      "label": "Hickory, NC"
+    },
+    "28645": {
+      "lat": 35.97883,
+      "lon": -81.547779,
+      "label": "Lenoir, NC"
+    },
+    "28655": {
+      "lat": 35.763266,
+      "lon": -81.749862,
+      "label": "Morganton, NC"
+    },
+    "29072": {
+      "lat": 33.998858,
+      "lon": -81.272865,
+      "label": "Lexington, SC"
+    },
+    "29073": {
+      "lat": 33.888025,
+      "lon": -81.238637,
+      "label": "Lexington, SC"
+    },
+    "29223": {
+      "lat": 34.092634,
+      "lon": -80.919271,
+      "label": "Columbia, SC"
+    },
+    "29229": {
+      "lat": 34.145968,
+      "lon": -80.894404,
+      "label": "Columbia, SC"
+    },
+    "29445": {
+      "lat": 32.997022,
+      "lon": -79.966603,
+      "label": "Goose Creek, SC"
+    },
+    "29464": {
+      "lat": 32.819473,
+      "lon": -79.857027,
+      "label": "Mount Pleasant, SC"
+    },
+    "29483": {
+      "lat": 33.030187,
+      "lon": -80.233763,
+      "label": "Summerville, SC"
+    },
+    "29485": {
+      "lat": 32.933189,
+      "lon": -80.207197,
+      "label": "Summerville, SC"
+    },
+    "29501": {
+      "lat": 34.204581,
+      "lon": -79.82697,
+      "label": "Florence, SC"
+    },
+    "29526": {
+      "lat": 33.867767,
+      "lon": -78.976526,
+      "label": "Conway, SC"
+    },
+    "29588": {
+      "lat": 33.670794,
+      "lon": -79.023125,
+      "label": "Myrtle Beach, SC"
+    },
+    "29607": {
+      "lat": 34.809603,
+      "lon": -82.328865,
+      "label": "Greenville, SC"
+    },
+    "29651": {
+      "lat": 35.02383,
+      "lon": -82.279564,
+      "label": "Greer, SC"
+    },
+    "29681": {
+      "lat": 34.767679,
+      "lon": -82.225003,
+      "label": "Simpsonville, SC"
+    },
+    "29720": {
+      "lat": 34.745312,
+      "lon": -80.743312,
+      "label": "Lancaster, SC"
+    },
+    "29730": {
+      "lat": 34.884936,
+      "lon": -81.02115,
+      "label": "Rock Hill, SC"
+    },
+    "29732": {
+      "lat": 34.970716,
+      "lon": -81.081364,
+      "label": "Rock Hill, SC"
+    },
+    "29910": {
+      "lat": 32.217824,
+      "lon": -80.894994,
+      "label": "Bluffton, SC"
+    },
+    "30004": {
+      "lat": 34.145635,
+      "lon": -84.291881,
+      "label": "Alpharetta, GA"
+    },
+    "30016": {
+      "lat": 33.517433,
+      "lon": -83.928703,
+      "label": "Covington, GA"
+    },
+    "30019": {
+      "lat": 33.975634,
+      "lon": -83.883769,
+      "label": "Dacula, GA"
+    },
+    "30022": {
+      "lat": 34.026085,
+      "lon": -84.247433,
+      "label": "Alpharetta, GA"
+    },
+    "30024": {
+      "lat": 34.063485,
+      "lon": -84.0911,
+      "label": "Suwanee, GA"
+    },
+    "30032": {
+      "lat": 33.740668,
+      "lon": -84.264466,
+      "label": "Decatur, GA"
+    },
+    "30039": {
+      "lat": 33.799244,
+      "lon": -84.034408,
+      "label": "Snellville, GA"
+    },
+    "30040": {
+      "lat": 34.223434,
+      "lon": -84.17644,
+      "label": "Cumming, GA"
+    },
+    "30041": {
+      "lat": 34.196222,
+      "lon": -84.096676,
+      "label": "Cumming, GA"
+    },
+    "30043": {
+      "lat": 34.010038,
+      "lon": -84.005043,
+      "label": "Lawrenceville, GA"
+    },
+    "30044": {
+      "lat": 33.921502,
+      "lon": -84.068873,
+      "label": "Lawrenceville, GA"
+    },
+    "30047": {
+      "lat": 33.870125,
+      "lon": -84.112322,
+      "label": "Lilburn, GA"
+    },
+    "30052": {
+      "lat": 33.817047,
+      "lon": -83.897315,
+      "label": "Loganville, GA"
+    },
+    "30058": {
+      "lat": 33.73835,
+      "lon": -84.107376,
+      "label": "Lithonia, GA"
+    },
+    "30062": {
+      "lat": 34.006497,
+      "lon": -84.472974,
+      "label": "Marietta, GA"
+    },
+    "30064": {
+      "lat": 33.940455,
+      "lon": -84.609708,
+      "label": "Marietta, GA"
+    },
+    "30066": {
+      "lat": 34.032388,
+      "lon": -84.505154,
+      "label": "Marietta, GA"
+    },
+    "30075": {
+      "lat": 34.052688,
+      "lon": -84.391587,
+      "label": "Roswell, GA"
+    },
+    "30080": {
+      "lat": 33.877818,
+      "lon": -84.501703,
+      "label": "Smyrna, GA"
+    },
+    "30083": {
+      "lat": 33.796597,
+      "lon": -84.192603,
+      "label": "Stone Mountain, GA"
+    },
+    "30093": {
+      "lat": 33.908911,
+      "lon": -84.17924,
+      "label": "Norcross, GA"
+    },
+    "30096": {
+      "lat": 33.974302,
+      "lon": -84.145384,
+      "label": "Duluth, GA"
+    },
+    "30097": {
+      "lat": 34.026335,
+      "lon": -84.145677,
+      "label": "Duluth, GA"
+    },
+    "30101": {
+      "lat": 34.034515,
+      "lon": -84.707349,
+      "label": "Acworth, GA"
+    },
+    "30114": {
+      "lat": 34.243544,
+      "lon": -84.535815,
+      "label": "Canton, GA"
+    },
+    "30115": {
+      "lat": 34.215519,
+      "lon": -84.402426,
+      "label": "Canton, GA"
+    },
+    "30127": {
+      "lat": 33.875084,
+      "lon": -84.69934,
+      "label": "Powder Springs, GA"
+    },
+    "30132": {
+      "lat": 33.977608,
+      "lon": -84.851541,
+      "label": "Dallas, GA"
+    },
+    "30135": {
+      "lat": 33.672278,
+      "lon": -84.733011,
+      "label": "Douglasville, GA"
+    },
+    "30144": {
+      "lat": 34.036845,
+      "lon": -84.591033,
+      "label": "Kennesaw, GA"
+    },
+    "30157": {
+      "lat": 33.884746,
+      "lon": -84.871949,
+      "label": "Dallas, GA"
+    },
+    "30188": {
+      "lat": 34.123533,
+      "lon": -84.457654,
+      "label": "Woodstock, GA"
+    },
+    "30228": {
+      "lat": 33.400608,
+      "lon": -84.307728,
+      "label": "Hampton, GA"
+    },
+    "30236": {
+      "lat": 33.519927,
+      "lon": -84.325187,
+      "label": "Jonesboro, GA"
+    },
+    "30252": {
+      "lat": 33.473512,
+      "lon": -84.057165,
+      "label": "Mcdonough, GA"
+    },
+    "30253": {
+      "lat": 33.453601,
+      "lon": -84.187167,
+      "label": "Mcdonough, GA"
+    },
+    "30263": {
+      "lat": 33.388415,
+      "lon": -84.858937,
+      "label": "Newnan, GA"
+    },
+    "30281": {
+      "lat": 33.556897,
+      "lon": -84.195159,
+      "label": "Stockbridge, GA"
     },
     "30312": {
       "lat": 33.7435315,
       "lon": -84.3739686,
       "label": "30312, Atlanta, Fulton County, Georgia, United States"
     },
+    "30318": {
+      "lat": 33.79266,
+      "lon": -84.44801,
+      "label": "Atlanta, GA"
+    },
+    "30331": {
+      "lat": 33.705434,
+      "lon": -84.544076,
+      "label": "Atlanta, GA"
+    },
+    "30349": {
+      "lat": 33.622488,
+      "lon": -84.523908,
+      "label": "Atlanta, GA"
+    },
+    "30518": {
+      "lat": 34.133822,
+      "lon": -84.022599,
+      "label": "Buford, GA"
+    },
+    "30519": {
+      "lat": 34.08741,
+      "lon": -83.945059,
+      "label": "Buford, GA"
+    },
+    "30606": {
+      "lat": 33.940299,
+      "lon": -83.433583,
+      "label": "Athens, GA"
+    },
+    "30721": {
+      "lat": 34.792977,
+      "lon": -84.908686,
+      "label": "Dalton, GA"
+    },
+    "30809": {
+      "lat": 33.558527,
+      "lon": -82.171185,
+      "label": "Evans, GA"
+    },
+    "30906": {
+      "lat": 33.346732,
+      "lon": -81.967703,
+      "label": "Augusta, GA"
+    },
+    "30907": {
+      "lat": 33.523712,
+      "lon": -82.085665,
+      "label": "Augusta, GA"
+    },
+    "31088": {
+      "lat": 32.586171,
+      "lon": -83.655082,
+      "label": "Warner Robins, GA"
+    },
+    "31419": {
+      "lat": 31.984562,
+      "lon": -81.23695,
+      "label": "Savannah, GA"
+    },
+    "31907": {
+      "lat": 32.484404,
+      "lon": -84.899945,
+      "label": "Columbus, GA"
+    },
+    "32068": {
+      "lat": 30.082951,
+      "lon": -81.884022,
+      "label": "Middleburg, FL"
+    },
+    "32162": {
+      "lat": 28.922305,
+      "lon": -81.999287,
+      "label": "The Villages, FL"
+    },
+    "32164": {
+      "lat": 29.480607,
+      "lon": -81.217791,
+      "label": "Palm Coast, FL"
+    },
+    "32174": {
+      "lat": 29.292191,
+      "lon": -81.161446,
+      "label": "Ormond Beach, FL"
+    },
+    "32210": {
+      "lat": 30.265455,
+      "lon": -81.748096,
+      "label": "Jacksonville, FL"
+    },
+    "32218": {
+      "lat": 30.487842,
+      "lon": -81.667693,
+      "label": "Jacksonville, FL"
+    },
+    "32225": {
+      "lat": 30.357756,
+      "lon": -81.505829,
+      "label": "Jacksonville, FL"
+    },
+    "32244": {
+      "lat": 30.217099,
+      "lon": -81.752604,
+      "label": "Jacksonville, FL"
+    },
+    "32246": {
+      "lat": 30.291014,
+      "lon": -81.512086,
+      "label": "Jacksonville, FL"
+    },
+    "32256": {
+      "lat": 30.175327,
+      "lon": -81.471951,
+      "label": "Jacksonville, FL"
+    },
+    "32259": {
+      "lat": 30.074317,
+      "lon": -81.585207,
+      "label": "Saint Johns, FL"
+    },
+    "32303": {
+      "lat": 30.512386,
+      "lon": -84.344877,
+      "label": "Tallahassee, FL"
+    },
+    "32304": {
+      "lat": 30.451981,
+      "lon": -84.352682,
+      "label": "Tallahassee, FL"
+    },
+    "32608": {
+      "lat": 29.59023,
+      "lon": -82.396199,
+      "label": "Gainesville, FL"
+    },
+    "32703": {
+      "lat": 28.653636,
+      "lon": -81.520744,
+      "label": "Apopka, FL"
+    },
+    "32708": {
+      "lat": 28.688064,
+      "lon": -81.269962,
+      "label": "Winter Springs, FL"
+    },
+    "32712": {
+      "lat": 28.736081,
+      "lon": -81.547624,
+      "label": "Apopka, FL"
+    },
+    "32725": {
+      "lat": 28.886189,
+      "lon": -81.251417,
+      "label": "Deltona, FL"
+    },
+    "32738": {
+      "lat": 28.904744,
+      "lon": -81.188232,
+      "label": "Deltona, FL"
+    },
+    "32746": {
+      "lat": 28.771373,
+      "lon": -81.353086,
+      "label": "Lake Mary, FL"
+    },
+    "32765": {
+      "lat": 28.665112,
+      "lon": -81.19629,
+      "label": "Oviedo, FL"
+    },
+    "32771": {
+      "lat": 28.814656,
+      "lon": -81.317583,
+      "label": "Sanford, FL"
+    },
+    "32792": {
+      "lat": 28.608352,
+      "lon": -81.300566,
+      "label": "Winter Park, FL"
+    },
+    "32808": {
+      "lat": 28.58011,
+      "lon": -81.4443,
+      "label": "Orlando, FL"
+    },
+    "32818": {
+      "lat": 28.59006,
+      "lon": -81.493848,
+      "label": "Orlando, FL"
+    },
+    "32822": {
+      "lat": 28.489898,
+      "lon": -81.290154,
+      "label": "Orlando, FL"
+    },
+    "32824": {
+      "lat": 28.388751,
+      "lon": -81.344535,
+      "label": "Orlando, FL"
+    },
+    "32825": {
+      "lat": 28.536725,
+      "lon": -81.242932,
+      "label": "Orlando, FL"
+    },
+    "32828": {
+      "lat": 28.530179,
+      "lon": -81.169271,
+      "label": "Orlando, FL"
+    },
+    "32835": {
+      "lat": 28.521975,
+      "lon": -81.485967,
+      "label": "Orlando, FL"
+    },
+    "32837": {
+      "lat": 28.38224,
+      "lon": -81.41446,
+      "label": "Orlando, FL"
+    },
+    "32839": {
+      "lat": 28.488069,
+      "lon": -81.407208,
+      "label": "Orlando, FL"
+    },
+    "33012": {
+      "lat": 25.866106,
+      "lon": -80.301115,
+      "label": "Hialeah, FL"
+    },
+    "33015": {
+      "lat": 25.940571,
+      "lon": -80.317442,
+      "label": "Hialeah, FL"
+    },
+    "33016": {
+      "lat": 25.893769,
+      "lon": -80.330087,
+      "label": "Hialeah, FL"
+    },
+    "33018": {
+      "lat": 25.912395,
+      "lon": -80.393093,
+      "label": "Hialeah, FL"
+    },
+    "33021": {
+      "lat": 26.02313,
+      "lon": -80.186539,
+      "label": "Hollywood, FL"
+    },
+    "33023": {
+      "lat": 25.988484,
+      "lon": -80.212462,
+      "label": "Hollywood, FL"
+    },
+    "33024": {
+      "lat": 26.026358,
+      "lon": -80.244633,
+      "label": "Hollywood, FL"
+    },
+    "33025": {
+      "lat": 25.988183,
+      "lon": -80.281394,
+      "label": "Hollywood, FL"
+    },
+    "33027": {
+      "lat": 25.98811,
+      "lon": -80.340442,
+      "label": "Hollywood, FL"
+    },
+    "33032": {
+      "lat": 25.531145,
+      "lon": -80.391233,
+      "label": "Homestead, FL"
+    },
+    "33033": {
+      "lat": 25.4789,
+      "lon": -80.409102,
+      "label": "Homestead, FL"
+    },
+    "33063": {
+      "lat": 26.251909,
+      "lon": -80.208929,
+      "label": "Pompano Beach, FL"
+    },
+    "33064": {
+      "lat": 26.277754,
+      "lon": -80.115325,
+      "label": "Pompano Beach, FL"
+    },
+    "33065": {
+      "lat": 26.274498,
+      "lon": -80.2604,
+      "label": "Pompano Beach, FL"
+    },
+    "33068": {
+      "lat": 26.216395,
+      "lon": -80.213958,
+      "label": "Pompano Beach, FL"
+    },
+    "33125": {
+      "lat": 25.783834,
+      "lon": -80.236333,
+      "label": "Miami, FL"
+    },
+    "33126": {
+      "lat": 25.779492,
+      "lon": -80.299573,
+      "label": "Miami, FL"
+    },
     "33139": {
       "lat": 25.7851149,
       "lon": -80.1413068,
       "label": "33139, Miami Beach, Miami-Dade County, Florida, United States"
+    },
+    "33142": {
+      "lat": 25.80631,
+      "lon": -80.255409,
+      "label": "Miami, FL"
+    },
+    "33147": {
+      "lat": 25.851208,
+      "lon": -80.23885,
+      "label": "Miami, FL"
+    },
+    "33157": {
+      "lat": 25.607529,
+      "lon": -80.343349,
+      "label": "Miami, FL"
+    },
+    "33161": {
+      "lat": 25.893543,
+      "lon": -80.183272,
+      "label": "Miami, FL"
+    },
+    "33162": {
+      "lat": 25.928618,
+      "lon": -80.179211,
+      "label": "Miami, FL"
+    },
+    "33165": {
+      "lat": 25.734345,
+      "lon": -80.358271,
+      "label": "Miami, FL"
+    },
+    "33175": {
+      "lat": 25.736612,
+      "lon": -80.40683,
+      "label": "Miami, FL"
+    },
+    "33176": {
+      "lat": 25.658379,
+      "lon": -80.360893,
+      "label": "Miami, FL"
+    },
+    "33177": {
+      "lat": 25.598817,
+      "lon": -80.406503,
+      "label": "Miami, FL"
+    },
+    "33178": {
+      "lat": 25.835497,
+      "lon": -80.422481,
+      "label": "Miami, FL"
+    },
+    "33179": {
+      "lat": 25.95762,
+      "lon": -80.179998,
+      "label": "Miami, FL"
+    },
+    "33186": {
+      "lat": 25.65442,
+      "lon": -80.412154,
+      "label": "Miami, FL"
+    },
+    "33193": {
+      "lat": 25.705415,
+      "lon": -80.470847,
+      "label": "Miami, FL"
+    },
+    "33196": {
+      "lat": 25.648447,
+      "lon": -80.55467,
+      "label": "Miami, FL"
+    },
+    "33311": {
+      "lat": 26.144208,
+      "lon": -80.172785,
+      "label": "Fort Lauderdale, FL"
+    },
+    "33312": {
+      "lat": 26.08817,
+      "lon": -80.181783,
+      "label": "Fort Lauderdale, FL"
+    },
+    "33313": {
+      "lat": 26.15152,
+      "lon": -80.227397,
+      "label": "Fort Lauderdale, FL"
+    },
+    "33319": {
+      "lat": 26.181382,
+      "lon": -80.225802,
+      "label": "Fort Lauderdale, FL"
+    },
+    "33321": {
+      "lat": 26.212501,
+      "lon": -80.270158,
+      "label": "Fort Lauderdale, FL"
+    },
+    "33324": {
+      "lat": 26.112485,
+      "lon": -80.27494,
+      "label": "Fort Lauderdale, FL"
+    },
+    "33411": {
+      "lat": 26.715201,
+      "lon": -80.203797,
+      "label": "West Palm Beach, FL"
+    },
+    "33414": {
+      "lat": 26.646721,
+      "lon": -80.250311,
+      "label": "Wellington, FL"
+    },
+    "33415": {
+      "lat": 26.660205,
+      "lon": -80.126573,
+      "label": "West Palm Beach, FL"
+    },
+    "33436": {
+      "lat": 26.522954,
+      "lon": -80.107263,
+      "label": "Boynton Beach, FL"
+    },
+    "33458": {
+      "lat": 26.935806,
+      "lon": -80.128441,
+      "label": "Jupiter, FL"
+    },
+    "33461": {
+      "lat": 26.618582,
+      "lon": -80.093216,
+      "label": "Lake Worth, FL"
+    },
+    "33463": {
+      "lat": 26.593249,
+      "lon": -80.1289,
+      "label": "Lake Worth, FL"
+    },
+    "33467": {
+      "lat": 26.596362,
+      "lon": -80.175602,
+      "label": "Lake Worth, FL"
+    },
+    "33511": {
+      "lat": 27.909778,
+      "lon": -82.295738,
+      "label": "Brandon, FL"
+    },
+    "33578": {
+      "lat": 27.861107,
+      "lon": -82.35506,
+      "label": "Riverview, FL"
+    },
+    "33610": {
+      "lat": 27.998214,
+      "lon": -82.378016,
+      "label": "Tampa, FL"
+    },
+    "33612": {
+      "lat": 28.050827,
+      "lon": -82.449573,
+      "label": "Tampa, FL"
+    },
+    "33614": {
+      "lat": 28.004691,
+      "lon": -82.506135,
+      "label": "Tampa, FL"
+    },
+    "33615": {
+      "lat": 28.001166,
+      "lon": -82.582227,
+      "label": "Tampa, FL"
+    },
+    "33617": {
+      "lat": 28.039315,
+      "lon": -82.392428,
+      "label": "Tampa, FL"
+    },
+    "33647": {
+      "lat": 28.151887,
+      "lon": -82.318179,
+      "label": "Tampa, FL"
+    },
+    "33810": {
+      "lat": 28.130235,
+      "lon": -82.038987,
+      "label": "Lakeland, FL"
+    },
+    "33844": {
+      "lat": 28.089578,
+      "lon": -81.589383,
+      "label": "Haines City, FL"
+    },
+    "34221": {
+      "lat": 27.581152,
+      "lon": -82.551825,
+      "label": "Palmetto, FL"
+    },
+    "34293": {
+      "lat": 27.037392,
+      "lon": -82.358528,
+      "label": "Venice, FL"
+    },
+    "34668": {
+      "lat": 28.293335,
+      "lon": -82.710564,
+      "label": "Port Richey, FL"
+    },
+    "34711": {
+      "lat": 28.52078,
+      "lon": -81.753851,
+      "label": "Clermont, FL"
+    },
+    "34741": {
+      "lat": 28.306299,
+      "lon": -81.426933,
+      "label": "Kissimmee, FL"
+    },
+    "34743": {
+      "lat": 28.329321,
+      "lon": -81.355148,
+      "label": "Kissimmee, FL"
+    },
+    "34744": {
+      "lat": 28.295842,
+      "lon": -81.348621,
+      "label": "Kissimmee, FL"
+    },
+    "34786": {
+      "lat": 28.482847,
+      "lon": -81.538656,
+      "label": "Windermere, FL"
+    },
+    "34787": {
+      "lat": 28.485174,
+      "lon": -81.619415,
+      "label": "Winter Garden, FL"
+    },
+    "34953": {
+      "lat": 27.24968,
+      "lon": -80.383236,
+      "label": "Port Saint Lucie, FL"
+    },
+    "35215": {
+      "lat": 33.64986,
+      "lon": -86.703762,
+      "label": "Birmingham, AL"
+    },
+    "35242": {
+      "lat": 33.424611,
+      "lon": -86.670867,
+      "label": "Birmingham, AL"
+    },
+    "35758": {
+      "lat": 34.71142,
+      "lon": -86.746508,
+      "label": "Madison, AL"
+    },
+    "36117": {
+      "lat": 32.377903,
+      "lon": -86.148907,
+      "label": "Montgomery, AL"
+    },
+    "36695": {
+      "lat": 30.631258,
+      "lon": -88.280593,
+      "label": "Mobile, AL"
+    },
+    "36830": {
+      "lat": 32.534872,
+      "lon": -85.493755,
+      "label": "Auburn, AL"
+    },
+    "37013": {
+      "lat": 36.051845,
+      "lon": -86.630396,
+      "label": "Antioch, TN"
+    },
+    "37027": {
+      "lat": 35.999288,
+      "lon": -86.785062,
+      "label": "Brentwood, TN"
+    },
+    "37040": {
+      "lat": 36.522319,
+      "lon": -87.327933,
+      "label": "Clarksville, TN"
+    },
+    "37042": {
+      "lat": 36.569339,
+      "lon": -87.411845,
+      "label": "Clarksville, TN"
+    },
+    "37043": {
+      "lat": 36.490572,
+      "lon": -87.240797,
+      "label": "Clarksville, TN"
+    },
+    "37064": {
+      "lat": 35.884862,
+      "lon": -86.954138,
+      "label": "Franklin, TN"
+    },
+    "37066": {
+      "lat": 36.398757,
+      "lon": -86.45554,
+      "label": "Gallatin, TN"
+    },
+    "37075": {
+      "lat": 36.339969,
+      "lon": -86.607922,
+      "label": "Hendersonville, TN"
+    },
+    "37087": {
+      "lat": 36.263852,
+      "lon": -86.269244,
+      "label": "Lebanon, TN"
+    },
+    "37122": {
+      "lat": 36.178348,
+      "lon": -86.48658,
+      "label": "Mount Juliet, TN"
+    },
+    "37128": {
+      "lat": 35.803224,
+      "lon": -86.474647,
+      "label": "Murfreesboro, TN"
+    },
+    "37129": {
+      "lat": 35.929834,
+      "lon": -86.450822,
+      "label": "Murfreesboro, TN"
+    },
+    "37130": {
+      "lat": 35.881689,
+      "lon": -86.318747,
+      "label": "Murfreesboro, TN"
+    },
+    "37167": {
+      "lat": 35.962828,
+      "lon": -86.529684,
+      "label": "Smyrna, TN"
+    },
+    "37211": {
+      "lat": 36.067017,
+      "lon": -86.723419,
+      "label": "Nashville, TN"
+    },
+    "37421": {
+      "lat": 35.027473,
+      "lon": -85.153604,
+      "label": "Chattanooga, TN"
+    },
+    "37918": {
+      "lat": 36.056875,
+      "lon": -83.917352,
+      "label": "Knoxville, TN"
+    },
+    "38017": {
+      "lat": 35.066953,
+      "lon": -89.654078,
+      "label": "Collierville, TN"
+    },
+    "38109": {
+      "lat": 35.037886,
+      "lon": -90.154242,
+      "label": "Memphis, TN"
+    },
+    "38305": {
+      "lat": 35.701654,
+      "lon": -88.768058,
+      "label": "Jackson, TN"
+    },
+    "38401": {
+      "lat": 35.629164,
+      "lon": -87.021526,
+      "label": "Columbia, TN"
+    },
+    "38654": {
+      "lat": 34.933929,
+      "lon": -89.81628,
+      "label": "Olive Branch, MS"
+    },
+    "38655": {
+      "lat": 34.329772,
+      "lon": -89.487118,
+      "label": "Oxford, MS"
+    },
+    "39503": {
+      "lat": 30.472894,
+      "lon": -89.143324,
+      "label": "Gulfport, MS"
+    },
+    "39759": {
+      "lat": 33.437924,
+      "lon": -88.825142,
+      "label": "Starkville, MS"
+    },
+    "40214": {
+      "lat": 38.148491,
+      "lon": -85.779843,
+      "label": "Louisville, KY"
+    },
+    "40324": {
+      "lat": 38.245796,
+      "lon": -84.550626,
+      "label": "Georgetown, KY"
+    },
+    "40475": {
+      "lat": 37.76237,
+      "lon": -84.304577,
+      "label": "Richmond, KY"
+    },
+    "40601": {
+      "lat": 38.234919,
+      "lon": -84.868786,
+      "label": "Frankfort, KY"
+    },
+    "41042": {
+      "lat": 38.987219,
+      "lon": -84.647016,
+      "label": "Florence, KY"
+    },
+    "42101": {
+      "lat": 37.058097,
+      "lon": -86.463061,
+      "label": "Bowling Green, KY"
+    },
+    "42301": {
+      "lat": 37.735778,
+      "lon": -87.249397,
+      "label": "Owensboro, KY"
+    },
+    "42701": {
+      "lat": 37.703239,
+      "lon": -85.839548,
+      "label": "Elizabethtown, KY"
+    },
+    "43015": {
+      "lat": 40.297783,
+      "lon": -83.060168,
+      "label": "Delaware, OH"
+    },
+    "43026": {
+      "lat": 40.020519,
+      "lon": -83.177502,
+      "label": "Hilliard, OH"
+    },
+    "43055": {
+      "lat": 40.110508,
+      "lon": -82.378699,
+      "label": "Newark, OH"
+    },
+    "43068": {
+      "lat": 39.956185,
+      "lon": -82.784665,
+      "label": "Reynoldsburg, OH"
+    },
+    "43081": {
+      "lat": 40.110443,
+      "lon": -82.890646,
+      "label": "Westerville, OH"
+    },
+    "43123": {
+      "lat": 39.866721,
+      "lon": -83.115561,
+      "label": "Grove City, OH"
+    },
+    "43130": {
+      "lat": 39.696463,
+      "lon": -82.614717,
+      "label": "Lancaster, OH"
+    },
+    "43228": {
+      "lat": 39.964019,
+      "lon": -83.127747,
+      "label": "Columbus, OH"
+    },
+    "43229": {
+      "lat": 40.08587,
+      "lon": -82.978197,
+      "label": "Columbus, OH"
+    },
+    "43230": {
+      "lat": 40.038143,
+      "lon": -82.872725,
+      "label": "Columbus, OH"
+    },
+    "43232": {
+      "lat": 39.920977,
+      "lon": -82.870372,
+      "label": "Columbus, OH"
+    },
+    "43302": {
+      "lat": 40.599237,
+      "lon": -83.130298,
+      "label": "Marion, OH"
+    },
+    "43701": {
+      "lat": 39.963961,
+      "lon": -81.995711,
+      "label": "Zanesville, OH"
+    },
+    "44035": {
+      "lat": 41.370046,
+      "lon": -82.135976,
+      "label": "Elyria, OH"
+    },
+    "44060": {
+      "lat": 41.67653,
+      "lon": -81.328167,
+      "label": "Mentor, OH"
+    },
+    "44077": {
+      "lat": 41.697563,
+      "lon": -81.20974,
+      "label": "Painesville, OH"
+    },
+    "44107": {
+      "lat": 41.486189,
+      "lon": -81.801047,
+      "label": "Lakewood, OH"
+    },
+    "44130": {
+      "lat": 41.376642,
+      "lon": -81.787317,
+      "label": "Cleveland, OH"
+    },
+    "44256": {
+      "lat": 41.141354,
+      "lon": -81.859522,
+      "label": "Medina, OH"
+    },
+    "44646": {
+      "lat": 40.814381,
+      "lon": -81.497182,
+      "label": "Massillon, OH"
+    },
+    "45011": {
+      "lat": 39.426575,
+      "lon": -84.497637,
+      "label": "Hamilton, OH"
+    },
+    "45013": {
+      "lat": 39.413632,
+      "lon": -84.652679,
+      "label": "Hamilton, OH"
+    },
+    "45040": {
+      "lat": 39.350783,
+      "lon": -84.313198,
+      "label": "Mason, OH"
+    },
+    "45044": {
+      "lat": 39.482404,
+      "lon": -84.410243,
+      "label": "Middletown, OH"
+    },
+    "45069": {
+      "lat": 39.343522,
+      "lon": -84.412333,
+      "label": "West Chester, OH"
+    },
+    "45140": {
+      "lat": 39.254473,
+      "lon": -84.24693,
+      "label": "Loveland, OH"
+    },
+    "45238": {
+      "lat": 39.109225,
+      "lon": -84.608841,
+      "label": "Cincinnati, OH"
+    },
+    "45424": {
+      "lat": 39.851322,
+      "lon": -84.102669,
+      "label": "Dayton, OH"
+    },
+    "45601": {
+      "lat": 39.31206,
+      "lon": -82.957071,
+      "label": "Chillicothe, OH"
+    },
+    "45840": {
+      "lat": 41.025894,
+      "lon": -83.648894,
+      "label": "Findlay, OH"
+    },
+    "46032": {
+      "lat": 39.966569,
+      "lon": -86.175131,
+      "label": "Carmel, IN"
+    },
+    "46060": {
+      "lat": 40.062575,
+      "lon": -85.933198,
+      "label": "Noblesville, IN"
+    },
+    "46143": {
+      "lat": 39.595658,
+      "lon": -86.113954,
+      "label": "Greenwood, IN"
+    },
+    "46227": {
+      "lat": 39.674763,
+      "lon": -86.132676,
+      "label": "Indianapolis, IN"
+    },
+    "46307": {
+      "lat": 41.40206,
+      "lon": -87.325371,
+      "label": "Crown Point, IN"
+    },
+    "46350": {
+      "lat": 41.607057,
+      "lon": -86.721724,
+      "label": "La Porte, IN"
+    },
+    "47130": {
+      "lat": 38.332415,
+      "lon": -85.696087,
+      "label": "Jeffersonville, IN"
+    },
+    "47150": {
+      "lat": 38.283804,
+      "lon": -85.847721,
+      "label": "New Albany, IN"
+    },
+    "47201": {
+      "lat": 39.148221,
+      "lon": -85.999407,
+      "label": "Columbus, IN"
+    },
+    "47374": {
+      "lat": 39.833762,
+      "lon": -84.889666,
+      "label": "Richmond, IN"
+    },
+    "47906": {
+      "lat": 40.479649,
+      "lon": -86.989218,
+      "label": "West Lafayette, IN"
+    },
+    "48044": {
+      "lat": 42.650226,
+      "lon": -82.928905,
+      "label": "Macomb, MI"
+    },
+    "48066": {
+      "lat": 42.507586,
+      "lon": -82.936582,
+      "label": "Roseville, MI"
+    },
+    "48103": {
+      "lat": 42.26135,
+      "lon": -83.846458,
+      "label": "Ann Arbor, MI"
+    },
+    "48126": {
+      "lat": 42.330326,
+      "lon": -83.187133,
+      "label": "Dearborn, MI"
+    },
+    "48180": {
+      "lat": 42.225283,
+      "lon": -83.267691,
+      "label": "Taylor, MI"
+    },
+    "48185": {
+      "lat": 42.333901,
+      "lon": -83.384209,
+      "label": "Westland, MI"
+    },
+    "48187": {
+      "lat": 42.325573,
+      "lon": -83.483576,
+      "label": "Canton, MI"
+    },
+    "48197": {
+      "lat": 42.194034,
+      "lon": -83.639984,
+      "label": "Ypsilanti, MI"
+    },
+    "48228": {
+      "lat": 42.355145,
+      "lon": -83.218208,
+      "label": "Detroit, MI"
+    },
+    "48235": {
+      "lat": 42.427075,
+      "lon": -83.19466,
+      "label": "Detroit, MI"
+    },
+    "48439": {
+      "lat": 42.91714,
+      "lon": -83.631336,
+      "label": "Grand Blanc, MI"
+    },
+    "48823": {
+      "lat": 42.764057,
+      "lon": -84.459921,
+      "label": "East Lansing, MI"
+    },
+    "48843": {
+      "lat": 42.575579,
+      "lon": -83.923381,
+      "label": "Howell, MI"
+    },
+    "49201": {
+      "lat": 42.311764,
+      "lon": -84.456172,
+      "label": "Jackson, MI"
+    },
+    "49423": {
+      "lat": 42.739168,
+      "lon": -86.084793,
+      "label": "Holland, MI"
+    },
+    "49424": {
+      "lat": 42.832778,
+      "lon": -86.130421,
+      "label": "Holland, MI"
+    },
+    "53209": {
+      "lat": 43.127801,
+      "lon": -87.949434,
+      "label": "Milwaukee, WI"
+    },
+    "53215": {
+      "lat": 42.999273,
+      "lon": -87.943018,
+      "label": "Milwaukee, WI"
+    },
+    "53511": {
+      "lat": 42.546428,
+      "lon": -89.106715,
+      "label": "Beloit, WI"
+    },
+    "53704": {
+      "lat": 43.135832,
+      "lon": -89.34748,
+      "label": "Madison, WI"
+    },
+    "53711": {
+      "lat": 43.011281,
+      "lon": -89.40931,
+      "label": "Madison, WI"
+    },
+    "54115": {
+      "lat": 44.405368,
+      "lon": -88.08935,
+      "label": "De Pere, WI"
+    },
+    "54601": {
+      "lat": 43.806243,
+      "lon": -91.140632,
+      "label": "La Crosse, WI"
+    },
+    "54956": {
+      "lat": 44.182337,
+      "lon": -88.527647,
+      "label": "Neenah, WI"
+    },
+    "55044": {
+      "lat": 44.642146,
+      "lon": -93.276446,
+      "label": "Lakeville, MN"
+    },
+    "55106": {
+      "lat": 44.957236,
+      "lon": -93.047129,
+      "label": "Saint Paul, MN"
+    },
+    "55112": {
+      "lat": 45.080514,
+      "lon": -93.19206,
+      "label": "Saint Paul, MN"
+    },
+    "55124": {
+      "lat": 44.745301,
+      "lon": -93.199413,
+      "label": "Saint Paul, MN"
+    },
+    "55303": {
+      "lat": 45.288412,
+      "lon": -93.431529,
+      "label": "Anoka, MN"
+    },
+    "55304": {
+      "lat": 45.245585,
+      "lon": -93.259952,
+      "label": "Andover, MN"
+    },
+    "55330": {
+      "lat": 45.332212,
+      "lon": -93.566528,
+      "label": "Elk River, MN"
+    },
+    "55337": {
+      "lat": 44.778472,
+      "lon": -93.272269,
+      "label": "Burnsville, MN"
+    },
+    "55379": {
+      "lat": 44.743442,
+      "lon": -93.510032,
+      "label": "Shakopee, MN"
+    },
+    "55901": {
+      "lat": 44.077657,
+      "lon": -92.497063,
+      "label": "Rochester, MN"
+    },
+    "56001": {
+      "lat": 44.128169,
+      "lon": -93.978991,
+      "label": "Mankato, MN"
+    },
+    "56560": {
+      "lat": 46.835221,
+      "lon": -96.734828,
+      "label": "Moorhead, MN"
+    },
+    "57106": {
+      "lat": 43.510502,
+      "lon": -96.834884,
+      "label": "Sioux Falls, SD"
+    },
+    "58103": {
+      "lat": 46.856347,
+      "lon": -96.82246,
+      "label": "Fargo, ND"
+    },
+    "59102": {
+      "lat": 45.774768,
+      "lon": -108.581321,
+      "label": "Billings, MT"
+    },
+    "59901": {
+      "lat": 48.230565,
+      "lon": -114.403313,
+      "label": "Kalispell, MT"
+    },
+    "60004": {
+      "lat": 42.11278,
+      "lon": -87.979542,
+      "label": "Arlington Heights, IL"
+    },
+    "60010": {
+      "lat": 42.146498,
+      "lon": -88.164654,
+      "label": "Barrington, IL"
+    },
+    "60014": {
+      "lat": 42.230279,
+      "lon": -88.329654,
+      "label": "Crystal Lake, IL"
+    },
+    "60016": {
+      "lat": 42.052719,
+      "lon": -87.892061,
+      "label": "Des Plaines, IL"
+    },
+    "60056": {
+      "lat": 42.065378,
+      "lon": -87.93471,
+      "label": "Mount Prospect, IL"
+    },
+    "60073": {
+      "lat": 42.354458,
+      "lon": -88.102421,
+      "label": "Round Lake, IL"
+    },
+    "60085": {
+      "lat": 42.354935,
+      "lon": -87.860761,
+      "label": "Waukegan, IL"
+    },
+    "60120": {
+      "lat": 42.032566,
+      "lon": -88.240438,
+      "label": "Elgin, IL"
+    },
+    "60123": {
+      "lat": 42.040644,
+      "lon": -88.311296,
+      "label": "Elgin, IL"
+    },
+    "60126": {
+      "lat": 41.896843,
+      "lon": -87.94124,
+      "label": "Elmhurst, IL"
+    },
+    "60148": {
+      "lat": 41.876257,
+      "lon": -88.018754,
+      "label": "Lombard, IL"
+    },
+    "60402": {
+      "lat": 41.83288,
+      "lon": -87.790063,
+      "label": "Berwyn, IL"
+    },
+    "60411": {
+      "lat": 41.507305,
+      "lon": -87.589701,
+      "label": "Chicago Heights, IL"
+    },
+    "60435": {
+      "lat": 41.548642,
+      "lon": -88.128501,
+      "label": "Joliet, IL"
+    },
+    "60440": {
+      "lat": 41.7006,
+      "lon": -88.075006,
+      "label": "Bolingbrook, IL"
+    },
+    "60453": {
+      "lat": 41.714116,
+      "lon": -87.752771,
+      "label": "Oak Lawn, IL"
+    },
+    "60505": {
+      "lat": 41.765459,
+      "lon": -88.296136,
+      "label": "Aurora, IL"
+    },
+    "60506": {
+      "lat": 41.758878,
+      "lon": -88.371865,
+      "label": "Aurora, IL"
+    },
+    "60586": {
+      "lat": 41.578191,
+      "lon": -88.234492,
+      "label": "Plainfield, IL"
+    },
+    "60608": {
+      "lat": 41.84688,
+      "lon": -87.670664,
+      "label": "Chicago, IL"
+    },
+    "60609": {
+      "lat": 41.81268,
+      "lon": -87.656935,
+      "label": "Chicago, IL"
+    },
+    "60613": {
+      "lat": 41.956153,
+      "lon": -87.652994,
+      "label": "Chicago, IL"
     },
     "60614": {
       "lat": 41.922971,
       "lon": -87.651771,
       "label": "60614, Lincoln Park, Chicago, North Chicago Township, Cook County, Illinois, United States"
     },
+    "60616": {
+      "lat": 41.844883,
+      "lon": -87.624032,
+      "label": "Chicago, IL"
+    },
+    "60617": {
+      "lat": 41.714417,
+      "lon": -87.555761,
+      "label": "Chicago, IL"
+    },
+    "60618": {
+      "lat": 41.947568,
+      "lon": -87.702647,
+      "label": "Chicago, IL"
+    },
+    "60619": {
+      "lat": 41.743439,
+      "lon": -87.605318,
+      "label": "Chicago, IL"
+    },
+    "60620": {
+      "lat": 41.740497,
+      "lon": -87.652558,
+      "label": "Chicago, IL"
+    },
+    "60622": {
+      "lat": 41.902172,
+      "lon": -87.683337,
+      "label": "Chicago, IL"
+    },
+    "60623": {
+      "lat": 41.847101,
+      "lon": -87.717611,
+      "label": "Chicago, IL"
+    },
+    "60625": {
+      "lat": 41.973081,
+      "lon": -87.699751,
+      "label": "Chicago, IL"
+    },
+    "60626": {
+      "lat": 42.0088,
+      "lon": -87.66705,
+      "label": "Chicago, IL"
+    },
+    "60628": {
+      "lat": 41.691478,
+      "lon": -87.618593,
+      "label": "Chicago, IL"
+    },
+    "60629": {
+      "lat": 41.775414,
+      "lon": -87.711487,
+      "label": "Chicago, IL"
+    },
+    "60630": {
+      "lat": 41.972071,
+      "lon": -87.756569,
+      "label": "Chicago, IL"
+    },
+    "60632": {
+      "lat": 41.810166,
+      "lon": -87.713252,
+      "label": "Chicago, IL"
+    },
+    "60634": {
+      "lat": 41.946189,
+      "lon": -87.806117,
+      "label": "Chicago, IL"
+    },
+    "60637": {
+      "lat": 41.782504,
+      "lon": -87.602734,
+      "label": "Chicago, IL"
+    },
+    "60638": {
+      "lat": 41.782468,
+      "lon": -87.770753,
+      "label": "Chicago, IL"
+    },
+    "60639": {
+      "lat": 41.920598,
+      "lon": -87.755942,
+      "label": "Chicago, IL"
+    },
+    "60640": {
+      "lat": 41.972872,
+      "lon": -87.662604,
+      "label": "Chicago, IL"
+    },
+    "60641": {
+      "lat": 41.946718,
+      "lon": -87.746887,
+      "label": "Chicago, IL"
+    },
+    "60643": {
+      "lat": 41.700273,
+      "lon": -87.663267,
+      "label": "Chicago, IL"
+    },
+    "60644": {
+      "lat": 41.880084,
+      "lon": -87.756373,
+      "label": "Chicago, IL"
+    },
+    "60645": {
+      "lat": 42.008603,
+      "lon": -87.694579,
+      "label": "Chicago, IL"
+    },
+    "60647": {
+      "lat": 41.921042,
+      "lon": -87.701971,
+      "label": "Chicago, IL"
+    },
+    "60649": {
+      "lat": 41.75934,
+      "lon": -87.557025,
+      "label": "Chicago, IL"
+    },
+    "60651": {
+      "lat": 41.902006,
+      "lon": -87.741016,
+      "label": "Chicago, IL"
+    },
+    "60657": {
+      "lat": 41.939411,
+      "lon": -87.650704,
+      "label": "Chicago, IL"
+    },
+    "60659": {
+      "lat": 41.989578,
+      "lon": -87.706572,
+      "label": "Chicago, IL"
+    },
+    "60804": {
+      "lat": 41.840164,
+      "lon": -87.759916,
+      "label": "Cicero, IL"
+    },
+    "61761": {
+      "lat": 40.528032,
+      "lon": -88.947633,
+      "label": "Normal, IL"
+    },
+    "63021": {
+      "lat": 38.56984,
+      "lon": -90.545689,
+      "label": "Ballwin, MO"
+    },
+    "63031": {
+      "lat": 38.812046,
+      "lon": -90.35362,
+      "label": "Florissant, MO"
+    },
+    "63123": {
+      "lat": 38.547432,
+      "lon": -90.328109,
+      "label": "Saint Louis, MO"
+    },
+    "63129": {
+      "lat": 38.457809,
+      "lon": -90.31914,
+      "label": "Saint Louis, MO"
+    },
+    "63301": {
+      "lat": 38.858035,
+      "lon": -90.463316,
+      "label": "Saint Charles, MO"
+    },
+    "63303": {
+      "lat": 38.739794,
+      "lon": -90.543692,
+      "label": "Saint Charles, MO"
+    },
+    "63366": {
+      "lat": 38.857457,
+      "lon": -90.725305,
+      "label": "O Fallon, MO"
+    },
+    "63368": {
+      "lat": 38.751545,
+      "lon": -90.728422,
+      "label": "O Fallon, MO"
+    },
+    "63376": {
+      "lat": 38.800744,
+      "lon": -90.61215,
+      "label": "Saint Peters, MO"
+    },
+    "63385": {
+      "lat": 38.796985,
+      "lon": -90.857245,
+      "label": "Wentzville, MO"
+    },
+    "65201": {
+      "lat": 38.900945,
+      "lon": -92.238427,
+      "label": "Columbia, MO"
+    },
+    "65202": {
+      "lat": 39.01716,
+      "lon": -92.297814,
+      "label": "Columbia, MO"
+    },
+    "65203": {
+      "lat": 38.895872,
+      "lon": -92.395843,
+      "label": "Columbia, MO"
+    },
+    "65807": {
+      "lat": 37.167524,
+      "lon": -93.324808,
+      "label": "Springfield, MO"
+    },
+    "66061": {
+      "lat": 38.893755,
+      "lon": -94.879968,
+      "label": "Olathe, KS"
+    },
+    "66062": {
+      "lat": 38.838296,
+      "lon": -94.784409,
+      "label": "Olathe, KS"
+    },
+    "66502": {
+      "lat": 39.139945,
+      "lon": -96.528718,
+      "label": "Manhattan, KS"
+    },
+    "67401": {
+      "lat": 38.831832,
+      "lon": -97.65455,
+      "label": "Salina, KS"
+    },
+    "68516": {
+      "lat": 40.735276,
+      "lon": -96.64279,
+      "label": "Lincoln, NE"
+    },
+    "70065": {
+      "lat": 30.026672,
+      "lon": -90.25345,
+      "label": "Kenner, LA"
+    },
+    "70072": {
+      "lat": 29.809263,
+      "lon": -90.138308,
+      "label": "Marrero, LA"
+    },
+    "70301": {
+      "lat": 29.808328,
+      "lon": -90.750267,
+      "label": "Thibodaux, LA"
+    },
+    "70726": {
+      "lat": 30.433416,
+      "lon": -90.90231,
+      "label": "Denham Springs, LA"
+    },
+    "70769": {
+      "lat": 30.30743,
+      "lon": -90.940643,
+      "label": "Prairieville, LA"
+    },
+    "71913": {
+      "lat": 34.446001,
+      "lon": -93.096602,
+      "label": "Hot Springs National Park, AR"
+    },
+    "72034": {
+      "lat": 35.053787,
+      "lon": -92.47871,
+      "label": "Conway, AR"
+    },
+    "72701": {
+      "lat": 35.992387,
+      "lon": -94.085584,
+      "label": "Fayetteville, AR"
+    },
+    "72764": {
+      "lat": 36.175681,
+      "lon": -94.060222,
+      "label": "Springdale, AR"
+    },
+    "73013": {
+      "lat": 35.61699,
+      "lon": -97.500777,
+      "label": "Edmond, OK"
+    },
+    "73072": {
+      "lat": 35.211565,
+      "lon": -97.501018,
+      "label": "Norman, OK"
+    },
+    "73099": {
+      "lat": 35.518409,
+      "lon": -97.766172,
+      "label": "Yukon, OK"
+    },
+    "73160": {
+      "lat": 35.336297,
+      "lon": -97.475078,
+      "label": "Oklahoma City, OK"
+    },
+    "73505": {
+      "lat": 34.572847,
+      "lon": -98.487889,
+      "label": "Lawton, OK"
+    },
+    "74012": {
+      "lat": 36.051418,
+      "lon": -95.805731,
+      "label": "Broken Arrow, OK"
+    },
+    "74133": {
+      "lat": 36.039275,
+      "lon": -95.877463,
+      "label": "Tulsa, OK"
+    },
+    "75002": {
+      "lat": 33.089854,
+      "lon": -96.6086,
+      "label": "Allen, TX"
+    },
+    "75006": {
+      "lat": 32.962141,
+      "lon": -96.898585,
+      "label": "Carrollton, TX"
+    },
+    "75007": {
+      "lat": 33.005262,
+      "lon": -96.896742,
+      "label": "Carrollton, TX"
+    },
+    "75023": {
+      "lat": 33.056789,
+      "lon": -96.730859,
+      "label": "Plano, TX"
+    },
+    "75025": {
+      "lat": 33.090085,
+      "lon": -96.740008,
+      "label": "Plano, TX"
+    },
+    "75028": {
+      "lat": 33.032998,
+      "lon": -97.064618,
+      "label": "Flower Mound, TX"
+    },
+    "75033": {
+      "lat": 33.184818,
+      "lon": -96.844308,
+      "label": "Frisco, TX"
+    },
+    "75035": {
+      "lat": 33.166306,
+      "lon": -96.775635,
+      "label": "Frisco, TX"
+    },
+    "75040": {
+      "lat": 32.928902,
+      "lon": -96.619782,
+      "label": "Garland, TX"
+    },
+    "75043": {
+      "lat": 32.855772,
+      "lon": -96.578214,
+      "label": "Garland, TX"
+    },
+    "75044": {
+      "lat": 32.964609,
+      "lon": -96.649688,
+      "label": "Garland, TX"
+    },
+    "75052": {
+      "lat": 32.664684,
+      "lon": -97.029478,
+      "label": "Grand Prairie, TX"
+    },
+    "75056": {
+      "lat": 33.075699,
+      "lon": -96.908088,
+      "label": "The Colony, TX"
+    },
+    "75060": {
+      "lat": 32.798049,
+      "lon": -96.952563,
+      "label": "Irving, TX"
+    },
+    "75061": {
+      "lat": 32.825907,
+      "lon": -96.966915,
+      "label": "Irving, TX"
+    },
+    "75062": {
+      "lat": 32.84737,
+      "lon": -96.957871,
+      "label": "Irving, TX"
+    },
+    "75067": {
+      "lat": 33.016102,
+      "lon": -96.998962,
+      "label": "Lewisville, TX"
+    },
+    "75068": {
+      "lat": 33.177497,
+      "lon": -96.952388,
+      "label": "Little Elm, TX"
+    },
+    "75070": {
+      "lat": 33.154678,
+      "lon": -96.696669,
+      "label": "Mckinney, TX"
+    },
+    "75071": {
+      "lat": 33.245816,
+      "lon": -96.63072,
+      "label": "Mckinney, TX"
+    },
+    "75072": {
+      "lat": 33.187899,
+      "lon": -96.699951,
+      "label": "ZIP 75072"
+    },
+    "75074": {
+      "lat": 33.033284,
+      "lon": -96.672758,
+      "label": "Plano, TX"
+    },
+    "75080": {
+      "lat": 32.976063,
+      "lon": -96.74208,
+      "label": "Richardson, TX"
+    },
+    "75093": {
+      "lat": 33.034224,
+      "lon": -96.811608,
+      "label": "Plano, TX"
+    },
+    "75098": {
+      "lat": 33.014492,
+      "lon": -96.534832,
+      "label": "Wylie, TX"
+    },
+    "75104": {
+      "lat": 32.584814,
+      "lon": -96.972312,
+      "label": "Cedar Hill, TX"
+    },
+    "75115": {
+      "lat": 32.599427,
+      "lon": -96.864075,
+      "label": "Desoto, TX"
+    },
+    "75126": {
+      "lat": 32.742601,
+      "lon": -96.452883,
+      "label": "Forney, TX"
+    },
+    "75149": {
+      "lat": 32.773369,
+      "lon": -96.618811,
+      "label": "Mesquite, TX"
+    },
+    "75150": {
+      "lat": 32.813863,
+      "lon": -96.63098,
+      "label": "Mesquite, TX"
+    },
+    "75165": {
+      "lat": 32.371654,
+      "lon": -96.80303,
+      "label": "Waxahachie, TX"
+    },
+    "75211": {
+      "lat": 32.736827,
+      "lon": -96.907506,
+      "label": "Dallas, TX"
+    },
+    "75216": {
+      "lat": 32.711324,
+      "lon": -96.781215,
+      "label": "Dallas, TX"
+    },
+    "75217": {
+      "lat": 32.712583,
+      "lon": -96.682045,
+      "label": "Dallas, TX"
+    },
+    "75227": {
+      "lat": 32.76681,
+      "lon": -96.6869,
+      "label": "Dallas, TX"
+    },
+    "75228": {
+      "lat": 32.824924,
+      "lon": -96.679438,
+      "label": "Dallas, TX"
+    },
+    "75243": {
+      "lat": 32.912633,
+      "lon": -96.736637,
+      "label": "Dallas, TX"
+    },
+    "75287": {
+      "lat": 32.999309,
+      "lon": -96.841688,
+      "label": "Dallas, TX"
+    },
+    "76010": {
+      "lat": 32.72271,
+      "lon": -97.080659,
+      "label": "Arlington, TX"
+    },
+    "76017": {
+      "lat": 32.662513,
+      "lon": -97.164024,
+      "label": "Arlington, TX"
+    },
+    "76028": {
+      "lat": 32.532677,
+      "lon": -97.306547,
+      "label": "Burleson, TX"
+    },
+    "76051": {
+      "lat": 32.942026,
+      "lon": -97.07993,
+      "label": "Grapevine, TX"
+    },
+    "76063": {
+      "lat": 32.57074,
+      "lon": -97.144837,
+      "label": "Mansfield, TX"
+    },
+    "76116": {
+      "lat": 32.720723,
+      "lon": -97.447033,
+      "label": "Fort Worth, TX"
+    },
+    "76119": {
+      "lat": 32.691143,
+      "lon": -97.261538,
+      "label": "Fort Worth, TX"
+    },
+    "76133": {
+      "lat": 32.652918,
+      "lon": -97.379538,
+      "label": "Fort Worth, TX"
+    },
+    "76137": {
+      "lat": 32.859685,
+      "lon": -97.291523,
+      "label": "Fort Worth, TX"
+    },
+    "76179": {
+      "lat": 32.909919,
+      "lon": -97.434281,
+      "label": "Fort Worth, TX"
+    },
+    "76244": {
+      "lat": 32.927979,
+      "lon": -97.276559,
+      "label": "Keller, TX"
+    },
+    "76502": {
+      "lat": 31.104022,
+      "lon": -97.412045,
+      "label": "Temple, TX"
+    },
+    "76542": {
+      "lat": 30.989388,
+      "lon": -97.702738,
+      "label": "Killeen, TX"
+    },
+    "76549": {
+      "lat": 31.017077,
+      "lon": -97.833092,
+      "label": "Killeen, TX"
+    },
+    "77015": {
+      "lat": 29.764825,
+      "lon": -95.171416,
+      "label": "Houston, TX"
+    },
+    "77036": {
+      "lat": 29.699048,
+      "lon": -95.536507,
+      "label": "Houston, TX"
+    },
+    "77040": {
+      "lat": 29.876546,
+      "lon": -95.532244,
+      "label": "Houston, TX"
+    },
+    "77044": {
+      "lat": 29.906312,
+      "lon": -95.180561,
+      "label": "Houston, TX"
+    },
+    "77064": {
+      "lat": 29.924186,
+      "lon": -95.541691,
+      "label": "Houston, TX"
+    },
+    "77070": {
+      "lat": 29.979455,
+      "lon": -95.573317,
+      "label": "Houston, TX"
+    },
+    "77072": {
+      "lat": 29.700441,
+      "lon": -95.585023,
+      "label": "Houston, TX"
+    },
+    "77077": {
+      "lat": 29.753633,
+      "lon": -95.642004,
+      "label": "Houston, TX"
+    },
+    "77080": {
+      "lat": 29.81835,
+      "lon": -95.522439,
+      "label": "Houston, TX"
+    },
+    "77081": {
+      "lat": 29.712829,
+      "lon": -95.478516,
+      "label": "Houston, TX"
+    },
+    "77082": {
+      "lat": 29.72449,
+      "lon": -95.640002,
+      "label": "Houston, TX"
+    },
+    "77083": {
+      "lat": 29.693991,
+      "lon": -95.64783,
+      "label": "Houston, TX"
+    },
+    "77084": {
+      "lat": 29.827486,
+      "lon": -95.65992,
+      "label": "Houston, TX"
+    },
+    "77088": {
+      "lat": 29.881487,
+      "lon": -95.452619,
+      "label": "Houston, TX"
+    },
+    "77089": {
+      "lat": 29.586959,
+      "lon": -95.225601,
+      "label": "Houston, TX"
+    },
+    "77093": {
+      "lat": 29.863156,
+      "lon": -95.341927,
+      "label": "Houston, TX"
+    },
+    "77095": {
+      "lat": 29.910049,
+      "lon": -95.65884,
+      "label": "Houston, TX"
+    },
+    "77099": {
+      "lat": 29.670869,
+      "lon": -95.58599,
+      "label": "Houston, TX"
+    },
+    "77338": {
+      "lat": 30.014356,
+      "lon": -95.282995,
+      "label": "Humble, TX"
+    },
+    "77346": {
+      "lat": 29.991995,
+      "lon": -95.177268,
+      "label": "Humble, TX"
+    },
+    "77373": {
+      "lat": 30.062169,
+      "lon": -95.383966,
+      "label": "Spring, TX"
+    },
+    "77375": {
+      "lat": 30.094665,
+      "lon": -95.586187,
+      "label": "Tomball, TX"
+    },
+    "77379": {
+      "lat": 30.039457,
+      "lon": -95.534383,
+      "label": "Spring, TX"
+    },
+    "77386": {
+      "lat": 30.100262,
+      "lon": -95.356488,
+      "label": "Spring, TX"
+    },
+    "77388": {
+      "lat": 30.061932,
+      "lon": -95.465877,
+      "label": "Spring, TX"
+    },
+    "77396": {
+      "lat": 29.943359,
+      "lon": -95.262498,
+      "label": "Humble, TX"
+    },
+    "77406": {
+      "lat": 29.64609,
+      "lon": -95.794526,
+      "label": "Richmond, TX"
+    },
+    "77407": {
+      "lat": 29.670004,
+      "lon": -95.708089,
+      "label": "Richmond, TX"
+    },
+    "77429": {
+      "lat": 29.995758,
+      "lon": -95.665088,
+      "label": "Cypress, TX"
+    },
+    "77433": {
+      "lat": 29.945301,
+      "lon": -95.741369,
+      "label": "Cypress, TX"
+    },
+    "77449": {
+      "lat": 29.837611,
+      "lon": -95.73374,
+      "label": "Katy, TX"
+    },
+    "77450": {
+      "lat": 29.748169,
+      "lon": -95.736154,
+      "label": "Katy, TX"
+    },
+    "77459": {
+      "lat": 29.526393,
+      "lon": -95.533799,
+      "label": "Missouri City, TX"
+    },
+    "77469": {
+      "lat": 29.491375,
+      "lon": -95.702129,
+      "label": "Richmond, TX"
+    },
+    "77479": {
+      "lat": 29.56504,
+      "lon": -95.635059,
+      "label": "Sugar Land, TX"
+    },
+    "77493": {
+      "lat": 29.853217,
+      "lon": -95.831457,
+      "label": "Katy, TX"
+    },
     "77494": {
       "lat": 29.7498311,
       "lon": -95.8124509,
       "label": "77494, Fort Bend County, Texas, United States"
+    },
+    "77498": {
+      "lat": 29.640975,
+      "lon": -95.655784,
+      "label": "Sugar Land, TX"
+    },
+    "77511": {
+      "lat": 29.380763,
+      "lon": -95.245193,
+      "label": "Alvin, TX"
+    },
+    "77521": {
+      "lat": 29.811924,
+      "lon": -94.963306,
+      "label": "Baytown, TX"
+    },
+    "77539": {
+      "lat": 29.452997,
+      "lon": -95.02847,
+      "label": "Dickinson, TX"
+    },
+    "77546": {
+      "lat": 29.511132,
+      "lon": -95.193008,
+      "label": "Friendswood, TX"
+    },
+    "77573": {
+      "lat": 29.503785,
+      "lon": -95.0873,
+      "label": "League City, TX"
+    },
+    "77581": {
+      "lat": 29.561597,
+      "lon": -95.279759,
+      "label": "Pearland, TX"
+    },
+    "77584": {
+      "lat": 29.545041,
+      "lon": -95.350692,
+      "label": "Pearland, TX"
+    },
+    "77840": {
+      "lat": 30.611527,
+      "lon": -96.323267,
+      "label": "College Station, TX"
+    },
+    "77845": {
+      "lat": 30.5611,
+      "lon": -96.275139,
+      "label": "College Station, TX"
+    },
+    "78041": {
+      "lat": 27.559571,
+      "lon": -99.462957,
+      "label": "Laredo, TX"
+    },
+    "78045": {
+      "lat": 27.833815,
+      "lon": -99.681424,
+      "label": "Laredo, TX"
+    },
+    "78046": {
+      "lat": 27.385525,
+      "lon": -99.389132,
+      "label": "Laredo, TX"
+    },
+    "78130": {
+      "lat": 29.693649,
+      "lon": -98.068676,
+      "label": "New Braunfels, TX"
+    },
+    "78155": {
+      "lat": 29.542968,
+      "lon": -97.937698,
+      "label": "Seguin, TX"
+    },
+    "78201": {
+      "lat": 29.468413,
+      "lon": -98.528889,
+      "label": "San Antonio, TX"
+    },
+    "78207": {
+      "lat": 29.422124,
+      "lon": -98.525978,
+      "label": "San Antonio, TX"
+    },
+    "78223": {
+      "lat": 29.310488,
+      "lon": -98.387514,
+      "label": "San Antonio, TX"
+    },
+    "78227": {
+      "lat": 29.389895,
+      "lon": -98.639378,
+      "label": "San Antonio, TX"
+    },
+    "78228": {
+      "lat": 29.460646,
+      "lon": -98.571279,
+      "label": "San Antonio, TX"
+    },
+    "78240": {
+      "lat": 29.525291,
+      "lon": -98.604382,
+      "label": "San Antonio, TX"
+    },
+    "78245": {
+      "lat": 29.39317,
+      "lon": -98.74144,
+      "label": "San Antonio, TX"
+    },
+    "78247": {
+      "lat": 29.581433,
+      "lon": -98.408776,
+      "label": "San Antonio, TX"
+    },
+    "78249": {
+      "lat": 29.568476,
+      "lon": -98.614271,
+      "label": "San Antonio, TX"
+    },
+    "78250": {
+      "lat": 29.502729,
+      "lon": -98.664897,
+      "label": "San Antonio, TX"
+    },
+    "78251": {
+      "lat": 29.461683,
+      "lon": -98.676727,
+      "label": "San Antonio, TX"
+    },
+    "78253": {
+      "lat": 29.470229,
+      "lon": -98.787591,
+      "label": "San Antonio, TX"
+    },
+    "78254": {
+      "lat": 29.530564,
+      "lon": -98.72718,
+      "label": "San Antonio, TX"
+    },
+    "78258": {
+      "lat": 29.634209,
+      "lon": -98.489808,
+      "label": "San Antonio, TX"
+    },
+    "78414": {
+      "lat": 27.662421,
+      "lon": -97.371535,
+      "label": "Corpus Christi, TX"
+    },
+    "78501": {
+      "lat": 26.215817,
+      "lon": -98.239572,
+      "label": "Mcallen, TX"
+    },
+    "78504": {
+      "lat": 26.28279,
+      "lon": -98.236933,
+      "label": "Mcallen, TX"
+    },
+    "78520": {
+      "lat": 25.960875,
+      "lon": -97.548607,
+      "label": "Brownsville, TX"
+    },
+    "78521": {
+      "lat": 25.943923,
+      "lon": -97.317944,
+      "label": "Brownsville, TX"
+    },
+    "78526": {
+      "lat": 25.995689,
+      "lon": -97.450848,
+      "label": "Brownsville, TX"
+    },
+    "78537": {
+      "lat": 26.173186,
+      "lon": -98.057967,
+      "label": "Donna, TX"
+    },
+    "78541": {
+      "lat": 26.452135,
+      "lon": -98.276811,
+      "label": "Edinburg, TX"
+    },
+    "78542": {
+      "lat": 26.432513,
+      "lon": -98.089884,
+      "label": "Edinburg, TX"
+    },
+    "78550": {
+      "lat": 26.255724,
+      "lon": -97.6635,
+      "label": "Harlingen, TX"
+    },
+    "78572": {
+      "lat": 26.201484,
+      "lon": -98.357159,
+      "label": "Mission, TX"
+    },
+    "78574": {
+      "lat": 26.31117,
+      "lon": -98.372914,
+      "label": "Mission, TX"
+    },
+    "78577": {
+      "lat": 26.163436,
+      "lon": -98.19389,
+      "label": "Pharr, TX"
+    },
+    "78586": {
+      "lat": 26.109941,
+      "lon": -97.645414,
+      "label": "San Benito, TX"
+    },
+    "78613": {
+      "lat": 30.507079,
+      "lon": -97.819464,
+      "label": "Cedar Park, TX"
+    },
+    "78640": {
+      "lat": 29.994866,
+      "lon": -97.821239,
+      "label": "Kyle, TX"
+    },
+    "78641": {
+      "lat": 30.557918,
+      "lon": -97.913672,
+      "label": "Leander, TX"
+    },
+    "78660": {
+      "lat": 30.43963,
+      "lon": -97.594687,
+      "label": "Pflugerville, TX"
+    },
+    "78664": {
+      "lat": 30.505414,
+      "lon": -97.647284,
+      "label": "Round Rock, TX"
+    },
+    "78665": {
+      "lat": 30.548874,
+      "lon": -97.636201,
+      "label": "Round Rock, TX"
+    },
+    "78666": {
+      "lat": 29.881662,
+      "lon": -97.984794,
+      "label": "San Marcos, TX"
+    },
+    "78681": {
+      "lat": 30.541758,
+      "lon": -97.716638,
+      "label": "Round Rock, TX"
     },
     "78704": {
       "lat": 30.2442594,
       "lon": -97.7621331,
       "label": "78704, Austin, Travis County, Texas, United States"
     },
+    "78741": {
+      "lat": 30.229681,
+      "lon": -97.713687,
+      "label": "Austin, TX"
+    },
+    "78744": {
+      "lat": 30.177791,
+      "lon": -97.725147,
+      "label": "Austin, TX"
+    },
+    "78745": {
+      "lat": 30.207424,
+      "lon": -97.798244,
+      "label": "Austin, TX"
+    },
+    "78748": {
+      "lat": 30.160024,
+      "lon": -97.823302,
+      "label": "Austin, TX"
+    },
+    "78753": {
+      "lat": 30.383591,
+      "lon": -97.673349,
+      "label": "Austin, TX"
+    },
+    "78758": {
+      "lat": 30.387697,
+      "lon": -97.706655,
+      "label": "Austin, TX"
+    },
+    "78759": {
+      "lat": 30.402705,
+      "lon": -97.760938,
+      "label": "Austin, TX"
+    },
+    "78840": {
+      "lat": 29.729784,
+      "lon": -100.926008,
+      "label": "Del Rio, TX"
+    },
+    "78852": {
+      "lat": 28.943749,
+      "lon": -100.227139,
+      "label": "Eagle Pass, TX"
+    },
+    "79424": {
+      "lat": 33.465175,
+      "lon": -101.935271,
+      "label": "Lubbock, TX"
+    },
+    "79907": {
+      "lat": 31.707231,
+      "lon": -106.326563,
+      "label": "El Paso, TX"
+    },
+    "79912": {
+      "lat": 31.848583,
+      "lon": -106.534316,
+      "label": "El Paso, TX"
+    },
+    "79924": {
+      "lat": 31.902236,
+      "lon": -106.413548,
+      "label": "El Paso, TX"
+    },
+    "79928": {
+      "lat": 31.678635,
+      "lon": -106.115148,
+      "label": "El Paso, TX"
+    },
+    "79936": {
+      "lat": 31.773676,
+      "lon": -106.295415,
+      "label": "El Paso, TX"
+    },
+    "79938": {
+      "lat": 31.845514,
+      "lon": -106.019659,
+      "label": "El Paso, TX"
+    },
+    "80011": {
+      "lat": 39.744033,
+      "lon": -104.790013,
+      "label": "Aurora, CO"
+    },
+    "80012": {
+      "lat": 39.699766,
+      "lon": -104.837834,
+      "label": "Aurora, CO"
+    },
+    "80013": {
+      "lat": 39.661462,
+      "lon": -104.765764,
+      "label": "Aurora, CO"
+    },
+    "80015": {
+      "lat": 39.628055,
+      "lon": -104.793254,
+      "label": "Aurora, CO"
+    },
+    "80016": {
+      "lat": 39.593026,
+      "lon": -104.7224,
+      "label": "Aurora, CO"
+    },
+    "80020": {
+      "lat": 39.930782,
+      "lon": -105.074287,
+      "label": "Broomfield, CO"
+    },
+    "80022": {
+      "lat": 39.861115,
+      "lon": -104.788777,
+      "label": "Commerce City, CO"
+    },
+    "80123": {
+      "lat": 39.61601,
+      "lon": -105.069449,
+      "label": "Littleton, CO"
+    },
+    "80134": {
+      "lat": 39.482825,
+      "lon": -104.77999,
+      "label": "Parker, CO"
+    },
+    "80219": {
+      "lat": 39.695293,
+      "lon": -105.035601,
+      "label": "Denver, CO"
+    },
+    "80229": {
+      "lat": 39.85425,
+      "lon": -104.957598,
+      "label": "Denver, CO"
+    },
+    "80233": {
+      "lat": 39.897536,
+      "lon": -104.943922,
+      "label": "Denver, CO"
+    },
+    "80239": {
+      "lat": 39.789197,
+      "lon": -104.833616,
+      "label": "Denver, CO"
+    },
+    "80504": {
+      "lat": 40.16564,
+      "lon": -105.029231,
+      "label": "Longmont, CO"
+    },
+    "80525": {
+      "lat": 40.527358,
+      "lon": -105.041438,
+      "label": "Fort Collins, CO"
+    },
+    "80537": {
+      "lat": 40.38308,
+      "lon": -105.200416,
+      "label": "Loveland, CO"
+    },
+    "80538": {
+      "lat": 40.544612,
+      "lon": -105.245108,
+      "label": "Loveland, CO"
+    },
+    "80631": {
+      "lat": 40.444516,
+      "lon": -104.679555,
+      "label": "Greeley, CO"
+    },
+    "80634": {
+      "lat": 40.40141,
+      "lon": -104.792395,
+      "label": "Greeley, CO"
+    },
+    "80918": {
+      "lat": 38.910393,
+      "lon": -104.780362,
+      "label": "Colorado Springs, CO"
+    },
+    "83301": {
+      "lat": 42.400555,
+      "lon": -114.524876,
+      "label": "Twin Falls, ID"
+    },
+    "83401": {
+      "lat": 43.542409,
+      "lon": -111.877936,
+      "label": "Idaho Falls, ID"
+    },
+    "83440": {
+      "lat": 43.808572,
+      "lon": -111.80862,
+      "label": "Rexburg, ID"
+    },
+    "83642": {
+      "lat": 43.573507,
+      "lon": -116.401064,
+      "label": "Meridian, ID"
+    },
+    "83646": {
+      "lat": 43.649585,
+      "lon": -116.431758,
+      "label": "Meridian, ID"
+    },
+    "83686": {
+      "lat": 43.498853,
+      "lon": -116.604299,
+      "label": "Nampa, ID"
+    },
+    "83709": {
+      "lat": 43.548356,
+      "lon": -116.285218,
+      "label": "Boise, ID"
+    },
+    "83854": {
+      "lat": 47.726224,
+      "lon": -116.976167,
+      "label": "Post Falls, ID"
+    },
+    "84003": {
+      "lat": 40.471654,
+      "lon": -111.68059,
+      "label": "American Fork, UT"
+    },
+    "84010": {
+      "lat": 40.873122,
+      "lon": -111.835036,
+      "label": "Bountiful, UT"
+    },
+    "84015": {
+      "lat": 41.120356,
+      "lon": -112.060775,
+      "label": "Clearfield, UT"
+    },
+    "84020": {
+      "lat": 40.497673,
+      "lon": -111.866118,
+      "label": "Draper, UT"
+    },
+    "84041": {
+      "lat": 41.069929,
+      "lon": -111.981255,
+      "label": "Layton, UT"
+    },
+    "84043": {
+      "lat": 40.411552,
+      "lon": -111.87428,
+      "label": "Lehi, UT"
+    },
+    "84062": {
+      "lat": 40.383842,
+      "lon": -111.681871,
+      "label": "Pleasant Grove, UT"
+    },
+    "84065": {
+      "lat": 40.493936,
+      "lon": -111.943725,
+      "label": "Riverton, UT"
+    },
+    "84074": {
+      "lat": 40.582074,
+      "lon": -112.303592,
+      "label": "Tooele, UT"
+    },
+    "84081": {
+      "lat": 40.602762,
+      "lon": -112.038247,
+      "label": "West Jordan, UT"
+    },
+    "84096": {
+      "lat": 40.487037,
+      "lon": -112.099983,
+      "label": "Herriman, UT"
+    },
+    "84119": {
+      "lat": 40.700258,
+      "lon": -111.946425,
+      "label": "Salt Lake City, UT"
+    },
+    "84120": {
+      "lat": 40.69686,
+      "lon": -112.001744,
+      "label": "Salt Lake City, UT"
+    },
+    "84321": {
+      "lat": 41.774813,
+      "lon": -111.712761,
+      "label": "Logan, UT"
+    },
+    "84404": {
+      "lat": 41.269519,
+      "lon": -112.117658,
+      "label": "Ogden, UT"
+    },
+    "84660": {
+      "lat": 40.040637,
+      "lon": -111.419114,
+      "label": "Spanish Fork, UT"
+    },
+    "84790": {
+      "lat": 37.046092,
+      "lon": -113.557306,
+      "label": "Saint George, UT"
+    },
+    "85008": {
+      "lat": 33.463884,
+      "lon": -111.987763,
+      "label": "Phoenix, AZ"
+    },
+    "85009": {
+      "lat": 33.444546,
+      "lon": -112.128675,
+      "label": "Phoenix, AZ"
+    },
     "85018": {
       "lat": 33.4981604,
       "lon": -111.9882145,
       "label": "85018, Camelback East, Phoenix, Maricopa County, Arizona, United States"
+    },
+    "85022": {
+      "lat": 33.627136,
+      "lon": -112.049222,
+      "label": "Phoenix, AZ"
+    },
+    "85029": {
+      "lat": 33.595414,
+      "lon": -112.10975,
+      "label": "Phoenix, AZ"
+    },
+    "85032": {
+      "lat": 33.62592,
+      "lon": -112.002503,
+      "label": "Phoenix, AZ"
+    },
+    "85033": {
+      "lat": 33.493589,
+      "lon": -112.214037,
+      "label": "Phoenix, AZ"
+    },
+    "85035": {
+      "lat": 33.471668,
+      "lon": -112.195393,
+      "label": "Phoenix, AZ"
+    },
+    "85037": {
+      "lat": 33.486707,
+      "lon": -112.268258,
+      "label": "Phoenix, AZ"
+    },
+    "85041": {
+      "lat": 33.386995,
+      "lon": -112.109574,
+      "label": "Phoenix, AZ"
+    },
+    "85122": {
+      "lat": 32.916728,
+      "lon": -111.747967,
+      "label": "Casa Grande, AZ"
+    },
+    "85138": {
+      "lat": 33.017663,
+      "lon": -111.991284,
+      "label": "Maricopa, AZ"
+    },
+    "85142": {
+      "lat": 33.192391,
+      "lon": -111.66594,
+      "label": "Queen Creek, AZ"
+    },
+    "85201": {
+      "lat": 33.433545,
+      "lon": -111.8504,
+      "label": "Mesa, AZ"
+    },
+    "85204": {
+      "lat": 33.39572,
+      "lon": -111.786608,
+      "label": "Mesa, AZ"
+    },
+    "85207": {
+      "lat": 33.453269,
+      "lon": -111.636673,
+      "label": "Mesa, AZ"
+    },
+    "85212": {
+      "lat": 33.320607,
+      "lon": -111.630757,
+      "label": "Mesa, AZ"
+    },
+    "85224": {
+      "lat": 33.323511,
+      "lon": -111.876159,
+      "label": "Chandler, AZ"
+    },
+    "85225": {
+      "lat": 33.317828,
+      "lon": -111.830541,
+      "label": "Chandler, AZ"
+    },
+    "85234": {
+      "lat": 33.365502,
+      "lon": -111.73966,
+      "label": "Gilbert, AZ"
+    },
+    "85281": {
+      "lat": 33.42744,
+      "lon": -111.934004,
+      "label": "Tempe, AZ"
+    },
+    "85282": {
+      "lat": 33.393984,
+      "lon": -111.932906,
+      "label": "Tempe, AZ"
+    },
+    "85286": {
+      "lat": 33.272273,
+      "lon": -111.833863,
+      "label": "Chandler, AZ"
+    },
+    "85295": {
+      "lat": 33.305282,
+      "lon": -111.736462,
+      "label": "Gilbert, AZ"
+    },
+    "85296": {
+      "lat": 33.332328,
+      "lon": -111.749802,
+      "label": "Gilbert, AZ"
+    },
+    "85301": {
+      "lat": 33.533729,
+      "lon": -112.17854,
+      "label": "Glendale, AZ"
+    },
+    "85308": {
+      "lat": 33.660382,
+      "lon": -112.184964,
+      "label": "Glendale, AZ"
+    },
+    "85323": {
+      "lat": 33.419233,
+      "lon": -112.326866,
+      "label": "Avondale, AZ"
+    },
+    "85326": {
+      "lat": 33.229169,
+      "lon": -112.582866,
+      "label": "Buckeye, AZ"
+    },
+    "85338": {
+      "lat": 33.372975,
+      "lon": -112.410829,
+      "label": "Goodyear, AZ"
+    },
+    "85339": {
+      "lat": 33.240894,
+      "lon": -112.142689,
+      "label": "Laveen, AZ"
+    },
+    "85345": {
+      "lat": 33.572326,
+      "lon": -112.248142,
+      "label": "Peoria, AZ"
+    },
+    "85364": {
+      "lat": 32.704556,
+      "lon": -114.656304,
+      "label": "Yuma, AZ"
+    },
+    "85365": {
+      "lat": 33.017596,
+      "lon": -114.110521,
+      "label": "Yuma, AZ"
+    },
+    "85379": {
+      "lat": 33.602126,
+      "lon": -112.374041,
+      "label": "Surprise, AZ"
+    },
+    "85383": {
+      "lat": 33.798406,
+      "lon": -112.305179,
+      "label": "Peoria, AZ"
+    },
+    "85705": {
+      "lat": 32.271205,
+      "lon": -110.991724,
+      "label": "Tucson, AZ"
+    },
+    "85706": {
+      "lat": 32.147828,
+      "lon": -110.935368,
+      "label": "Tucson, AZ"
+    },
+    "85710": {
+      "lat": 32.214388,
+      "lon": -110.823663,
+      "label": "Tucson, AZ"
+    },
+    "85713": {
+      "lat": 32.19457,
+      "lon": -111.014995,
+      "label": "Tucson, AZ"
+    },
+    "85719": {
+      "lat": 32.246222,
+      "lon": -110.948769,
+      "label": "Tucson, AZ"
+    },
+    "85746": {
+      "lat": 32.069621,
+      "lon": -111.090488,
+      "label": "Tucson, AZ"
+    },
+    "87031": {
+      "lat": 34.779132,
+      "lon": -106.725659,
+      "label": "Los Lunas, NM"
+    },
+    "87105": {
+      "lat": 34.9943,
+      "lon": -106.684771,
+      "label": "Albuquerque, NM"
+    },
+    "87111": {
+      "lat": 35.140776,
+      "lon": -106.514586,
+      "label": "Albuquerque, NM"
+    },
+    "87114": {
+      "lat": 35.197465,
+      "lon": -106.681757,
+      "label": "Albuquerque, NM"
+    },
+    "87120": {
+      "lat": 35.140539,
+      "lon": -106.760969,
+      "label": "Albuquerque, NM"
+    },
+    "87121": {
+      "lat": 35.017046,
+      "lon": -106.888308,
+      "label": "Albuquerque, NM"
+    },
+    "87123": {
+      "lat": 35.061361,
+      "lon": -106.47123,
+      "label": "Albuquerque, NM"
+    },
+    "87124": {
+      "lat": 35.26992,
+      "lon": -106.795643,
+      "label": "Rio Rancho, NM"
+    },
+    "87144": {
+      "lat": 35.330173,
+      "lon": -106.710088,
+      "label": "Rio Rancho, NM"
+    },
+    "87401": {
+      "lat": 36.738158,
+      "lon": -108.183294,
+      "label": "Farmington, NM"
+    },
+    "87507": {
+      "lat": 35.621812,
+      "lon": -106.108636,
+      "label": "Santa Fe, NM"
+    },
+    "89030": {
+      "lat": 36.212305,
+      "lon": -115.123134,
+      "label": "North Las Vegas, NV"
+    },
+    "89031": {
+      "lat": 36.258457,
+      "lon": -115.170743,
+      "label": "North Las Vegas, NV"
+    },
+    "89032": {
+      "lat": 36.222386,
+      "lon": -115.173585,
+      "label": "North Las Vegas, NV"
+    },
+    "89052": {
+      "lat": 35.979874,
+      "lon": -115.107944,
+      "label": "Henderson, NV"
+    },
+    "89074": {
+      "lat": 36.03637,
+      "lon": -115.081186,
+      "label": "Henderson, NV"
+    },
+    "89103": {
+      "lat": 36.11236,
+      "lon": -115.212148,
+      "label": "Las Vegas, NV"
+    },
+    "89108": {
+      "lat": 36.205088,
+      "lon": -115.223683,
+      "label": "Las Vegas, NV"
+    },
+    "89110": {
+      "lat": 36.173653,
+      "lon": -115.055479,
+      "label": "Las Vegas, NV"
+    },
+    "89115": {
+      "lat": 36.253702,
+      "lon": -115.042936,
+      "label": "Las Vegas, NV"
+    },
+    "89117": {
+      "lat": 36.140961,
+      "lon": -115.281091,
+      "label": "Las Vegas, NV"
+    },
+    "89119": {
+      "lat": 36.08452,
+      "lon": -115.146071,
+      "label": "Las Vegas, NV"
+    },
+    "89121": {
+      "lat": 36.12141,
+      "lon": -115.091367,
+      "label": "Las Vegas, NV"
+    },
+    "89122": {
+      "lat": 36.103965,
+      "lon": -115.037826,
+      "label": "Las Vegas, NV"
+    },
+    "89123": {
+      "lat": 36.035216,
+      "lon": -115.149123,
+      "label": "Las Vegas, NV"
+    },
+    "89129": {
+      "lat": 36.23325,
+      "lon": -115.290253,
+      "label": "Las Vegas, NV"
+    },
+    "89131": {
+      "lat": 36.306143,
+      "lon": -115.243024,
+      "label": "Las Vegas, NV"
+    },
+    "89147": {
+      "lat": 36.112892,
+      "lon": -115.27987,
+      "label": "Las Vegas, NV"
+    },
+    "89148": {
+      "lat": 36.063355,
+      "lon": -115.296763,
+      "label": "Las Vegas, NV"
+    },
+    "89436": {
+      "lat": 39.617274,
+      "lon": -119.704343,
+      "label": "Sparks, NV"
+    },
+    "90001": {
+      "lat": 33.973665,
+      "lon": -118.249039,
+      "label": "Los Angeles, CA"
+    },
+    "90002": {
+      "lat": 33.948987,
+      "lon": -118.24678,
+      "label": "Los Angeles, CA"
+    },
+    "90003": {
+      "lat": 33.964077,
+      "lon": -118.273684,
+      "label": "Los Angeles, CA"
+    },
+    "90004": {
+      "lat": 34.076219,
+      "lon": -118.310963,
+      "label": "Los Angeles, CA"
+    },
+    "90006": {
+      "lat": 34.048094,
+      "lon": -118.294045,
+      "label": "Los Angeles, CA"
     },
     "90011": {
       "lat": 34.0096007,
       "lon": -118.2591642,
       "label": "90011, Los Angeles, Los Angeles County, California, United States"
     },
+    "90018": {
+      "lat": 34.028632,
+      "lon": -118.317347,
+      "label": "Los Angeles, CA"
+    },
+    "90019": {
+      "lat": 34.049841,
+      "lon": -118.33846,
+      "label": "Los Angeles, CA"
+    },
+    "90022": {
+      "lat": 34.023728,
+      "lon": -118.156275,
+      "label": "Los Angeles, CA"
+    },
+    "90023": {
+      "lat": 34.022502,
+      "lon": -118.199613,
+      "label": "Los Angeles, CA"
+    },
+    "90026": {
+      "lat": 34.078991,
+      "lon": -118.263804,
+      "label": "Los Angeles, CA"
+    },
+    "90027": {
+      "lat": 34.127603,
+      "lon": -118.296381,
+      "label": "Los Angeles, CA"
+    },
+    "90032": {
+      "lat": 34.078294,
+      "lon": -118.185785,
+      "label": "Los Angeles, CA"
+    },
+    "90033": {
+      "lat": 34.05038,
+      "lon": -118.211991,
+      "label": "Los Angeles, CA"
+    },
+    "90034": {
+      "lat": 34.030578,
+      "lon": -118.399613,
+      "label": "Los Angeles, CA"
+    },
+    "90037": {
+      "lat": 34.00266,
+      "lon": -118.287507,
+      "label": "Los Angeles, CA"
+    },
+    "90042": {
+      "lat": 34.114708,
+      "lon": -118.192098,
+      "label": "Los Angeles, CA"
+    },
+    "90044": {
+      "lat": 33.952653,
+      "lon": -118.292013,
+      "label": "Los Angeles, CA"
+    },
+    "90046": {
+      "lat": 34.10781,
+      "lon": -118.362247,
+      "label": "Los Angeles, CA"
+    },
+    "90047": {
+      "lat": 33.95543,
+      "lon": -118.309568,
+      "label": "Los Angeles, CA"
+    },
+    "90057": {
+      "lat": 34.061735,
+      "lon": -118.276757,
+      "label": "Los Angeles, CA"
+    },
+    "90063": {
+      "lat": 34.045248,
+      "lon": -118.18578,
+      "label": "Los Angeles, CA"
+    },
+    "90065": {
+      "lat": 34.109595,
+      "lon": -118.228689,
+      "label": "Los Angeles, CA"
+    },
+    "90066": {
+      "lat": 34.002028,
+      "lon": -118.430656,
+      "label": "Los Angeles, CA"
+    },
+    "90201": {
+      "lat": 33.970343,
+      "lon": -118.171368,
+      "label": "Bell Gardens, CA"
+    },
+    "90220": {
+      "lat": 33.87978,
+      "lon": -118.229679,
+      "label": "Compton, CA"
+    },
+    "90221": {
+      "lat": 33.885811,
+      "lon": -118.206459,
+      "label": "Compton, CA"
+    },
+    "90250": {
+      "lat": 33.913651,
+      "lon": -118.350946,
+      "label": "Hawthorne, CA"
+    },
+    "90255": {
+      "lat": 33.979248,
+      "lon": -118.217438,
+      "label": "Huntington Park, CA"
+    },
+    "90262": {
+      "lat": 33.923831,
+      "lon": -118.201352,
+      "label": "Lynwood, CA"
+    },
+    "90280": {
+      "lat": 33.944159,
+      "lon": -118.192761,
+      "label": "South Gate, CA"
+    },
+    "90620": {
+      "lat": 33.845223,
+      "lon": -118.015292,
+      "label": "Buena Park, CA"
+    },
+    "90630": {
+      "lat": 33.818477,
+      "lon": -118.038307,
+      "label": "Cypress, CA"
+    },
+    "90631": {
+      "lat": 33.942708,
+      "lon": -117.952483,
+      "label": "La Habra, CA"
+    },
+    "90638": {
+      "lat": 33.902045,
+      "lon": -118.008961,
+      "label": "La Mirada, CA"
+    },
+    "90640": {
+      "lat": 34.015444,
+      "lon": -118.111012,
+      "label": "Montebello, CA"
+    },
+    "90650": {
+      "lat": 33.90779,
+      "lon": -118.082487,
+      "label": "Norwalk, CA"
+    },
+    "90660": {
+      "lat": 33.989524,
+      "lon": -118.089295,
+      "label": "Pico Rivera, CA"
+    },
+    "90703": {
+      "lat": 33.867745,
+      "lon": -118.069471,
+      "label": "Cerritos, CA"
+    },
+    "90706": {
+      "lat": 33.887821,
+      "lon": -118.12725,
+      "label": "Bellflower, CA"
+    },
+    "90723": {
+      "lat": 33.898883,
+      "lon": -118.166629,
+      "label": "Paramount, CA"
+    },
+    "90731": {
+      "lat": 33.732353,
+      "lon": -118.278151,
+      "label": "San Pedro, CA"
+    },
+    "90744": {
+      "lat": 33.777214,
+      "lon": -118.259604,
+      "label": "Wilmington, CA"
+    },
+    "90745": {
+      "lat": 33.820268,
+      "lon": -118.264125,
+      "label": "Carson, CA"
+    },
+    "90805": {
+      "lat": 33.864617,
+      "lon": -118.180567,
+      "label": "Long Beach, CA"
+    },
+    "90813": {
+      "lat": 33.782259,
+      "lon": -118.196793,
+      "label": "Long Beach, CA"
+    },
+    "91304": {
+      "lat": 34.227791,
+      "lon": -118.644607,
+      "label": "Canoga Park, CA"
+    },
+    "91306": {
+      "lat": 34.209532,
+      "lon": -118.577563,
+      "label": "Winnetka, CA"
+    },
+    "91331": {
+      "lat": 34.255294,
+      "lon": -118.419703,
+      "label": "Pacoima, CA"
+    },
+    "91335": {
+      "lat": 34.200175,
+      "lon": -118.540958,
+      "label": "Reseda, CA"
+    },
+    "91342": {
+      "lat": 34.326584,
+      "lon": -118.382261,
+      "label": "Sylmar, CA"
+    },
+    "91343": {
+      "lat": 34.238802,
+      "lon": -118.482296,
+      "label": "North Hills, CA"
+    },
+    "91344": {
+      "lat": 34.289467,
+      "lon": -118.504699,
+      "label": "Granada Hills, CA"
+    },
+    "91352": {
+      "lat": 34.230854,
+      "lon": -118.365856,
+      "label": "Sun Valley, CA"
+    },
+    "91402": {
+      "lat": 34.222506,
+      "lon": -118.444689,
+      "label": "Panorama City, CA"
+    },
+    "91405": {
+      "lat": 34.202494,
+      "lon": -118.448048,
+      "label": "Van Nuys, CA"
+    },
+    "91406": {
+      "lat": 34.197454,
+      "lon": -118.488978,
+      "label": "Van Nuys, CA"
+    },
+    "91605": {
+      "lat": 34.207341,
+      "lon": -118.400973,
+      "label": "North Hollywood, CA"
+    },
+    "91702": {
+      "lat": 34.281525,
+      "lon": -117.80009,
+      "label": "Azusa, CA"
+    },
+    "91706": {
+      "lat": 34.09741,
+      "lon": -117.968269,
+      "label": "Baldwin Park, CA"
+    },
+    "91709": {
+      "lat": 33.942969,
+      "lon": -117.725648,
+      "label": "Chino Hills, CA"
+    },
+    "91710": {
+      "lat": 34.005097,
+      "lon": -117.682525,
+      "label": "Chino, CA"
+    },
+    "91730": {
+      "lat": 34.100402,
+      "lon": -117.581282,
+      "label": "Rancho Cucamonga, CA"
+    },
+    "91732": {
+      "lat": 34.072407,
+      "lon": -118.014524,
+      "label": "El Monte, CA"
+    },
+    "91744": {
+      "lat": 34.0313,
+      "lon": -117.936777,
+      "label": "La Puente, CA"
+    },
+    "91745": {
+      "lat": 33.999005,
+      "lon": -117.972146,
+      "label": "Hacienda Heights, CA"
+    },
+    "91761": {
+      "lat": 34.035602,
+      "lon": -117.591528,
+      "label": "Ontario, CA"
+    },
+    "91762": {
+      "lat": 34.059409,
+      "lon": -117.669298,
+      "label": "Ontario, CA"
+    },
+    "91764": {
+      "lat": 34.074087,
+      "lon": -117.605618,
+      "label": "Ontario, CA"
+    },
+    "91766": {
+      "lat": 34.042286,
+      "lon": -117.756106,
+      "label": "Pomona, CA"
+    },
+    "91767": {
+      "lat": 34.083086,
+      "lon": -117.737997,
+      "label": "Pomona, CA"
+    },
+    "91770": {
+      "lat": 34.065108,
+      "lon": -118.082791,
+      "label": "Rosemead, CA"
+    },
+    "91786": {
+      "lat": 34.10525,
+      "lon": -117.66207,
+      "label": "Upland, CA"
+    },
+    "91789": {
+      "lat": 34.018195,
+      "lon": -117.854821,
+      "label": "Walnut, CA"
+    },
+    "91790": {
+      "lat": 34.066964,
+      "lon": -117.937007,
+      "label": "West Covina, CA"
+    },
+    "91801": {
+      "lat": 34.090924,
+      "lon": -118.127761,
+      "label": "Alhambra, CA"
+    },
+    "91910": {
+      "lat": 32.637096,
+      "lon": -117.061758,
+      "label": "Chula Vista, CA"
+    },
+    "91911": {
+      "lat": 32.607352,
+      "lon": -117.05036,
+      "label": "Chula Vista, CA"
+    },
+    "91913": {
+      "lat": 32.622895,
+      "lon": -116.986892,
+      "label": "Chula Vista, CA"
+    },
+    "91950": {
+      "lat": 32.669067,
+      "lon": -117.093487,
+      "label": "National City, CA"
+    },
+    "91977": {
+      "lat": 32.726237,
+      "lon": -116.994318,
+      "label": "Spring Valley, CA"
+    },
+    "92009": {
+      "lat": 33.095339,
+      "lon": -117.245769,
+      "label": "Carlsbad, CA"
+    },
+    "92020": {
+      "lat": 32.795605,
+      "lon": -116.969754,
+      "label": "El Cajon, CA"
+    },
+    "92021": {
+      "lat": 32.835732,
+      "lon": -116.874617,
+      "label": "El Cajon, CA"
+    },
+    "92024": {
+      "lat": 33.056868,
+      "lon": -117.257577,
+      "label": "Encinitas, CA"
+    },
+    "92025": {
+      "lat": 33.077814,
+      "lon": -117.033131,
+      "label": "Escondido, CA"
+    },
+    "92026": {
+      "lat": 33.210965,
+      "lon": -117.124788,
+      "label": "Escondido, CA"
+    },
+    "92027": {
+      "lat": 33.131601,
+      "lon": -116.976937,
+      "label": "Escondido, CA"
+    },
+    "92028": {
+      "lat": 33.386469,
+      "lon": -117.224957,
+      "label": "Fallbrook, CA"
+    },
+    "92040": {
+      "lat": 32.90891,
+      "lon": -116.891972,
+      "label": "Lakeside, CA"
+    },
+    "92056": {
+      "lat": 33.199582,
+      "lon": -117.298764,
+      "label": "Oceanside, CA"
+    },
+    "92057": {
+      "lat": 33.25462,
+      "lon": -117.283311,
+      "label": "Oceanside, CA"
+    },
+    "92064": {
+      "lat": 32.984352,
+      "lon": -117.013537,
+      "label": "Poway, CA"
+    },
+    "92069": {
+      "lat": 33.175303,
+      "lon": -117.157621,
+      "label": "San Marcos, CA"
+    },
+    "92071": {
+      "lat": 32.850685,
+      "lon": -116.995314,
+      "label": "Santee, CA"
+    },
+    "92078": {
+      "lat": 33.117065,
+      "lon": -117.180807,
+      "label": "San Marcos, CA"
+    },
+    "92084": {
+      "lat": 33.227283,
+      "lon": -117.200085,
+      "label": "Vista, CA"
+    },
+    "92104": {
+      "lat": 32.741933,
+      "lon": -117.127814,
+      "label": "San Diego, CA"
+    },
+    "92105": {
+      "lat": 32.740404,
+      "lon": -117.089868,
+      "label": "San Diego, CA"
+    },
+    "92109": {
+      "lat": 32.786772,
+      "lon": -117.234207,
+      "label": "San Diego, CA"
+    },
+    "92111": {
+      "lat": 32.806482,
+      "lon": -117.168966,
+      "label": "San Diego, CA"
+    },
+    "92113": {
+      "lat": 32.694637,
+      "lon": -117.119756,
+      "label": "San Diego, CA"
+    },
+    "92114": {
+      "lat": 32.707751,
+      "lon": -117.055297,
+      "label": "San Diego, CA"
+    },
+    "92115": {
+      "lat": 32.761549,
+      "lon": -117.071905,
+      "label": "San Diego, CA"
+    },
+    "92117": {
+      "lat": 32.824893,
+      "lon": -117.199714,
+      "label": "San Diego, CA"
+    },
+    "92122": {
+      "lat": 32.856798,
+      "lon": -117.210156,
+      "label": "San Diego, CA"
+    },
+    "92126": {
+      "lat": 32.91199,
+      "lon": -117.143421,
+      "label": "San Diego, CA"
+    },
+    "92127": {
+      "lat": 33.018765,
+      "lon": -117.124098,
+      "label": "San Diego, CA"
+    },
+    "92128": {
+      "lat": 32.996967,
+      "lon": -117.072979,
+      "label": "San Diego, CA"
+    },
+    "92129": {
+      "lat": 32.963536,
+      "lon": -117.126221,
+      "label": "San Diego, CA"
+    },
+    "92130": {
+      "lat": 32.947616,
+      "lon": -117.205825,
+      "label": "San Diego, CA"
+    },
+    "92154": {
+      "lat": 32.579101,
+      "lon": -116.966528,
+      "label": "San Diego, CA"
+    },
+    "92201": {
+      "lat": 33.709453,
+      "lon": -116.236967,
+      "label": "Indio, CA"
+    },
+    "92223": {
+      "lat": 33.937821,
+      "lon": -116.98137,
+      "label": "Beaumont, CA"
+    },
+    "92234": {
+      "lat": 33.814131,
+      "lon": -116.465548,
+      "label": "Cathedral City, CA"
+    },
+    "92243": {
+      "lat": 32.770197,
+      "lon": -115.59859,
+      "label": "El Centro, CA"
+    },
+    "92324": {
+      "lat": 34.025186,
+      "lon": -117.288849,
+      "label": "Colton, CA"
+    },
+    "92335": {
+      "lat": 34.087333,
+      "lon": -117.465158,
+      "label": "Fontana, CA"
+    },
+    "92336": {
+      "lat": 34.136862,
+      "lon": -117.460336,
+      "label": "Fontana, CA"
+    },
+    "92345": {
+      "lat": 34.360972,
+      "lon": -117.313039,
+      "label": "Hesperia, CA"
+    },
+    "92346": {
+      "lat": 34.124049,
+      "lon": -117.177573,
+      "label": "Highland, CA"
+    },
+    "92374": {
+      "lat": 34.068515,
+      "lon": -117.175322,
+      "label": "Redlands, CA"
+    },
+    "92376": {
+      "lat": 34.110537,
+      "lon": -117.380021,
+      "label": "Rialto, CA"
+    },
+    "92392": {
+      "lat": 34.479015,
+      "lon": -117.408834,
+      "label": "Victorville, CA"
+    },
+    "92395": {
+      "lat": 34.504828,
+      "lon": -117.298985,
+      "label": "Victorville, CA"
+    },
+    "92399": {
+      "lat": 34.032312,
+      "lon": -117.010577,
+      "label": "Yucaipa, CA"
+    },
+    "92404": {
+      "lat": 34.178633,
+      "lon": -117.238926,
+      "label": "San Bernardino, CA"
+    },
+    "92407": {
+      "lat": 34.225162,
+      "lon": -117.388487,
+      "label": "San Bernardino, CA"
+    },
+    "92410": {
+      "lat": 34.111575,
+      "lon": -117.263691,
+      "label": "San Bernardino, CA"
+    },
+    "92503": {
+      "lat": 33.882884,
+      "lon": -117.451725,
+      "label": "Riverside, CA"
+    },
+    "92504": {
+      "lat": 33.908353,
+      "lon": -117.401342,
+      "label": "Riverside, CA"
+    },
+    "92505": {
+      "lat": 33.926666,
+      "lon": -117.492804,
+      "label": "Riverside, CA"
+    },
+    "92507": {
+      "lat": 33.991122,
+      "lon": -117.306821,
+      "label": "Riverside, CA"
+    },
+    "92509": {
+      "lat": 34.003266,
+      "lon": -117.442004,
+      "label": "Riverside, CA"
+    },
+    "92530": {
+      "lat": 33.633056,
+      "lon": -117.370461,
+      "label": "Lake Elsinore, CA"
+    },
+    "92544": {
+      "lat": 33.645934,
+      "lon": -116.881628,
+      "label": "Hemet, CA"
+    },
+    "92553": {
+      "lat": 33.92335,
+      "lon": -117.245333,
+      "label": "Moreno Valley, CA"
+    },
+    "92557": {
+      "lat": 33.972548,
+      "lon": -117.258259,
+      "label": "Moreno Valley, CA"
+    },
+    "92562": {
+      "lat": 33.53124,
+      "lon": -117.343999,
+      "label": "Murrieta, CA"
+    },
+    "92563": {
+      "lat": 33.580016,
+      "lon": -117.14736,
+      "label": "Murrieta, CA"
+    },
+    "92570": {
+      "lat": 33.779946,
+      "lon": -117.322571,
+      "label": "Perris, CA"
+    },
+    "92571": {
+      "lat": 33.842129,
+      "lon": -117.194982,
+      "label": "Perris, CA"
+    },
+    "92584": {
+      "lat": 33.661431,
+      "lon": -117.182284,
+      "label": "Menifee, CA"
+    },
+    "92592": {
+      "lat": 33.510939,
+      "lon": -117.021505,
+      "label": "Temecula, CA"
+    },
+    "92618": {
+      "lat": 33.667307,
+      "lon": -117.73358,
+      "label": "Irvine, CA"
+    },
+    "92620": {
+      "lat": 33.706601,
+      "lon": -117.756948,
+      "label": "Irvine, CA"
+    },
+    "92626": {
+      "lat": 33.679591,
+      "lon": -117.908531,
+      "label": "Costa Mesa, CA"
+    },
+    "92627": {
+      "lat": 33.648112,
+      "lon": -117.921203,
+      "label": "Costa Mesa, CA"
+    },
+    "92630": {
+      "lat": 33.644929,
+      "lon": -117.684312,
+      "label": "Lake Forest, CA"
+    },
+    "92646": {
+      "lat": 33.661029,
+      "lon": -117.967948,
+      "label": "Huntington Beach, CA"
+    },
+    "92647": {
+      "lat": 33.723228,
+      "lon": -118.008692,
+      "label": "Huntington Beach, CA"
+    },
+    "92648": {
+      "lat": 33.679045,
+      "lon": -118.013011,
+      "label": "Huntington Beach, CA"
+    },
+    "92656": {
+      "lat": 33.575201,
+      "lon": -117.730352,
+      "label": "Aliso Viejo, CA"
+    },
+    "92677": {
+      "lat": 33.528654,
+      "lon": -117.701253,
+      "label": "Laguna Niguel, CA"
+    },
+    "92683": {
+      "lat": 33.752428,
+      "lon": -117.99387,
+      "label": "Westminster, CA"
+    },
+    "92691": {
+      "lat": 33.611945,
+      "lon": -117.665867,
+      "label": "Mission Viejo, CA"
+    },
+    "92692": {
+      "lat": 33.612175,
+      "lon": -117.640452,
+      "label": "Mission Viejo, CA"
+    },
+    "92701": {
+      "lat": 33.748622,
+      "lon": -117.858714,
+      "label": "Santa Ana, CA"
+    },
+    "92703": {
+      "lat": 33.74852,
+      "lon": -117.906162,
+      "label": "Santa Ana, CA"
+    },
+    "92704": {
+      "lat": 33.721131,
+      "lon": -117.90511,
+      "label": "Santa Ana, CA"
+    },
+    "92705": {
+      "lat": 33.766007,
+      "lon": -117.786763,
+      "label": "Santa Ana, CA"
+    },
+    "92707": {
+      "lat": 33.709935,
+      "lon": -117.870431,
+      "label": "Santa Ana, CA"
+    },
+    "92708": {
+      "lat": 33.710582,
+      "lon": -117.951129,
+      "label": "Fountain Valley, CA"
+    },
+    "92780": {
+      "lat": 33.736808,
+      "lon": -117.819678,
+      "label": "Tustin, CA"
+    },
+    "92801": {
+      "lat": 33.844983,
+      "lon": -117.952151,
+      "label": "Anaheim, CA"
+    },
+    "92804": {
+      "lat": 33.81801,
+      "lon": -117.975193,
+      "label": "Anaheim, CA"
+    },
+    "92805": {
+      "lat": 33.830053,
+      "lon": -117.905683,
+      "label": "Anaheim, CA"
+    },
+    "92821": {
+      "lat": 33.931943,
+      "lon": -117.854942,
+      "label": "Brea, CA"
+    },
+    "92833": {
+      "lat": 33.880509,
+      "lon": -117.961132,
+      "label": "Fullerton, CA"
+    },
+    "92840": {
+      "lat": 33.787165,
+      "lon": -117.931889,
+      "label": "Garden Grove, CA"
+    },
+    "92843": {
+      "lat": 33.763963,
+      "lon": -117.931538,
+      "label": "Garden Grove, CA"
+    },
+    "92870": {
+      "lat": 33.881158,
+      "lon": -117.854783,
+      "label": "Placentia, CA"
+    },
+    "92879": {
+      "lat": 33.882614,
+      "lon": -117.528205,
+      "label": "Corona, CA"
+    },
+    "92880": {
+      "lat": 33.92539,
+      "lon": -117.607254,
+      "label": "Corona, CA"
+    },
+    "92882": {
+      "lat": 33.862874,
+      "lon": -117.600092,
+      "label": "Corona, CA"
+    },
+    "92886": {
+      "lat": 33.895411,
+      "lon": -117.800829,
+      "label": "Yorba Linda, CA"
+    },
+    "93003": {
+      "lat": 34.283668,
+      "lon": -119.223196,
+      "label": "Ventura, CA"
+    },
+    "93010": {
+      "lat": 34.227888,
+      "lon": -119.079553,
+      "label": "Camarillo, CA"
+    },
+    "93030": {
+      "lat": 34.205097,
+      "lon": -119.17532,
+      "label": "Oxnard, CA"
+    },
+    "93033": {
+      "lat": 34.160093,
+      "lon": -119.135801,
+      "label": "Oxnard, CA"
+    },
+    "93036": {
+      "lat": 34.248141,
+      "lon": -119.153454,
+      "label": "Oxnard, CA"
+    },
+    "93063": {
+      "lat": 34.308048,
+      "lon": -118.686969,
+      "label": "Simi Valley, CA"
+    },
+    "93065": {
+      "lat": 34.262388,
+      "lon": -118.772219,
+      "label": "Simi Valley, CA"
+    },
+    "93117": {
+      "lat": 34.479453,
+      "lon": -120.084094,
+      "label": "Goleta, CA"
+    },
+    "93215": {
+      "lat": 35.779464,
+      "lon": -119.191935,
+      "label": "Delano, CA"
+    },
+    "93230": {
+      "lat": 36.29223,
+      "lon": -119.622676,
+      "label": "Hanford, CA"
+    },
+    "93257": {
+      "lat": 35.980858,
+      "lon": -118.889315,
+      "label": "Porterville, CA"
+    },
+    "93274": {
+      "lat": 36.177934,
+      "lon": -119.379975,
+      "label": "Tulare, CA"
+    },
+    "93277": {
+      "lat": 36.301334,
+      "lon": -119.372586,
+      "label": "Visalia, CA"
+    },
+    "93291": {
+      "lat": 36.391777,
+      "lon": -119.372842,
+      "label": "Visalia, CA"
+    },
+    "93292": {
+      "lat": 36.366243,
+      "lon": -119.211636,
+      "label": "Visalia, CA"
+    },
+    "93304": {
+      "lat": 35.339439,
+      "lon": -119.023655,
+      "label": "Bakersfield, CA"
+    },
+    "93306": {
+      "lat": 35.468193,
+      "lon": -118.779751,
+      "label": "Bakersfield, CA"
+    },
+    "93307": {
+      "lat": 35.24512,
+      "lon": -118.9411,
+      "label": "Bakersfield, CA"
+    },
+    "93308": {
+      "lat": 35.547493,
+      "lon": -118.946868,
+      "label": "Bakersfield, CA"
+    },
+    "93309": {
+      "lat": 35.343046,
+      "lon": -119.06504,
+      "label": "Bakersfield, CA"
+    },
+    "93311": {
+      "lat": 35.153729,
+      "lon": -119.168362,
+      "label": "Bakersfield, CA"
+    },
+    "93312": {
+      "lat": 35.391845,
+      "lon": -119.119548,
+      "label": "Bakersfield, CA"
+    },
+    "93313": {
+      "lat": 35.165449,
+      "lon": -119.043514,
+      "label": "Bakersfield, CA"
+    },
+    "93436": {
+      "lat": 34.599926,
+      "lon": -120.376532,
+      "label": "Lompoc, CA"
+    },
+    "93455": {
+      "lat": 34.848314,
+      "lon": -120.482883,
+      "label": "Santa Maria, CA"
+    },
+    "93458": {
+      "lat": 34.953245,
+      "lon": -120.492119,
+      "label": "Santa Maria, CA"
+    },
+    "93535": {
+      "lat": 34.698392,
+      "lon": -117.889945,
+      "label": "Lancaster, CA"
+    },
+    "93536": {
+      "lat": 34.73767,
+      "lon": -118.387424,
+      "label": "Lancaster, CA"
+    },
+    "93550": {
+      "lat": 34.410334,
+      "lon": -118.059957,
+      "label": "Palmdale, CA"
+    },
+    "93551": {
+      "lat": 34.589618,
+      "lon": -118.227381,
+      "label": "Palmdale, CA"
+    },
+    "93619": {
+      "lat": 36.914176,
+      "lon": -119.593979,
+      "label": "Clovis, CA"
+    },
+    "93635": {
+      "lat": 37.020187,
+      "lon": -120.8817,
+      "label": "Los Banos, CA"
+    },
+    "93638": {
+      "lat": 37.043434,
+      "lon": -120.033693,
+      "label": "Madera, CA"
+    },
+    "93720": {
+      "lat": 36.862209,
+      "lon": -119.760793,
+      "label": "Fresno, CA"
+    },
+    "93722": {
+      "lat": 36.799747,
+      "lon": -119.87762,
+      "label": "Fresno, CA"
+    },
+    "93727": {
+      "lat": 36.751612,
+      "lon": -119.695397,
+      "label": "Fresno, CA"
+    },
+    "93905": {
+      "lat": 36.685068,
+      "lon": -121.605992,
+      "label": "Salinas, CA"
+    },
+    "93906": {
+      "lat": 36.722676,
+      "lon": -121.633667,
+      "label": "Salinas, CA"
+    },
+    "94014": {
+      "lat": 37.690686,
+      "lon": -122.447738,
+      "label": "Daly City, CA"
+    },
+    "94015": {
+      "lat": 37.681313,
+      "lon": -122.480852,
+      "label": "Daly City, CA"
+    },
+    "94080": {
+      "lat": 37.655175,
+      "lon": -122.418384,
+      "label": "South San Francisco, CA"
+    },
+    "94086": {
+      "lat": 37.371634,
+      "lon": -122.023202,
+      "label": "Sunnyvale, CA"
+    },
+    "94087": {
+      "lat": 37.351615,
+      "lon": -122.03668,
+      "label": "Sunnyvale, CA"
+    },
+    "94109": {
+      "lat": 37.794485,
+      "lon": -122.42227,
+      "label": "San Francisco, CA"
+    },
     "94110": {
       "lat": 37.7673486,
       "lon": -122.3607097,
       "label": "94110, San Francisco, California, United States"
+    },
+    "94112": {
+      "lat": 37.720546,
+      "lon": -122.443166,
+      "label": "San Francisco, CA"
+    },
+    "94122": {
+      "lat": 37.760459,
+      "lon": -122.483894,
+      "label": "San Francisco, CA"
+    },
+    "94303": {
+      "lat": 37.457883,
+      "lon": -122.115097,
+      "label": "Palo Alto, CA"
+    },
+    "94501": {
+      "lat": 37.774712,
+      "lon": -122.278097,
+      "label": "Alameda, CA"
+    },
+    "94509": {
+      "lat": 37.992003,
+      "lon": -121.812566,
+      "label": "Antioch, CA"
+    },
+    "94513": {
+      "lat": 37.924899,
+      "lon": -121.686724,
+      "label": "Brentwood, CA"
+    },
+    "94533": {
+      "lat": 38.280745,
+      "lon": -122.00638,
+      "label": "Fairfield, CA"
+    },
+    "94536": {
+      "lat": 37.570508,
+      "lon": -121.98125,
+      "label": "Fremont, CA"
+    },
+    "94538": {
+      "lat": 37.501368,
+      "lon": -121.956753,
+      "label": "Fremont, CA"
+    },
+    "94539": {
+      "lat": 37.516292,
+      "lon": -121.911891,
+      "label": "Fremont, CA"
+    },
+    "94541": {
+      "lat": 37.673757,
+      "lon": -122.087823,
+      "label": "Hayward, CA"
+    },
+    "94544": {
+      "lat": 37.633507,
+      "lon": -122.056772,
+      "label": "Hayward, CA"
+    },
+    "94546": {
+      "lat": 37.745399,
+      "lon": -122.103127,
+      "label": "Castro Valley, CA"
+    },
+    "94550": {
+      "lat": 37.519983,
+      "lon": -121.575595,
+      "label": "Livermore, CA"
+    },
+    "94551": {
+      "lat": 37.750512,
+      "lon": -121.749249,
+      "label": "Livermore, CA"
+    },
+    "94553": {
+      "lat": 37.978299,
+      "lon": -122.157109,
+      "label": "Martinez, CA"
+    },
+    "94558": {
+      "lat": 38.389135,
+      "lon": -122.188412,
+      "label": "Napa, CA"
+    },
+    "94560": {
+      "lat": 37.504253,
+      "lon": -122.03191,
+      "label": "Newark, CA"
+    },
+    "94565": {
+      "lat": 38.008595,
+      "lon": -121.928315,
+      "label": "Pittsburg, CA"
+    },
+    "94568": {
+      "lat": 37.715966,
+      "lon": -121.901141,
+      "label": "Dublin, CA"
+    },
+    "94577": {
+      "lat": 37.716659,
+      "lon": -122.169274,
+      "label": "San Leandro, CA"
+    },
+    "94587": {
+      "lat": 37.590008,
+      "lon": -122.075187,
+      "label": "Union City, CA"
+    },
+    "94591": {
+      "lat": 38.127191,
+      "lon": -122.196855,
+      "label": "Vallejo, CA"
+    },
+    "94601": {
+      "lat": 37.77576,
+      "lon": -122.218572,
+      "label": "Oakland, CA"
+    },
+    "94605": {
+      "lat": 37.761408,
+      "lon": -122.150198,
+      "label": "Oakland, CA"
+    },
+    "94806": {
+      "lat": 37.978427,
+      "lon": -122.336418,
+      "label": "San Pablo, CA"
+    },
+    "95008": {
+      "lat": 37.279173,
+      "lon": -121.955565,
+      "label": "Campbell, CA"
+    },
+    "95014": {
+      "lat": 37.308354,
+      "lon": -122.081882,
+      "label": "Cupertino, CA"
+    },
+    "95020": {
+      "lat": 37.01621,
+      "lon": -121.559418,
+      "label": "Gilroy, CA"
+    },
+    "95023": {
+      "lat": 36.919993,
+      "lon": -121.322188,
+      "label": "Hollister, CA"
+    },
+    "95035": {
+      "lat": 37.440397,
+      "lon": -121.874693,
+      "label": "Milpitas, CA"
+    },
+    "95037": {
+      "lat": 37.13182,
+      "lon": -121.681247,
+      "label": "Morgan Hill, CA"
+    },
+    "95051": {
+      "lat": 37.348311,
+      "lon": -121.984435,
+      "label": "Santa Clara, CA"
+    },
+    "95060": {
+      "lat": 36.9932,
+      "lon": -122.0984,
+      "label": "Santa Cruz, CA"
+    },
+    "95076": {
+      "lat": 36.945781,
+      "lon": -121.756058,
+      "label": "Watsonville, CA"
+    },
+    "95111": {
+      "lat": 37.283853,
+      "lon": -121.826869,
+      "label": "San Jose, CA"
+    },
+    "95112": {
+      "lat": 37.344599,
+      "lon": -121.88344,
+      "label": "San Jose, CA"
+    },
+    "95116": {
+      "lat": 37.350471,
+      "lon": -121.852554,
+      "label": "San Jose, CA"
+    },
+    "95122": {
+      "lat": 37.329224,
+      "lon": -121.834821,
+      "label": "San Jose, CA"
+    },
+    "95123": {
+      "lat": 37.244238,
+      "lon": -121.831604,
+      "label": "San Jose, CA"
+    },
+    "95124": {
+      "lat": 37.256831,
+      "lon": -121.922815,
+      "label": "San Jose, CA"
+    },
+    "95125": {
+      "lat": 37.295599,
+      "lon": -121.894071,
+      "label": "San Jose, CA"
+    },
+    "95127": {
+      "lat": 37.371671,
+      "lon": -121.787097,
+      "label": "San Jose, CA"
+    },
+    "95136": {
+      "lat": 37.271379,
+      "lon": -121.852512,
+      "label": "San Jose, CA"
+    },
+    "95148": {
+      "lat": 37.333429,
+      "lon": -121.781668,
+      "label": "San Jose, CA"
+    },
+    "95206": {
+      "lat": 37.908471,
+      "lon": -121.395306,
+      "label": "Stockton, CA"
+    },
+    "95207": {
+      "lat": 38.002125,
+      "lon": -121.324979,
+      "label": "Stockton, CA"
+    },
+    "95240": {
+      "lat": 38.123544,
+      "lon": -121.159078,
+      "label": "Lodi, CA"
+    },
+    "95307": {
+      "lat": 37.555815,
+      "lon": -120.953858,
+      "label": "Ceres, CA"
+    },
+    "95336": {
+      "lat": 37.830267,
+      "lon": -121.20102,
+      "label": "Manteca, CA"
+    },
+    "95350": {
+      "lat": 37.67173,
+      "lon": -121.007285,
+      "label": "Modesto, CA"
+    },
+    "95351": {
+      "lat": 37.624124,
+      "lon": -120.997319,
+      "label": "Modesto, CA"
+    },
+    "95355": {
+      "lat": 37.672906,
+      "lon": -120.946594,
+      "label": "Modesto, CA"
+    },
+    "95376": {
+      "lat": 37.736819,
+      "lon": -121.433998,
+      "label": "Tracy, CA"
+    },
+    "95608": {
+      "lat": 38.626935,
+      "lon": -121.331191,
+      "label": "Carmichael, CA"
+    },
+    "95610": {
+      "lat": 38.694923,
+      "lon": -121.272207,
+      "label": "Citrus Heights, CA"
+    },
+    "95616": {
+      "lat": 38.554147,
+      "lon": -121.798514,
+      "label": "Davis, CA"
+    },
+    "95624": {
+      "lat": 38.43415,
+      "lon": -121.305874,
+      "label": "Elk Grove, CA"
+    },
+    "95630": {
+      "lat": 38.662781,
+      "lon": -121.140107,
+      "label": "Folsom, CA"
+    },
+    "95648": {
+      "lat": 38.922812,
+      "lon": -121.312005,
+      "label": "Lincoln, CA"
+    },
+    "95670": {
+      "lat": 38.604268,
+      "lon": -121.280327,
+      "label": "Rancho Cordova, CA"
+    },
+    "95678": {
+      "lat": 38.765353,
+      "lon": -121.288473,
+      "label": "Roseville, CA"
+    },
+    "95687": {
+      "lat": 38.333133,
+      "lon": -121.920151,
+      "label": "Vacaville, CA"
+    },
+    "95747": {
+      "lat": 38.778421,
+      "lon": -121.368829,
+      "label": "Roseville, CA"
+    },
+    "95757": {
+      "lat": 38.331652,
+      "lon": -121.436979,
+      "label": "Elk Grove, CA"
+    },
+    "95758": {
+      "lat": 38.429667,
+      "lon": -121.445213,
+      "label": "Elk Grove, CA"
+    },
+    "95822": {
+      "lat": 38.512844,
+      "lon": -121.494215,
+      "label": "Sacramento, CA"
+    },
+    "95823": {
+      "lat": 38.474726,
+      "lon": -121.442636,
+      "label": "Sacramento, CA"
+    },
+    "95828": {
+      "lat": 38.489426,
+      "lon": -121.395969,
+      "label": "Sacramento, CA"
+    },
+    "95843": {
+      "lat": 38.715329,
+      "lon": -121.363675,
+      "label": "Antelope, CA"
+    },
+    "96706": {
+      "lat": 21.344782,
+      "lon": -158.022298,
+      "label": "Ewa Beach, HI"
+    },
+    "96707": {
+      "lat": 21.363106,
+      "lon": -158.082206,
+      "label": "Kapolei, HI"
+    },
+    "96720": {
+      "lat": 19.65981,
+      "lon": -155.232473,
+      "label": "Hilo, HI"
+    },
+    "96734": {
+      "lat": 21.395084,
+      "lon": -157.758188,
+      "label": "Kailua, HI"
+    },
+    "96744": {
+      "lat": 21.447639,
+      "lon": -157.82885,
+      "label": "Kaneohe, HI"
+    },
+    "96789": {
+      "lat": 21.483875,
+      "lon": -157.934284,
+      "label": "Mililani, HI"
+    },
+    "96792": {
+      "lat": 21.468625,
+      "lon": -158.166906,
+      "label": "Waianae, HI"
+    },
+    "96797": {
+      "lat": 21.40845,
+      "lon": -158.017646,
+      "label": "Waipahu, HI"
+    },
+    "96816": {
+      "lat": 21.29122,
+      "lon": -157.790863,
+      "label": "Honolulu, HI"
+    },
+    "96817": {
+      "lat": 21.355506,
+      "lon": -157.821647,
+      "label": "Honolulu, HI"
+    },
+    "96818": {
+      "lat": 21.342518,
+      "lon": -157.939826,
+      "label": "Honolulu, HI"
+    },
+    "96819": {
+      "lat": 21.347117,
+      "lon": -157.877317,
+      "label": "Honolulu, HI"
+    },
+    "96822": {
+      "lat": 21.320468,
+      "lon": -157.810364,
+      "label": "Honolulu, HI"
+    },
+    "97007": {
+      "lat": 45.442813,
+      "lon": -122.871155,
+      "label": "Beaverton, OR"
+    },
+    "97045": {
+      "lat": 45.320278,
+      "lon": -122.536461,
+      "label": "Oregon City, OR"
+    },
+    "97123": {
+      "lat": 45.444372,
+      "lon": -122.976426,
+      "label": "Hillsboro, OR"
+    },
+    "97124": {
+      "lat": 45.569201,
+      "lon": -122.947143,
+      "label": "Hillsboro, OR"
+    },
+    "97206": {
+      "lat": 45.481598,
+      "lon": -122.598295,
+      "label": "Portland, OR"
+    },
+    "97223": {
+      "lat": 45.44029,
+      "lon": -122.776604,
+      "label": "Portland, OR"
+    },
+    "97229": {
+      "lat": 45.549242,
+      "lon": -122.809952,
+      "label": "Portland, OR"
+    },
+    "97301": {
+      "lat": 44.951839,
+      "lon": -123.006246,
+      "label": "Salem, OR"
+    },
+    "97401": {
+      "lat": 44.067988,
+      "lon": -123.080181,
+      "label": "Eugene, OR"
+    },
+    "97402": {
+      "lat": 44.047736,
+      "lon": -123.230905,
+      "label": "Eugene, OR"
+    },
+    "97405": {
+      "lat": 43.953602,
+      "lon": -123.155864,
+      "label": "Eugene, OR"
+    },
+    "97501": {
+      "lat": 42.285729,
+      "lon": -122.897456,
+      "label": "Medford, OR"
+    },
+    "97504": {
+      "lat": 42.328207,
+      "lon": -122.797427,
+      "label": "Medford, OR"
+    },
+    "97702": {
+      "lat": 43.982794,
+      "lon": -121.209726,
+      "label": "Bend, OR"
+    },
+    "98003": {
+      "lat": 47.305205,
+      "lon": -122.314161,
+      "label": "Federal Way, WA"
+    },
+    "98012": {
+      "lat": 47.841376,
+      "lon": -122.198939,
+      "label": "Bothell, WA"
+    },
+    "98023": {
+      "lat": 47.311491,
+      "lon": -122.36281,
+      "label": "Federal Way, WA"
+    },
+    "98034": {
+      "lat": 47.715809,
+      "lon": -122.213748,
+      "label": "Kirkland, WA"
+    },
+    "98042": {
+      "lat": 47.364009,
+      "lon": -122.116743,
+      "label": "Kent, WA"
+    },
+    "98052": {
+      "lat": 47.682254,
+      "lon": -122.12045,
+      "label": "Redmond, WA"
+    },
+    "98092": {
+      "lat": 47.290224,
+      "lon": -122.125648,
+      "label": "Auburn, WA"
+    },
+    "98103": {
+      "lat": 47.673874,
+      "lon": -122.33471,
+      "label": "Seattle, WA"
+    },
+    "98105": {
+      "lat": 47.659861,
+      "lon": -122.284977,
+      "label": "Seattle, WA"
     },
     "98109": {
       "lat": 47.6329294,
       "lon": -122.3482445,
       "label": "98109, Seattle, King County, Washington, United States"
     },
+    "98115": {
+      "lat": 47.685753,
+      "lon": -122.283703,
+      "label": "Seattle, WA"
+    },
+    "98118": {
+      "lat": 47.542036,
+      "lon": -122.268537,
+      "label": "Seattle, WA"
+    },
+    "98133": {
+      "lat": 47.740485,
+      "lon": -122.342826,
+      "label": "Seattle, WA"
+    },
+    "98208": {
+      "lat": 47.900198,
+      "lon": -122.187044,
+      "label": "Everett, WA"
+    },
+    "98223": {
+      "lat": 48.21712,
+      "lon": -121.95354,
+      "label": "Arlington, WA"
+    },
+    "98225": {
+      "lat": 48.758248,
+      "lon": -122.50652,
+      "label": "Bellingham, WA"
+    },
+    "98226": {
+      "lat": 48.796704,
+      "lon": -122.432388,
+      "label": "Bellingham, WA"
+    },
+    "98258": {
+      "lat": 48.034269,
+      "lon": -122.081489,
+      "label": "Lake Stevens, WA"
+    },
+    "98270": {
+      "lat": 48.056723,
+      "lon": -122.146904,
+      "label": "Marysville, WA"
+    },
+    "98387": {
+      "lat": 47.060925,
+      "lon": -122.388909,
+      "label": "Spanaway, WA"
+    },
+    "98391": {
+      "lat": 47.177103,
+      "lon": -122.166173,
+      "label": "Bonney Lake, WA"
+    },
+    "98501": {
+      "lat": 46.978514,
+      "lon": -122.875905,
+      "label": "Olympia, WA"
+    },
+    "98632": {
+      "lat": 46.204917,
+      "lon": -123.062646,
+      "label": "Longview, WA"
+    },
+    "98661": {
+      "lat": 45.640067,
+      "lon": -122.625018,
+      "label": "Vancouver, WA"
+    },
+    "98682": {
+      "lat": 45.67296,
+      "lon": -122.483238,
+      "label": "Vancouver, WA"
+    },
+    "98902": {
+      "lat": 46.598048,
+      "lon": -120.534558,
+      "label": "Yakima, WA"
+    },
+    "99208": {
+      "lat": 47.785815,
+      "lon": -117.452348,
+      "label": "Spokane, WA"
+    },
+    "99301": {
+      "lat": 46.377835,
+      "lon": -118.951726,
+      "label": "Pasco, WA"
+    },
+    "99336": {
+      "lat": 46.214052,
+      "lon": -119.17573,
+      "label": "Kennewick, WA"
+    },
     "08701": {
       "lat": 40.0754137,
       "lon": -74.2119016,
       "label": "08701, Lakewood Township, Ocean County, New Jersey, United States"
+    },
+    "07055": {
+      "lat": 40.857552,
+      "lon": -74.129089,
+      "label": "Passaic, NJ"
+    },
+    "07305": {
+      "lat": 40.693004,
+      "lon": -74.06965,
+      "label": "Jersey City, NJ"
+    },
+    "02301": {
+      "lat": 42.078371,
+      "lon": -71.042304,
+      "label": "Brockton, MA"
+    },
+    "06902": {
+      "lat": 41.059347,
+      "lon": -73.544384,
+      "label": "Stamford, CT"
+    },
+    "07087": {
+      "lat": 40.767224,
+      "lon": -74.032429,
+      "label": "Union City, NJ"
+    },
+    "02148": {
+      "lat": 42.42938,
+      "lon": -71.058706,
+      "label": "Malden, MA"
+    },
+    "08753": {
+      "lat": 39.979668,
+      "lon": -74.150739,
+      "label": "Toms River, NJ"
+    },
+    "08854": {
+      "lat": 40.539658,
+      "lon": -74.462791,
+      "label": "Piscataway, NJ"
+    },
+    "07093": {
+      "lat": 40.786704,
+      "lon": -74.008909,
+      "label": "Monitor, NJ"
+    },
+    "02155": {
+      "lat": 42.42384,
+      "lon": -71.107673,
+      "label": "Medford, MA"
+    },
+    "06010": {
+      "lat": 41.681578,
+      "lon": -72.940749,
+      "label": "Bristol, CT"
+    },
+    "07047": {
+      "lat": 40.793644,
+      "lon": -74.025027,
+      "label": "North Bergen, NJ"
+    },
+    "07002": {
+      "lat": 40.662495,
+      "lon": -74.110201,
+      "label": "Bayonne, NJ"
+    },
+    "07111": {
+      "lat": 40.723859,
+      "lon": -74.232522,
+      "label": "Irvington, NJ"
+    },
+    "02151": {
+      "lat": 42.41829,
+      "lon": -71.001251,
+      "label": "Revere, MA"
+    },
+    "02169": {
+      "lat": 42.240016,
+      "lon": -71.015205,
+      "label": "Quincy, MA"
+    },
+    "08527": {
+      "lat": 40.108665,
+      "lon": -74.358602,
+      "label": "Jackson, NJ"
+    },
+    "07728": {
+      "lat": 40.225793,
+      "lon": -74.285785,
+      "label": "Freehold, NJ"
+    },
+    "08861": {
+      "lat": 40.520494,
+      "lon": -74.272943,
+      "label": "Perth Amboy, NJ"
+    },
+    "02124": {
+      "lat": 42.285922,
+      "lon": -71.075046,
+      "label": "Dorchester Center, MA"
+    },
+    "08901": {
+      "lat": 40.483638,
+      "lon": -74.44246,
+      "label": "New Brunswick, NJ"
+    },
+    "07083": {
+      "lat": 40.695266,
+      "lon": -74.269078,
+      "label": "Union, NJ"
+    },
+    "06511": {
+      "lat": 41.31727,
+      "lon": -72.926373,
+      "label": "New Haven, CT"
+    },
+    "07306": {
+      "lat": 40.736294,
+      "lon": -74.071128,
+      "label": "Jersey City, NJ"
+    },
+    "08873": {
+      "lat": 40.499667,
+      "lon": -74.531844,
+      "label": "Somerset, NJ"
+    },
+    "08831": {
+      "lat": 40.334341,
+      "lon": -74.432502,
+      "label": "Monroe Township, NJ"
+    },
+    "06516": {
+      "lat": 41.272573,
+      "lon": -72.964967,
+      "label": "West Haven, CT"
+    },
+    "07470": {
+      "lat": 40.945855,
+      "lon": -74.245077,
+      "label": "Wayne, NJ"
+    },
+    "07104": {
+      "lat": 40.767713,
+      "lon": -74.16835,
+      "label": "Newark, NJ"
+    },
+    "07105": {
+      "lat": 40.723066,
+      "lon": -74.138636,
+      "label": "Newark, NJ"
+    },
+    "01960": {
+      "lat": 42.53431,
+      "lon": -70.969443,
+      "label": "Peabody, MA"
+    },
+    "08540": {
+      "lat": 40.364728,
+      "lon": -74.656314,
+      "label": "Princeton, NJ"
+    },
+    "06810": {
+      "lat": 41.377849,
+      "lon": -73.457463,
+      "label": "Danbury, CT"
+    },
+    "02360": {
+      "lat": 41.882062,
+      "lon": -70.631289,
+      "label": "Plymouth, MA"
+    },
+    "07030": {
+      "lat": 40.745251,
+      "lon": -74.027926,
+      "label": "Hoboken, NJ"
+    },
+    "02780": {
+      "lat": 41.909112,
+      "lon": -71.118346,
+      "label": "Taunton, MA"
+    },
+    "01844": {
+      "lat": 42.742641,
+      "lon": -71.178651,
+      "label": "Methuen, MA"
+    },
+    "01841": {
+      "lat": 42.715079,
+      "lon": -71.1483,
+      "label": "Lawrence, MA"
+    },
+    "07003": {
+      "lat": 40.809141,
+      "lon": -74.187142,
+      "label": "Bloomfield, NJ"
+    },
+    "08081": {
+      "lat": 39.732942,
+      "lon": -74.976657,
+      "label": "Sicklerville, NJ"
+    },
+    "06606": {
+      "lat": 41.21211,
+      "lon": -73.206673,
+      "label": "Bridgeport, CT"
+    },
+    "02860": {
+      "lat": 41.870562,
+      "lon": -71.388681,
+      "label": "Pawtucket, RI"
+    },
+    "08302": {
+      "lat": 39.438613,
+      "lon": -75.260646,
+      "label": "Bridgeton, NJ"
+    },
+    "08816": {
+      "lat": 40.429119,
+      "lon": -74.416287,
+      "label": "East Brunswick, NJ"
+    },
+    "07052": {
+      "lat": 40.785755,
+      "lon": -74.265058,
+      "label": "West Orange, NJ"
+    },
+    "02149": {
+      "lat": 42.405938,
+      "lon": -71.054649,
+      "label": "Everett, MA"
+    },
+    "01902": {
+      "lat": 42.471039,
+      "lon": -70.941535,
+      "label": "Lynn, MA"
+    },
+    "07302": {
+      "lat": 40.718808,
+      "lon": -74.044634,
+      "label": "Jersey City, NJ"
+    },
+    "07304": {
+      "lat": 40.717303,
+      "lon": -74.076352,
+      "label": "Jersey City, NJ"
+    },
+    "07060": {
+      "lat": 40.616667,
+      "lon": -74.422042,
+      "label": "Plainfield, NJ"
+    },
+    "06457": {
+      "lat": 41.544209,
+      "lon": -72.657501,
+      "label": "Middletown, CT"
+    },
+    "08021": {
+      "lat": 39.806156,
+      "lon": -75.000012,
+      "label": "Clementon, NJ"
+    },
+    "08053": {
+      "lat": 39.856677,
+      "lon": -74.90081,
+      "label": "Marlton, NJ"
+    },
+    "07960": {
+      "lat": 40.779235,
+      "lon": -74.502462,
+      "label": "Morristown, NJ"
+    },
+    "02740": {
+      "lat": 41.638171,
+      "lon": -70.938398,
+      "label": "New Bedford, MA"
+    },
+    "02703": {
+      "lat": 41.931653,
+      "lon": -71.294503,
+      "label": "Attleboro, MA"
+    },
+    "08817": {
+      "lat": 40.514655,
+      "lon": -74.393104,
+      "label": "Edison, NJ"
+    },
+    "02128": {
+      "lat": 42.361519,
+      "lon": -71.007393,
+      "label": "Boston, MA"
+    },
+    "07601": {
+      "lat": 40.889398,
+      "lon": -74.045698,
+      "label": "Hackensack, NJ"
+    },
+    "01201": {
+      "lat": 42.454302,
+      "lon": -73.282074,
+      "label": "Pittsfield, MA"
     }
   }
 }
