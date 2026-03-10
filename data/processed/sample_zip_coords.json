@@ -1,0 +1,60 @@
+{
+  "generatedAt": "2026-03-10T20:14:36.601Z",
+  "coords": {
+    "11368": {
+      "lat": 40.7480859,
+      "lon": -73.8606378,
+      "label": "11368, Queens, Queens County, New York, United States"
+    },
+    "30312": {
+      "lat": 33.7435315,
+      "lon": -84.3739686,
+      "label": "30312, Atlanta, Fulton County, Georgia, United States"
+    },
+    "33139": {
+      "lat": 25.7851149,
+      "lon": -80.1413068,
+      "label": "33139, Miami Beach, Miami-Dade County, Florida, United States"
+    },
+    "60614": {
+      "lat": 41.922971,
+      "lon": -87.651771,
+      "label": "60614, Lincoln Park, Chicago, North Chicago Township, Cook County, Illinois, United States"
+    },
+    "77494": {
+      "lat": 29.7498311,
+      "lon": -95.8124509,
+      "label": "77494, Fort Bend County, Texas, United States"
+    },
+    "78704": {
+      "lat": 30.2442594,
+      "lon": -97.7621331,
+      "label": "78704, Austin, Travis County, Texas, United States"
+    },
+    "85018": {
+      "lat": 33.4981604,
+      "lon": -111.9882145,
+      "label": "85018, Camelback East, Phoenix, Maricopa County, Arizona, United States"
+    },
+    "90011": {
+      "lat": 34.0096007,
+      "lon": -118.2591642,
+      "label": "90011, Los Angeles, Los Angeles County, California, United States"
+    },
+    "94110": {
+      "lat": 37.7673486,
+      "lon": -122.3607097,
+      "label": "94110, San Francisco, California, United States"
+    },
+    "98109": {
+      "lat": 47.6329294,
+      "lon": -122.3482445,
+      "label": "98109, Seattle, King County, Washington, United States"
+    },
+    "08701": {
+      "lat": 40.0754137,
+      "lon": -74.2119016,
+      "label": "08701, Lakewood Township, Ocean County, New Jersey, United States"
+    }
+  }
+}

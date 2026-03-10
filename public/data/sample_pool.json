@@ -1,0 +1,107 @@
+{
+  "generatedAt": "2026-03-10T20:14:54.827Z",
+  "zhviPeriod": "2026-01-31",
+  "count": 10,
+  "locations": [
+    {
+      "zip": "77494",
+      "city": "Katy",
+      "state": "TX",
+      "metro": "Houston-The Woodlands-Sugar Land, TX",
+      "county": "Fort Bend County",
+      "lat": 29.7498311,
+      "lng": -95.8124509,
+      "homeValue": 480847.5379289801
+    },
+    {
+      "zip": "08701",
+      "city": "Lakewood",
+      "state": "NJ",
+      "metro": "New York-Newark-Jersey City, NY-NJ-PA",
+      "county": "Ocean County",
+      "lat": 40.0754137,
+      "lng": -74.2119016,
+      "homeValue": 728252.121513565
+    },
+    {
+      "zip": "11368",
+      "city": "New York",
+      "state": "NY",
+      "metro": "New York-Newark-Jersey City, NY-NJ-PA",
+      "county": "Queens County",
+      "lat": 40.7480859,
+      "lng": -73.8606378,
+      "homeValue": 1013514.4728307939
+    },
+    {
+      "zip": "90011",
+      "city": "Los Angeles",
+      "state": "CA",
+      "metro": "Los Angeles-Long Beach-Anaheim, CA",
+      "county": "Los Angeles County",
+      "lat": 34.0096007,
+      "lng": -118.2591642,
+      "homeValue": 593442.5987594323
+    },
+    {
+      "zip": "60614",
+      "city": "Chicago",
+      "state": "IL",
+      "metro": "Chicago-Naperville-Elgin, IL-IN-WI",
+      "county": "Cook County",
+      "lat": 41.922971,
+      "lng": -87.651771,
+      "homeValue": 1318519.663741797
+    },
+    {
+      "zip": "78704",
+      "city": "Austin",
+      "state": "TX",
+      "metro": "Austin-Round Rock-Georgetown, TX",
+      "county": "Travis County",
+      "lat": 30.2442594,
+      "lng": -97.7621331,
+      "homeValue": 881147.2079721537
+    },
+    {
+      "zip": "33139",
+      "city": "Miami Beach",
+      "state": "FL",
+      "metro": "Miami-Fort Lauderdale-Pompano Beach, FL",
+      "county": "Miami-Dade County",
+      "lat": 25.7851149,
+      "lng": -80.1413068,
+      "homeValue": 2068940.0203233643
+    },
+    {
+      "zip": "85018",
+      "city": "Phoenix",
+      "state": "AZ",
+      "metro": "Phoenix-Mesa-Chandler, AZ",
+      "county": "Maricopa County",
+      "lat": 33.4981604,
+      "lng": -111.9882145,
+      "homeValue": 1138677.642506389
+    },
+    {
+      "zip": "98109",
+      "city": "Seattle",
+      "state": "WA",
+      "metro": "Seattle-Tacoma-Bellevue, WA",
+      "county": "King County",
+      "lat": 47.6329294,
+      "lng": -122.3482445,
+      "homeValue": 1269342.3135047194
+    },
+    {
+      "zip": "30312",
+      "city": "Atlanta",
+      "state": "GA",
+      "metro": "Atlanta-Sandy Springs-Alpharetta, GA",
+      "county": "Fulton County",
+      "lat": 33.7435315,
+      "lng": -84.3739686,
+      "homeValue": 537305.2383156578
+    }
+  ]
+}

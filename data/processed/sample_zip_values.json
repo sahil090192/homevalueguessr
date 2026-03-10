@@ -1,0 +1,94 @@
+{
+  "period": "2026-01-31",
+  "generatedAt": "2026-03-10T20:14:32.099Z",
+  "zips": [
+    {
+      "zip": "77494",
+      "city": "Katy",
+      "state": "TX",
+      "metro": "Houston-The Woodlands-Sugar Land, TX",
+      "county": "Fort Bend County",
+      "latestValue": 480847.5379289801
+    },
+    {
+      "zip": "08701",
+      "city": "Lakewood",
+      "state": "NJ",
+      "metro": "New York-Newark-Jersey City, NY-NJ-PA",
+      "county": "Ocean County",
+      "latestValue": 728252.121513565
+    },
+    {
+      "zip": "11368",
+      "city": "New York",
+      "state": "NY",
+      "metro": "New York-Newark-Jersey City, NY-NJ-PA",
+      "county": "Queens County",
+      "latestValue": 1013514.4728307939
+    },
+    {
+      "zip": "90011",
+      "city": "Los Angeles",
+      "state": "CA",
+      "metro": "Los Angeles-Long Beach-Anaheim, CA",
+      "county": "Los Angeles County",
+      "latestValue": 593442.5987594323
+    },
+    {
+      "zip": "60614",
+      "city": "Chicago",
+      "state": "IL",
+      "metro": "Chicago-Naperville-Elgin, IL-IN-WI",
+      "county": "Cook County",
+      "latestValue": 1318519.663741797
+    },
+    {
+      "zip": "94110",
+      "city": "San Francisco",
+      "state": "CA",
+      "metro": "San Francisco-Oakland-Berkeley, CA",
+      "county": "San Francisco County",
+      "latestValue": 1383259.4322250693
+    },
+    {
+      "zip": "78704",
+      "city": "Austin",
+      "state": "TX",
+      "metro": "Austin-Round Rock-Georgetown, TX",
+      "county": "Travis County",
+      "latestValue": 881147.2079721537
+    },
+    {
+      "zip": "33139",
+      "city": "Miami Beach",
+      "state": "FL",
+      "metro": "Miami-Fort Lauderdale-Pompano Beach, FL",
+      "county": "Miami-Dade County",
+      "latestValue": 2068940.0203233643
+    },
+    {
+      "zip": "85018",
+      "city": "Phoenix",
+      "state": "AZ",
+      "metro": "Phoenix-Mesa-Chandler, AZ",
+      "county": "Maricopa County",
+      "latestValue": 1138677.642506389
+    },
+    {
+      "zip": "98109",
+      "city": "Seattle",
+      "state": "WA",
+      "metro": "Seattle-Tacoma-Bellevue, WA",
+      "county": "King County",
+      "latestValue": 1269342.3135047194
+    },
+    {
+      "zip": "30312",
+      "city": "Atlanta",
+      "state": "GA",
+      "metro": "Atlanta-Sandy Springs-Alpharetta, GA",
+      "county": "Fulton County",
+      "latestValue": 537305.2383156578
+    }
+  ]
+}

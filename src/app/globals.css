@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+:root {
+  --sand: #f4ede1;
+  --ink: #1b1206;
+  --ink-muted: color-mix(in srgb, var(--ink) 70%, white 30%);
+  --accent: #f26b38;
+  --accent-dark: #c95124;
+  --jade: #0f8a5f;
+  --surface: #fff6eb;
+  --border-strong: #2f2010;
+  --border-soft: color-mix(in srgb, var(--border-strong) 50%, transparent);
+}
+
+@theme inline {
+  --color-background: var(--sand);
+  --color-foreground: var(--ink);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--sand);
+  color: var(--ink);
+  font-family: var(--font-body), 'IBM Plex Sans', system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 60%, white);
+  color: var(--ink);
+}
