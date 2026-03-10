@@ -7,7 +7,7 @@ import { formatCurrency } from "@/lib/scoring";
 
 const TOTAL_ROUNDS = 5;
 const QUICK_CHOICES = [180000, 320000, 550000, 850000, 1200000, 2000000];
-const HEADING_OFFSETS = [0, 70];
+const HEADING_OFFSETS = [0, 120];
 const SCORE_BANDS = [
   { label: "Laser accurate", error: "0 – 10% error", points: "≈ 4.5k – 5k pts" },
   { label: "Dialed in", error: "10 – 25%", points: "≈ 3k – 4.5k pts" },
@@ -26,6 +26,13 @@ const ROAST_QUOTES = [
   "Even Zillow spit out its coffee at that number.",
   "Mortgage bankers just added you to the watchlist.",
 ];
+
+const errorTier = (percentageError: number) => {
+  if (percentageError <= 0.1) return "elite";
+  if (percentageError <= 0.25) return "solid";
+  if (percentageError <= 0.5) return "meh";
+  return "miss";
+};
 
 type Stage = "intro" | "loading" | "guess" | "reveal" | "summary";
 
@@ -161,6 +168,25 @@ export default function HomePage() {
         ? "Full tally"
         : `Round ${displayRound || 1} of ${TOTAL_ROUNDS}`;
 
+  const progressTrail = useMemo(
+    () =>
+      Array.from({ length: TOTAL_ROUNDS }, (_, index) => {
+        const entry = history[index];
+        if (entry) {
+          return {
+            state: "done" as const,
+            tier: errorTier(entry.result.percentageError),
+            score: entry.result.score,
+          };
+        }
+        if (index === history.length && stage !== "summary") {
+          return { state: "active" as const };
+        }
+        return { state: "pending" as const };
+      }),
+    [history, stage]
+  );
+
   return (
     <div className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 lg:px-8 lg:py-16">
@@ -169,11 +195,11 @@ export default function HomePage() {
             <div>
               <p className="text-sm uppercase tracking-[0.4em] text-[var(--ink-muted)]">homevalueguessr.com</p>
               <h1 className="mt-4 font-[family:var(--font-display)] text-4xl font-semibold leading-tight sm:text-5xl">
-                Guess the street. Trust your housing gut.
+                Guess the ZIP’s median home value from two curbside glances.
               </h1>
               <p className="mt-4 max-w-2xl text-lg text-[var(--ink-muted)]">
-                We drop you somewhere residential in the United States. Use the curb appeal, rooflines, and gut feel to
-                estimate the typical home value for that ZIP code. Accuracy earns points; hubris gets humbled.
+                Each round drops you onto a random residential block. Those facades represent the neighborhood mood—not one
+                particular listing. Call your shot on the ZIP’s typical value, then see how humbling the reveal is.
               </p>
             </div>
 
@@ -199,25 +225,72 @@ export default function HomePage() {
                   <p className="text-2xl font-semibold">{round?.location.zhviLabel ?? "Jan 2026"}</p>
                 </div>
               </div>
-            </div>
-            <div className="rounded-3xl border border-dashed border-[var(--border-strong)] bg-white/80 p-6 shadow-[6px_6px_0_var(--border-strong)]">
-              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Scoring key</p>
-              <p className="mt-2 text-sm text-[var(--ink-muted)]">
-                Log-based: score = max(0, 5000 − 2500 × |ln(guess / actual)|). Percentage error keeps mega-mansions and
-                starter homes equally spicy.
-              </p>
-              <div className="mt-4 space-y-3">
-                {SCORE_BANDS.map((band) => (
-                  <div key={band.label} className="flex items-center justify-between rounded-2xl bg-[var(--surface)] px-4 py-3">
-                    <div>
-                      <p className="text-sm font-semibold">{band.label}</p>
-                      <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">{band.error}</p>
-                    </div>
-                    <p className="text-sm font-semibold text-[var(--accent-dark)]">{band.points}</p>
-                  </div>
-                ))}
+              <div className="mt-6 space-y-2">
+                <div className="flex items-center justify-between text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+                  <span>Progress</span>
+                  <span>
+                    {history.length}/{TOTAL_ROUNDS}
+                  </span>
+                </div>
+                <div className="flex gap-2">
+                  {progressTrail.map((item, index) => {
+                    if (item.state === "done") {
+                      const tone =
+                        item.tier === "elite"
+                          ? "bg-[var(--jade)]"
+                          : item.tier === "solid"
+                            ? "bg-[var(--accent)]"
+                            : item.tier === "meh"
+                              ? "bg-[#c5a05a]"
+                              : "bg-[#a05151]";
+                      return (
+                        <div
+                          key={`round-${index}`}
+                          aria-label={`Round ${index + 1} complete`}
+                          className={`h-8 flex-1 rounded-full border border-[var(--border-strong)] ${tone}`}
+                        />
+                      );
+                    }
+                    if (item.state === "active") {
+                      return (
+                        <div
+                          key={`round-${index}`}
+                          aria-label={`Round ${index + 1} in progress`}
+                          className="h-8 flex-1 rounded-full border border-dashed border-[var(--border-strong)] bg-white"
+                          style={{ opacity: 0.8 }}
+                        />
+                      );
+                    }
+                    return (
+                      <div
+                        key={`round-${index}`}
+                        aria-label={`Round ${index + 1} pending`}
+                        className="h-8 flex-1 rounded-full border border-[var(--border-soft)] bg-white/60"
+                      />
+                    );
+                  })}
+                </div>
               </div>
             </div>
+            <details className="rounded-2xl border border-dashed border-[var(--border-soft)] bg-white/70 p-4 text-sm text-[var(--ink-muted)]">
+              <summary className="cursor-pointer text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+                How scoring works
+              </summary>
+              <div className="mt-3 space-y-2 text-xs leading-relaxed">
+                <p>
+                  We score on percentage error: score = max(0, 5000 − 2500 × |ln(guess / actual)|). Big swings on pricey
+                  ZIPs hurt just as much as cheap ones.
+                </p>
+                <ul className="space-y-1">
+                  {SCORE_BANDS.map((band) => (
+                    <li key={band.label} className="flex justify-between">
+                      <span className="font-semibold">{band.label}</span>
+                      <span>{band.points}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
             <div className="space-y-6">
               {stage === "intro" && (
                 <button
@@ -230,7 +303,14 @@ export default function HomePage() {
 
               {stage !== "intro" && stage !== "summary" && (
                 <div className="space-y-4">
-                  <label className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Your guess</label>
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <label className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Your guess</label>
+                    {round && (
+                      <span className="rounded-full border border-[var(--border-soft)] px-3 py-1 text-[10px] uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+                        Median target · ZIP {round.location.zip}
+                      </span>
+                    )}
+                  </div>
                   <div className="flex items-center gap-4 rounded-2xl border border-[var(--border-strong)] bg-white px-5 py-4 shadow-[4px_4px_0_var(--border-strong)]">
                     <span className="text-lg font-semibold text-[var(--accent-dark)]">$</span>
                     <input
@@ -375,35 +455,34 @@ export default function HomePage() {
 
         <section>
           <div className="flex items-center justify-between">
-            <h2 className="font-[family:var(--font-display)] text-2xl font-semibold">Round journal</h2>
-            <p className="text-sm text-[var(--ink-muted)]">{history.length} completed</p>
+            <h2 className="font-[family:var(--font-display)] text-2xl font-semibold">Round recap</h2>
+            <p className="text-sm text-[var(--ink-muted)]">{history.length} logged</p>
           </div>
-          <div className="mt-4 grid gap-3 md:grid-cols-2">
-            {history.map(({ result }, index) => (
-              <div
-                key={result.roundId}
-                className="rounded-2xl border border-[var(--border-strong)] bg-white px-5 py-4 shadow-[4px_4px_0_var(--border-strong)]"
-              >
-                <div className="flex items-center justify-between text-xs uppercase tracking-widest text-[var(--ink-muted)]">
-                  <span>Round {index + 1}</span>
-                  <span>+{result.score} pts</span>
-                </div>
-                <p className="mt-2 text-xl font-semibold">
-                  {result.city}, {result.state} {result.zip}
-                </p>
-                <p className="text-sm text-[var(--ink-muted)]">
-                  Actual {result.formattedActual} · You {result.formattedGuess}
-                </p>
-                <p className="mt-1 text-xs font-semibold text-[var(--jade)]">
-                  Error {(result.percentageError * 100).toFixed(1)}%
-                </p>
-              </div>
-            ))}
-            {!history.length && (
-              <p className="rounded-2xl border border-dashed border-[var(--border-strong)] px-5 py-6 text-sm text-[var(--ink-muted)]">
-                Your guesses will collect here once you finish a street.
+          <div className="mt-3 flex flex-wrap gap-3">
+            {history.length === 0 && (
+              <p className="rounded-full border border-dashed border-[var(--border-strong)] px-4 py-2 text-sm text-[var(--ink-muted)]">
+                Finish a round to see the receipts here.
               </p>
             )}
+            {history.map(({ result }, index) => {
+              const tier = errorTier(result.percentageError);
+              const tone =
+                tier === "elite"
+                  ? "bg-[var(--jade)] text-white"
+                  : tier === "solid"
+                    ? "bg-[var(--accent)] text-white"
+                    : tier === "meh"
+                      ? "bg-[#f3d9a7] text-[var(--ink)]"
+                      : "bg-[#f7c6bf] text-[var(--ink)]";
+              return (
+                <div
+                  key={result.roundId}
+                  className={`rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-wide ${tone}`}
+                >
+                  R{index + 1} · +{result.score} pts · {(result.percentageError * 100).toFixed(1)}% err
+                </div>
+              );
+            })}
           </div>
         </section>
       </div>
