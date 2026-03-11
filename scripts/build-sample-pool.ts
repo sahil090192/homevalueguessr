@@ -25,6 +25,49 @@ const MAX_NEW_FETCHES = (() => {
   const parsed = Number(process.env.STREETVIEW_MAX_NEW_FETCHES);
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : Infinity;
 })();
+const MAX_PROBES = (() => {
+  if (!process.env.STREETVIEW_MAX_PROBES) return 8;
+  const parsed = Number(process.env.STREETVIEW_MAX_PROBES);
+  return Number.isFinite(parsed) && parsed >= 1 ? Math.min(parsed, 20) : 8;
+})();
+const PROBE_RADIUS_STEP_METERS = Number(process.env.STREETVIEW_PROBE_STEP_METERS ?? 450);
+const MAX_PROBE_RADIUS_METERS = Number(process.env.STREETVIEW_MAX_PROBE_RADIUS_METERS ?? 4000);
+const wait = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+
+function createSeededRng(seed: string) {
+  let h = 2166136261 ^ seed.length;
+  for (let i = 0; i < seed.length; i += 1) {
+    h ^= seed.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return () => {
+    h ^= h << 13;
+    h ^= h >>> 7;
+    h ^= h << 17;
+    const result = ((h >>> 0) % 1000000) / 1000000;
+    return result;
+  };
+}
+
+function offsetMeters(lat: number, lon: number, meters: number, bearingDeg: number) {
+  const bearingRad = (bearingDeg * Math.PI) / 180;
+  const deltaLat = (meters * Math.cos(bearingRad)) / 111320;
+  const metersPerDegreeLng = Math.cos((lat * Math.PI) / 180) * 111320 || 1;
+  const deltaLng = (meters * Math.sin(bearingRad)) / metersPerDegreeLng;
+  return { lat: lat + deltaLat, lon: lon + deltaLng };
+}
+
+function generateProbePoints(zip: string, lat: number, lon: number) {
+  const rng = createSeededRng(zip);
+  const probes = [{ lat, lon }];
+  const total = Math.max(1, MAX_PROBES);
+  for (let i = 1; i < total; i += 1) {
+    const baseRadius = Math.min(i * PROBE_RADIUS_STEP_METERS + rng() * PROBE_RADIUS_STEP_METERS, MAX_PROBE_RADIUS_METERS);
+    const bearing = rng() * 360;
+    probes.push(offsetMeters(lat, lon, baseRadius, bearing));
+  }
+  return probes;
+}
 
 async function fetchStreetViewMetadata(lat: number, lon: number): Promise<StreetViewMeta | null> {
   const key = process.env.GOOGLE_STREETVIEW_KEY;
@@ -128,24 +171,41 @@ async function main() {
       missingCount += 1;
       metadata = null;
     } else {
-      if (newFetches >= MAX_NEW_FETCHES) {
-        skippedByCap += 1;
-        if (skippedByCap === 1 && MAX_NEW_FETCHES !== Infinity) {
-          console.warn(
-            `Reached Street View lookup cap of ${MAX_NEW_FETCHES}. Remaining uncached ZIPs will be skipped this run.`
-          );
+      const probes = generateProbePoints(zipRow.zip, coord.lat, coord.lon);
+      let capHit = false;
+      for (const [probeIndex, probe] of probes.entries()) {
+        if (newFetches >= MAX_NEW_FETCHES) {
+          skippedByCap += 1;
+          capHit = true;
+          if (skippedByCap === 1 && MAX_NEW_FETCHES !== Infinity) {
+            console.warn(
+              `Reached Street View lookup cap of ${MAX_NEW_FETCHES}. Remaining uncached ZIPs will be skipped this run.`
+            );
+          }
+          break;
         }
+        const attempt = await fetchStreetViewMetadata(probe.lat, probe.lon);
+        newFetches += 1;
+        if (attempt) {
+          metadata = attempt;
+          if (THROTTLE_MS > 0) {
+            await wait(THROTTLE_MS);
+          }
+          break;
+        }
+        if (THROTTLE_MS > 0 && probeIndex < probes.length - 1) {
+          await wait(THROTTLE_MS);
+        }
+      }
+      if (capHit) {
         continue;
       }
-      metadata = await fetchStreetViewMetadata(coord.lat, coord.lon);
-      panoCache[zipRow.zip] = metadata
-        ? { status: 'ok', ...metadata, checkedAt: new Date().toISOString() }
-        : { status: 'missing', checkedAt: new Date().toISOString() };
-      newFetches += 1;
-      await new Promise((resolve) => setTimeout(resolve, THROTTLE_MS));
       if (!metadata) {
         missingCount += 1;
       }
+      panoCache[zipRow.zip] = metadata
+        ? { status: 'ok', ...metadata, checkedAt: new Date().toISOString() }
+        : { status: 'missing', checkedAt: new Date().toISOString() };
     }
 
     if (!metadata) {
