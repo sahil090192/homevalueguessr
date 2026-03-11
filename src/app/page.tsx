@@ -245,24 +245,12 @@ export default function HomePage() {
         ? "Full tally"
         : `Round ${displayRound || 1} of ${TOTAL_ROUNDS}`;
 
-  const progressTrail = useMemo(
-    () =>
-      Array.from({ length: TOTAL_ROUNDS }, (_, index) => {
-        const entry = history[index];
-        if (entry) {
-          return {
-            state: "done" as const,
-            tier: errorTier(entry.result.percentageError),
-            score: entry.result.score,
-          };
-        }
-        if (index === history.length && stage !== "summary") {
-          return { state: "active" as const };
-        }
-        return { state: "pending" as const };
-      }),
-    [history, stage]
-  );
+  const progressTrail = useMemo(() => {
+    return Array.from({ length: TOTAL_ROUNDS }, (_, index) => ({
+      state: history[index] ? "done" : index === history.length && stage !== "summary" ? "active" : "pending",
+      tier: history[index] ? errorTier(history[index]!.result.percentageError) : null,
+    }));
+  }, [history, stage]);
 
   const handleShare = async () => {
     const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on Home Value Guesser. Think you can read a block better? https://homevalueguesser.com`;
@@ -349,43 +337,21 @@ export default function HomePage() {
                     <p className="text-2xl font-semibold">{round?.location.zhviLabel ?? "Jan 2026"}</p>
                   </div>
                 </div>
-                <div className="mt-6 flex gap-2">
-                  {progressTrail.map((item, index) => {
-                    if (item.state === "done") {
-                      const tone =
-                        item.tier === "elite"
-                          ? "bg-[var(--jade)]"
-                          : item.tier === "solid"
-                            ? "bg-[var(--accent)]"
-                            : item.tier === "meh"
-                              ? "bg-[#c5a05a]"
-                              : "bg-[#a05151]";
-                      return (
-                        <div
-                          key={`round-${index}`}
-                          aria-label={`Round ${index + 1} complete`}
-                          className={`h-6 flex-1 rounded-full border border-[var(--border-strong)] ${tone}`}
-                        />
-                      );
-                    }
-                    if (item.state === "active") {
-                      return (
-                        <div
-                          key={`round-${index}`}
-                          aria-label={`Round ${index + 1} in progress`}
-                          className="h-6 flex-1 rounded-full border border-dashed border-[var(--border-strong)] bg-white"
-                          style={{ opacity: 0.8 }}
-                        />
-                      );
-                    }
-                    return (
-                      <div
-                        key={`round-${index}`}
-                        aria-label={`Round ${index + 1} pending`}
-                        className="h-6 flex-1 rounded-full border border-[var(--border-soft)] bg-white/60"
+                <div className="mt-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+                  {progressTrail.map((item, index) => (
+                    <div key={`round-${index}`} className="flex items-center gap-1">
+                      <span className="text-[var(--ink-muted)]">{index + 1}</span>
+                      <span
+                        className={`block h-[2px] w-10 rounded-full ${
+                          item.state === "done"
+                            ? "bg-[var(--ink)]"
+                            : item.state === "active"
+                              ? "bg-[var(--ink-muted)] animate-pulse"
+                              : "bg-[var(--border-soft)]"
+                        }`}
                       />
-                    );
-                  })}
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="space-y-4">
