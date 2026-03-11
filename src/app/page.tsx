@@ -121,8 +121,8 @@ export default function HomePage() {
       setStage("loading");
       setHistory([]);
       setActiveResult(null);
-      setStatusMessage(null);
-       setShareFeedback(null);
+    setStatusMessage(null);
+    setShareFeedback(null);
       const payload = await fetchRound();
       setRound(payload);
       setGuessInput("");
@@ -183,7 +183,7 @@ export default function HomePage() {
       : Math.min(history.length, TOTAL_ROUNDS);
   const heading =
     stage === "intro"
-      ? "StreetWorth beta"
+      ? "Home Value Guesser beta"
       : stage === "summary"
         ? "Full tally"
         : `Round ${displayRound || 1} of ${TOTAL_ROUNDS}`;
@@ -208,7 +208,7 @@ export default function HomePage() {
   );
 
   const handleShare = async () => {
-    const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on StreetWorth. Think you can read a block better? https://homevalueguessr.com`;
+    const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on Home Value Guesser. Think you can read a block better? https://homevalueguesser.com`;
     try {
       if (navigator.share) {
         await navigator.share({ text: sharePayload });
@@ -229,7 +229,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
       {stage === "intro" && (
         <section className="mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-6 px-6 text-center">
-          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">StreetWorth</p>
+          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
           <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight sm:text-6xl">
             Two glances. One gut call. Guess the ZIP’s typical home value.
           </h1>
@@ -241,7 +241,7 @@ export default function HomePage() {
             onClick={handleStart}
             className="rounded-full border-4 border-[var(--border-strong)] bg-gradient-to-r from-[#f26b38] to-[#f24976] px-12 py-5 text-2xl font-semibold uppercase tracking-[0.4em] text-white shadow-[10px_10px_0_var(--border-strong)] transition hover:-translate-y-1 hover:translate-x-1"
           >
-            Play StreetWorth
+            Play Home Value Guesser
           </button>
           <p className="text-sm uppercase tracking-[0.4em] text-[var(--ink-muted)]">5 rounds · 2 glimpses each · roast included</p>
           <details className="rounded-2xl border border-dashed border-[var(--border-soft)] bg-white/70 p-4 text-left text-sm text-[var(--ink-muted)]">
@@ -489,7 +489,7 @@ export default function HomePage() {
 
       {stage === "summary" && (
         <section className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
-          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">StreetWorth</p>
+          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
           <h2 className="font-[family:var(--font-display)] text-4xl font-semibold">Final readout</h2>
           <div className="w-full rounded-3xl border border-[var(--border-strong)] bg-white px-6 py-6 text-left shadow-[8px_8px_0_var(--border-strong)]">
             <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Season report</p>

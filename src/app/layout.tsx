@@ -15,8 +15,8 @@ const body = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "homevalueguessr.com / StreetWorth",
-  description: "Guess US home values from a single glance at the block.",
+  title: "Home Value Guesser",
+  description: "Guess US ZIP median home values from two quick Street View glances.",
 };
 
 export default function RootLayout({

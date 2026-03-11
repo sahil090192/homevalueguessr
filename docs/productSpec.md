@@ -159,7 +159,7 @@ Tiny naming ideas:
 * Zestimate Guesser
 * PricePeek
 * CurbValue
-* StreetWorth
 * HousePrice Guessr
+* **Home Value Guesser** (current pick + domain)
 
-My favorite non-boring name is **StreetWorth**. It sounds cleaner and avoids leaning too hard on Zillow branding.
+We're shipping as **Home Value Guesser** so the branding matches homevalueguesser.com while keeping the original “guess the home value” spirit.
