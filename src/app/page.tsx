@@ -90,28 +90,19 @@ export default function HomePage() {
 
   const streetViewUrls = useMemo(() => {
     if (!round) return [];
-    const baseLat = round.location.lat;
-    const baseLng = round.location.lng;
-    const latMeters = 1 / 111320;
-
-    const jitterPoint = (index: number) => {
-      const id = round.roundId.replace(/-/g, "");
-      const charCode = id.charCodeAt(index % id.length);
-      const meters = 12 + (charCode % 9); // 12m – 20m
-      const bearingDeg = (charCode * 17 + index * 57) % 360;
-      const bearingRad = (bearingDeg * Math.PI) / 180;
-      const deltaLat = meters * Math.cos(bearingRad) * latMeters;
-      const metersPerDegreeLng = Math.cos((baseLat * Math.PI) / 180) * 111320 || 1;
-      const deltaLng = (meters * Math.sin(bearingRad)) / metersPerDegreeLng;
-      return { lat: baseLat + deltaLat, lng: baseLng + deltaLng };
-    };
-
-    return HEADING_OFFSETS.map((offset, index) => {
+    return HEADING_OFFSETS.map((offset) => {
       const heading = (round.heading + offset + 360) % 360;
-      const jitter = jitterPoint(index);
+      const params = new URLSearchParams({
+        lat: String(round.location.lat),
+        lng: String(round.location.lng),
+        heading: heading.toString(),
+      });
+      if (round.location.panoId) {
+        params.set("pano", round.location.panoId);
+      }
       return {
         heading,
-        url: `/api/streetview?lat=${jitter.lat}&lng=${jitter.lng}&heading=${heading}&ts=${round.roundId}-${index}`,
+        url: `/api/streetview?${params.toString()}`,
       };
     });
   }, [round]);

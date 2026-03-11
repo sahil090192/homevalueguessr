@@ -10,6 +10,16 @@ export type PoolData = {
 };
 
 let cache: PoolData | null = null;
+let deck: LocationRecord[] | null = null;
+let deckIndex = 0;
+
+function shuffle<T>(items: T[]): T[] {
+  for (let i = items.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [items[i], items[j]] = [items[j], items[i]];
+  }
+  return items;
+}
 
 function loadPool(): PoolData {
   const poolPath = path.join(process.cwd(), 'public', 'data', 'sample_pool.json');
@@ -30,7 +40,14 @@ export function getPool(): PoolData {
 
 export function getRandomLocation(): LocationRecord {
   const pool = getPool();
-  return pool.locations[Math.floor(Math.random() * pool.locations.length)];
+  const shouldReset = !deck || deckIndex >= deck.length;
+  if (shouldReset) {
+    deck = shuffle([...pool.locations]);
+    deckIndex = 0;
+  }
+  const next = deck![deckIndex];
+  deckIndex += 1;
+  return next;
 }
 
 export function getZhviLabel(): string {

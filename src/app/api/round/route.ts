@@ -18,6 +18,7 @@ export async function GET() {
         county: location.county,
         lat: location.lat,
         lng: location.lng,
+        panoId: location.panoId,
         zhviLabel: getZhviLabel(),
       },
     };
