@@ -25,6 +25,7 @@
 *.pem
 data/raw/
 data/processed/*.parquet
+data/processed/pano_metadata.json
 data/pool/*.json
 
 # debug

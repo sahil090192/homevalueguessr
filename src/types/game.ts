@@ -7,6 +7,7 @@ export type LocationRecord = {
   lat: number;
   lng: number;
   homeValue: number;
+  panoId?: string;
 };
 
 export type LocationView = Omit<LocationRecord, 'homeValue'> & {
