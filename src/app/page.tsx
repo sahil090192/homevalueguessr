@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { GuessResult, RoundPayload } from "@/types/game";
 import { formatCurrency } from "@/lib/scoring";
 
@@ -68,6 +68,8 @@ export default function HomePage() {
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shareFeedback, setShareFeedback] = useState<string | null>(null);
+  const [imageryError, setImageryError] = useState(false);
+  const imageErrorCountRef = useRef(0);
 
   const progress = (history.length / TOTAL_ROUNDS) * 100;
 
@@ -106,6 +108,37 @@ export default function HomePage() {
       };
     });
   }, [round]);
+  useEffect(() => {
+    setImageryError(false);
+    imageErrorCountRef.current = 0;
+  }, [round?.roundId]);
+
+  const flagImageryFailure = useCallback(() => {
+    const next = imageErrorCountRef.current + 1;
+    imageErrorCountRef.current = next;
+    if (next >= HEADING_OFFSETS.length) {
+      setImageryError(true);
+      setStatusMessage("Street View ghosted this block. Swap in another street.");
+    }
+  }, []);
+
+  const handleSwapRound = useCallback(async () => {
+    try {
+      setStage("loading");
+      setStatusMessage("Grabbing a new block with actual imagery…");
+      const payload = await fetchRound();
+      setRound(payload);
+      setActiveResult(null);
+      setGuessInput("");
+      setImageryError(false);
+      imageErrorCountRef.current = 0;
+      setStatusMessage(null);
+      setStage("guess");
+    } catch (error) {
+      setStatusMessage((error as Error).message);
+      setStage("guess");
+    }
+  }, []);
 
   const handleStart = async () => {
     try {
@@ -167,6 +200,7 @@ export default function HomePage() {
   const handleChip = (value: number) => {
     setGuessInput(String(value));
   };
+  const guessDisabled = stage === "loading" || stage === "reveal" || imageryError;
 
   const displayRound =
     stage === "guess"
@@ -369,7 +403,7 @@ export default function HomePage() {
                   {stage === "guess" && (
                     <button
                       onClick={handleGuessSubmit}
-                      disabled={isSubmitting}
+                      disabled={isSubmitting || guessDisabled}
                       className="flex-1 rounded-full border-2 border-[var(--border-strong)] bg-[var(--accent)] px-6 py-3 text-lg font-semibold uppercase tracking-wide text-white shadow-[4px_4px_0_var(--border-strong)] transition hover:-translate-y-0.5"
                     >
                       {isSubmitting ? "Scoring..." : "Lock it in"}
@@ -417,6 +451,7 @@ export default function HomePage() {
                           className="h-[260px] w-full object-cover sm:h-[320px]"
                           priority
                           unoptimized
+                          onError={flagImageryFailure}
                         />
                         <p className="bg-[var(--ink)] px-4 py-2 text-xs uppercase tracking-[0.4em] text-[var(--sand)]">
                           Heading {view.heading}°
@@ -438,6 +473,20 @@ export default function HomePage() {
                   <p className="text-sm text-[var(--ink-muted)]">ZIP {round.location.zip} · {round.location.metro}</p>
                   <p className="mt-3 text-xs uppercase tracking-widest text-[var(--ink-muted)]">County</p>
                   <p className="text-lg font-medium">{round.location.county}</p>
+                </div>
+              )}
+              {imageryError && (
+                <div className="rounded-3xl border border-dashed border-[var(--border-strong)] bg-white/80 px-5 py-4 shadow-[6px_6px_0_var(--border-strong)]">
+                  <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Imagery bailed</p>
+                  <p className="mt-2 text-sm text-[var(--ink)]">
+                    Street View refused to render this ZIP. Swap in a fresh street so you’re not guessing blind.
+                  </p>
+                  <button
+                    onClick={handleSwapRound}
+                    className="mt-3 rounded-full border border-[var(--border-strong)] bg-[var(--ink)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--sand)] shadow-[3px_3px_0_var(--border-strong)]"
+                  >
+                    Deal another street
+                  </button>
                 </div>
               )}
             </aside>
