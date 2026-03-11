@@ -73,8 +73,6 @@ export default function HomePage() {
   const [shareFeedback, setShareFeedback] = useState<string | null>(null);
   const [imageryError, setImageryError] = useState(false);
   const imageErrorCountRef = useRef(0);
-  const sliderRef = useRef<HTMLDivElement>(null);
-  const [isSliderDragging, setIsSliderDragging] = useState(false);
 
   const progress = (history.length / TOTAL_ROUNDS) * 100;
 
@@ -100,82 +98,26 @@ export default function HomePage() {
     return Math.round(clamped / 1000) * 1000;
   }, []);
 
-  const sliderPct = useMemo(() => {
-    return (guessValue - MIN_GUESS) / (MAX_GUESS - MIN_GUESS);
-  }, [guessValue]);
-
-  const sliderTicks = useMemo(() => {
-    const stops = [MIN_GUESS, 250000, 500000, 750000, 1000000, 1500000, MAX_GUESS];
-    return stops.map((value) => ({
-      value,
-      pct: (value - MIN_GUESS) / (MAX_GUESS - MIN_GUESS),
-    }));
-  }, []);
-
-  const valueFromSliderPointer = useCallback(
-    (clientX: number) => {
-      if (!sliderRef.current) return null;
-      const rect = sliderRef.current.getBoundingClientRect();
-      const pct = (clientX - rect.left) / rect.width;
-      const bounded = Math.min(1, Math.max(0, pct));
-      const rawValue = MIN_GUESS + bounded * (MAX_GUESS - MIN_GUESS);
-      return clampGuess(rawValue);
-    },
-    [clampGuess]
-  );
-
-  const updateSliderFromPointer = useCallback(
-    (clientX: number) => {
-      const next = valueFromSliderPointer(clientX);
-      if (next !== null) {
-        setGuessValue(next);
-      }
-    },
-    [valueFromSliderPointer]
-  );
-
-  const handleSliderPointerDown = useCallback(
-    (event: React.PointerEvent<HTMLDivElement>) => {
-      event.preventDefault();
-      event.currentTarget.setPointerCapture(event.pointerId);
-      setIsSliderDragging(true);
-      updateSliderFromPointer(event.clientX);
-    },
-    [updateSliderFromPointer]
-  );
-
-  const handleSliderPointerMove = useCallback(
-    (event: React.PointerEvent<HTMLDivElement>) => {
-      if (!isSliderDragging) return;
-      updateSliderFromPointer(event.clientX);
-    },
-    [isSliderDragging, updateSliderFromPointer]
-  );
-
-  const handleSliderPointerUp = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
-    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
-      event.currentTarget.releasePointerCapture(event.pointerId);
-    }
-    setIsSliderDragging(false);
-  }, []);
-
-  const handleSliderKeyDown = useCallback(
-    (event: React.KeyboardEvent<HTMLDivElement>) => {
-      if (event.key === "ArrowLeft" || event.key === "ArrowDown") {
-        event.preventDefault();
-        setGuessValue((prev) => clampGuess(prev - 10000));
-      }
-      if (event.key === "ArrowRight" || event.key === "ArrowUp") {
-        event.preventDefault();
-        setGuessValue((prev) => clampGuess(prev + 10000));
-      }
-    },
-    [clampGuess]
-  );
-
   const nudgeGuess = useCallback(
     (delta: number) => {
       setGuessValue((prev) => clampGuess(prev + delta));
+    },
+    [clampGuess]
+  );
+
+  const handleSliderChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setGuessValue(clampGuess(Number(event.target.value)));
+    },
+    [clampGuess]
+  );
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const numeric = Number(event.target.value.replace(/[^0-9]/g, ""));
+      if (!Number.isNaN(numeric)) {
+        setGuessValue(clampGuess(numeric));
+      }
     },
     [clampGuess]
   );
@@ -455,18 +397,29 @@ export default function HomePage() {
                     </span>
                   )}
                 </div>
-                <div className="rounded-3xl border border-[var(--border-strong)] bg-white/80 p-5 shadow-[6px_6px_0_var(--border-strong)]">
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
-                    <div>
-                      <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Your read</p>
-                      <p className="text-4xl font-semibold tracking-tight">{formatCurrency(guessValue)}</p>
+                <div className="space-y-4 rounded-3xl border border-[var(--border-soft)] bg-white/70 p-5">
+                  <div className="flex flex-wrap items-end gap-4">
+                    <div className="flex flex-col">
+                      <label className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Manual entry</label>
+                      <div className="flex items-center gap-2 rounded-2xl border border-[var(--border-strong)] bg-white px-4 py-2 shadow-[3px_3px_0_var(--border-strong)]">
+                        <span className="text-lg font-semibold text-[var(--accent-dark)]">$</span>
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          className="w-36 bg-transparent text-3xl font-semibold tracking-tight text-[var(--ink)] outline-none"
+                          value={guessValue.toLocaleString()}
+                          onChange={handleInputChange}
+                          aria-label="Manual guess entry"
+                          disabled={guessDisabled}
+                        />
+                      </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex flex-wrap gap-2">
                       {[-50000, -10000, 10000, 50000].map((delta) => (
                         <button
                           key={delta}
                           type="button"
-                          className="rounded-full border border-[var(--border-strong)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
+                          className="rounded-full border border-[var(--border-strong)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
                           onClick={() => nudgeGuess(delta)}
                           disabled={guessDisabled}
                         >
@@ -475,7 +428,7 @@ export default function HomePage() {
                       ))}
                       <button
                         type="button"
-                        className="rounded-full border border-dashed border-[var(--border-strong)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]"
+                        className="rounded-full border border-dashed border-[var(--border-strong)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]"
                         onClick={() => setGuessValue(DEFAULT_GUESS)}
                         disabled={guessDisabled}
                       >
@@ -483,66 +436,34 @@ export default function HomePage() {
                       </button>
                     </div>
                   </div>
-                  <div className="mt-6 space-y-2">
+                  <div>
                     <div className="flex justify-between text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]">
                       <span>{formatCurrency(MIN_GUESS)}</span>
                       <span>{formatCurrency(MAX_GUESS)}</span>
                     </div>
-                    <div
-                      ref={sliderRef}
-                      role="slider"
-                      tabIndex={0}
-                      aria-label="Guess slider"
-                      aria-valuemin={MIN_GUESS}
-                      aria-valuemax={MAX_GUESS}
-                      aria-valuenow={guessValue}
-                      aria-valuetext={formatCurrency(guessValue)}
-                      className="relative h-16 cursor-pointer rounded-full bg-gradient-to-r from-[#efe3d2] via-[#f7d3b7] to-[#fca97d] px-6 py-5 shadow-inner shadow-[rgba(0,0,0,0.08)]"
-                      onPointerDown={handleSliderPointerDown}
-                      onPointerMove={handleSliderPointerMove}
-                      onPointerUp={handleSliderPointerUp}
-                      onPointerLeave={handleSliderPointerUp}
-                      onKeyDown={handleSliderKeyDown}
-                    >
-                      <div className="absolute inset-[10px] rounded-full bg-white/40 backdrop-blur-[1px]" />
-                      <div className="absolute left-10 right-10 top-1/2 h-[2px] -translate-y-1/2 rounded-full bg-[var(--border-soft)]">
-                        <div
-                          className="h-full rounded-full bg-[var(--ink)] transition-all duration-200 ease-out"
-                          style={{ width: `${(sliderPct * 100).toFixed(2)}%` }}
-                        />
-                      </div>
-                      <div
-                        className="absolute top-1/2 h-7 w-7 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-[var(--ink)] shadow-[0_10px_20px_rgba(0,0,0,0.25)] transition-transform duration-150 ease-out"
-                        style={{ left: `${(sliderPct * 100).toFixed(2)}%` }}
+                    <input
+                      type="range"
+                      min={MIN_GUESS}
+                      max={MAX_GUESS}
+                      step={1000}
+                      value={guessValue}
+                      onChange={handleSliderChange}
+                      disabled={guessDisabled}
+                      className="slider mt-2 h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--border-soft)] accent-[var(--ink)]"
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {QUICK_CHOICES.map((value) => (
+                      <button
+                        key={value}
+                        type="button"
+                        className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:-translate-y-0.5 hover:bg-[var(--ink)] hover:text-[var(--sand)]"
+                        onClick={() => handleChip(value)}
+                        disabled={guessDisabled}
                       >
-                        <div className="absolute inset-[6px] rounded-full bg-[var(--sand)]" />
-                      </div>
-                      {sliderTicks.map((tick) => (
-                        <div
-                          key={tick.value}
-                          className="pointer-events-none absolute top-0 flex -translate-x-1/2 -translate-y-1/2 flex-col items-center gap-1"
-                          style={{ left: `${tick.pct * 100}%` }}
-                        >
-                          <span className="block h-3 w-[2px] rounded-full bg-[var(--border-strong)]" />
-                          <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]">
-                            {tick.value >= 1000000 ? `${(tick.value / 1000000).toFixed(1)}M` : `${Math.round(tick.value / 1000)}k`}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                    <div className="flex flex-wrap gap-2">
-                      {QUICK_CHOICES.map((value) => (
-                        <button
-                          key={value}
-                          type="button"
-                          className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:-translate-y-0.5 hover:bg-[var(--ink)] hover:text-[var(--sand)]"
-                          onClick={() => handleChip(value)}
-                          disabled={guessDisabled}
-                        >
-                          {formatCurrency(value)}
-                        </button>
-                      ))}
-                    </div>
+                        {formatCurrency(value)}
+                      </button>
+                    ))}
                   </div>
                 </div>
                 <div className="flex gap-4">
