@@ -8,6 +8,10 @@ import { formatCurrency } from "@/lib/scoring";
 const TOTAL_ROUNDS = 5;
 const QUICK_CHOICES = [180000, 320000, 550000, 850000, 1200000, 2000000];
 const HEADING_OFFSETS = [0, 120];
+const MIN_GUESS = 50000;
+const MAX_GUESS = 2000000;
+const DEFAULT_GUESS = 420000;
+const DIAL_SWEEP_DEG = 300;
 const SCORE_BANDS = [
   { label: "Laser accurate", error: "0 – 10% error", points: "≈ 4.5k – 5k pts" },
   { label: "Dialed in", error: "10 – 25%", points: "≈ 3k – 4.5k pts" },
@@ -64,12 +68,14 @@ export default function HomePage() {
   const [round, setRound] = useState<RoundPayload | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [activeResult, setActiveResult] = useState<GuessResult | null>(null);
-  const [guessInput, setGuessInput] = useState("");
+  const [guessValue, setGuessValue] = useState(DEFAULT_GUESS);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shareFeedback, setShareFeedback] = useState<string | null>(null);
   const [imageryError, setImageryError] = useState(false);
   const imageErrorCountRef = useRef(0);
+  const dialRef = useRef<HTMLDivElement>(null);
+  const [isDialDragging, setIsDialDragging] = useState(false);
 
   const progress = (history.length / TOTAL_ROUNDS) * 100;
 
@@ -89,6 +95,85 @@ export default function HomePage() {
   const totalScoreDisplay = history.length ? totalScore.toLocaleString() : "0";
   const averageErrorDisplay = history.length ? `${(averageError * 100).toFixed(1)}%` : "—";
   const isPlaying = stage === "guess" || stage === "reveal" || stage === "loading";
+
+  const clampGuess = useCallback((raw: number) => {
+    const clamped = Math.min(MAX_GUESS, Math.max(MIN_GUESS, raw));
+    return Math.round(clamped / 1000) * 1000;
+  }, []);
+
+  const dialAngle = useMemo(() => {
+    const pct = (guessValue - MIN_GUESS) / (MAX_GUESS - MIN_GUESS);
+    return pct * DIAL_SWEEP_DEG - DIAL_SWEEP_DEG / 2;
+  }, [guessValue]);
+
+  const dialTicks = useMemo(() => {
+    const stops = [MIN_GUESS, 250000, 500000, 750000, 1000000, 1500000, MAX_GUESS];
+    return stops.map((value) => {
+      const pct = (value - MIN_GUESS) / (MAX_GUESS - MIN_GUESS);
+      const angle = pct * DIAL_SWEEP_DEG - DIAL_SWEEP_DEG / 2;
+      return { value, angle };
+    });
+  }, []);
+
+  const pointerToGuessValue = useCallback(
+    (clientX: number, clientY: number) => {
+      if (!dialRef.current) return null;
+      const rect = dialRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+      const angleRad = Math.atan2(clientY - centerY, clientX - centerX);
+      const rawDeg = (angleRad * 180) / Math.PI + 90; // 0° at top
+      let normalizedDeg = ((rawDeg + 540) % 360) - 180; // map to [-180, 180]
+      const halfSweep = DIAL_SWEEP_DEG / 2;
+      normalizedDeg = Math.min(Math.max(normalizedDeg, -halfSweep), halfSweep);
+      const pct = (normalizedDeg + halfSweep) / DIAL_SWEEP_DEG;
+      const rawValue = MIN_GUESS + pct * (MAX_GUESS - MIN_GUESS);
+      return clampGuess(rawValue);
+    },
+    [clampGuess]
+  );
+
+  const updateDialFromPointer = useCallback(
+    (clientX: number, clientY: number) => {
+      const next = pointerToGuessValue(clientX, clientY);
+      if (next !== null) {
+        setGuessValue(next);
+      }
+    },
+    [pointerToGuessValue]
+  );
+
+  const handleDialPointerDown = useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      event.preventDefault();
+      event.currentTarget.setPointerCapture(event.pointerId);
+      setIsDialDragging(true);
+      updateDialFromPointer(event.clientX, event.clientY);
+    },
+    [updateDialFromPointer]
+  );
+
+  const handleDialPointerMove = useCallback(
+    (event: React.PointerEvent<HTMLDivElement>) => {
+      if (!isDialDragging) return;
+      updateDialFromPointer(event.clientX, event.clientY);
+    },
+    [isDialDragging, updateDialFromPointer]
+  );
+
+  const handleDialPointerUp = useCallback((event: React.PointerEvent<HTMLDivElement>) => {
+    if (event.currentTarget.hasPointerCapture(event.pointerId)) {
+      event.currentTarget.releasePointerCapture(event.pointerId);
+    }
+    setIsDialDragging(false);
+  }, []);
+
+  const nudgeGuess = useCallback(
+    (delta: number) => {
+      setGuessValue((prev) => clampGuess(prev + delta));
+    },
+    [clampGuess]
+  );
 
   const streetViewUrls = useMemo(() => {
     if (!round) return [];
@@ -129,7 +214,7 @@ export default function HomePage() {
       const payload = await fetchRound();
       setRound(payload);
       setActiveResult(null);
-      setGuessInput("");
+      setGuessValue(DEFAULT_GUESS);
       setImageryError(false);
       imageErrorCountRef.current = 0;
       setStatusMessage(null);
@@ -145,11 +230,11 @@ export default function HomePage() {
       setStage("loading");
       setHistory([]);
       setActiveResult(null);
-    setStatusMessage(null);
-    setShareFeedback(null);
+      setStatusMessage(null);
+      setShareFeedback(null);
+      setGuessValue(DEFAULT_GUESS);
       const payload = await fetchRound();
       setRound(payload);
-      setGuessInput("");
       setStage("guess");
     } catch (error) {
       setStatusMessage((error as Error).message);
@@ -159,7 +244,7 @@ export default function HomePage() {
 
   const handleGuessSubmit = async () => {
     if (!round) return;
-    const numeric = Number(guessInput.replace(/[^0-9]/g, ""));
+    const numeric = guessValue;
     if (!numeric || numeric < 1000) {
       setStatusMessage("Enter at least $1,000 for your guess");
       return;
@@ -188,7 +273,7 @@ export default function HomePage() {
       const payload = await fetchRound();
       setRound(payload);
       setActiveResult(null);
-      setGuessInput("");
+      setGuessValue(DEFAULT_GUESS);
       setStatusMessage(null);
       setStage("guess");
     } catch (error) {
@@ -198,7 +283,7 @@ export default function HomePage() {
   };
 
   const handleChip = (value: number) => {
-    setGuessInput(String(value));
+    setGuessValue(clampGuess(value));
   };
   const guessDisabled = stage === "loading" || stage === "reveal" || imageryError;
 
@@ -365,39 +450,98 @@ export default function HomePage() {
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-4 rounded-2xl border border-[var(--border-strong)] bg-white px-5 py-4 shadow-[4px_4px_0_var(--border-strong)]">
-                  <span className="text-lg font-semibold text-[var(--accent-dark)]">$</span>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    className="w-full bg-transparent text-3xl font-semibold tracking-wide text-[var(--ink)] outline-none"
-                    value={guessInput ? Number(guessInput).toLocaleString() : ""}
-                    onChange={(event) => {
-                      const digits = event.target.value.replace(/[^0-9]/g, "");
-                      setGuessInput(digits);
-                    }}
-                    placeholder="000,000"
-                    disabled={stage === "loading" || stage === "reveal"}
-                  />
-                  <button
-                    className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs uppercase tracking-widest text-[var(--ink)]"
-                    onClick={() => setGuessInput("")}
-                    type="button"
-                  >
-                    Clear
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {QUICK_CHOICES.map((value) => (
-                    <button
-                      key={value}
-                      type="button"
-                      className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold tracking-wide text-[var(--ink-muted)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
-                      onClick={() => handleChip(value)}
+                <div className="flex flex-col gap-6 lg:flex-row lg:items-start">
+                  <div className="flex flex-col items-center gap-4">
+                    <div className="text-center">
+                      <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Dialed-in guess</p>
+                      <p className="mt-1 text-4xl font-semibold tracking-tight">{formatCurrency(guessValue)}</p>
+                      <p className="text-xs uppercase tracking-[0.3em] text-[var(--ink-muted)]">drag the bezel or tap nudges</p>
+                    </div>
+                    <div
+                      ref={dialRef}
+                      role="slider"
+                      aria-valuemin={MIN_GUESS}
+                      aria-valuemax={MAX_GUESS}
+                      aria-valuenow={guessValue}
+                      aria-valuetext={formatCurrency(guessValue)}
+                      aria-label="Guess dial"
+                      className="relative h-64 w-64 rounded-full border-[6px] border-[var(--border-strong)] bg-gradient-to-br from-[#fff9f0] via-[#fff2e3] to-[#ffe3cc] shadow-[0_20px_60px_rgba(36,8,0,0.18)] transition-transform duration-300 ease-out"
+                      onPointerDown={handleDialPointerDown}
+                      onPointerMove={handleDialPointerMove}
+                      onPointerUp={handleDialPointerUp}
+                      onPointerLeave={handleDialPointerUp}
                     >
-                      {formatCurrency(value)}
-                    </button>
-                  ))}
+                      <div className="absolute inset-5 rounded-full border border-[var(--border-soft)] bg-white/40 backdrop-blur-[2px]" />
+                      {dialTicks.map((tick) => (
+                        <div
+                          key={tick.value}
+                          className="pointer-events-none absolute left-1/2 top-1/2"
+                          style={{ transform: `rotate(${tick.angle}deg)` }}
+                        >
+                          <div className="flex flex-col items-center" style={{ transform: "translate(-50%, -130px)" }}>
+                            <span className="block h-6 w-[2px] rounded-full bg-[var(--border-strong)]" />
+                            <span
+                              className="mt-1 text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]"
+                              style={{ transform: `rotate(${-tick.angle}deg)` }}
+                            >
+                              {tick.value >= 1000000 ? `${(tick.value / 1000000).toFixed(1)}M` : `${Math.round(tick.value / 1000)}k`}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
+                      <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+                        <div
+                          className="h-[45%] w-1 origin-bottom rounded-full bg-[var(--accent-dark)] shadow-[0_0_30px_rgba(0,0,0,0.2)]"
+                          style={{ transform: `rotate(${dialAngle}deg)` }}
+                        />
+                      </div>
+                      <div className="pointer-events-none absolute left-1/2 top-1/2 h-16 w-16 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/60 bg-[var(--ink)] shadow-[0_10px_30px_rgba(0,0,0,0.25)]" />
+                      <div className="pointer-events-none absolute inset-10 flex flex-col items-center justify-center text-center">
+                        <p className="text-[10px] uppercase tracking-[0.4em] text-[var(--ink-muted)]">swirl to roam</p>
+                        <p className="font-semibold text-[var(--accent-dark)]">{isDialDragging ? "Adjusting…" : "Locked"}</p>
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap items-center justify-center gap-3">
+                      {[-50000, -10000, 10000, 50000].map((delta) => (
+                        <button
+                          key={delta}
+                          type="button"
+                          className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
+                          onClick={() => nudgeGuess(delta)}
+                          disabled={guessDisabled}
+                        >
+                          {delta > 0 ? `+${(delta / 1000).toFixed(0)}k` : `${(delta / 1000).toFixed(0)}k`}
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        className="rounded-full border border-dashed border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]"
+                        onClick={() => setGuessValue(DEFAULT_GUESS)}
+                        disabled={guessDisabled}
+                      >
+                        Reset dial
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-1 flex-col gap-3">
+                    <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Quick drops</p>
+                    <div className="grid grid-cols-2 gap-2">
+                      {QUICK_CHOICES.map((value) => (
+                        <button
+                          key={value}
+                          type="button"
+                          className="rounded-2xl border border-[var(--border-strong)] bg-white px-4 py-3 text-left text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink)] shadow-[3px_3px_0_var(--border-strong)] transition hover:-translate-y-0.5 hover:bg-[var(--ink)] hover:text-[var(--sand)]"
+                          onClick={() => handleChip(value)}
+                          disabled={guessDisabled}
+                        >
+                          {formatCurrency(value)}
+                        </button>
+                      ))}
+                    </div>
+                    <p className="text-xs text-[var(--ink-muted)]">
+                      Range {formatCurrency(MIN_GUESS)} – {formatCurrency(MAX_GUESS)} · increments of $1k for tactile control.
+                    </p>
+                  </div>
                 </div>
                 <div className="flex gap-4">
                   {stage === "guess" && (
