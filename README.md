@@ -48,6 +48,7 @@ ROUND_SECRET=long-random-string # optional but keeps round tokens valid across d
    npm run data:pool      # -> public/data/sample_pool.json
    ```
    This step reuses cached pano metadata from `data/processed/pano_metadata.json` (gitignored), fetches new pano IDs only for uncached ZIPs, filters out obvious highways/ramps, and throttles Google requests.
+   Each ZIP now gets up to `STREETVIEW_MAX_PROBES` deterministic probe points (jittered as far as ~4 km from the centroid) so rural centroids don’t doom you to empty fields—the builder keeps wandering until it finds a street-level pano or exhausts the probes.
 
 Re-running `npm run data:pool` later tops up the pool while touching only expired/missing ZIPs. Watch the summary log for “reused cache / new lookups / skipped by cap” counts to keep credits in check.
 
@@ -57,6 +58,9 @@ Re-running `npm run data:pool` later tops up the pool while touching only expire
 | --- | --- | --- |
 | `POOL_TARGET_COUNT` | ∞ | Stop once that many playable ZIPs are captured. |
 | `STREETVIEW_MAX_NEW_FETCHES` | ∞ | Hard cap on *new* metadata lookups per run so you can stay within daily or credit budgets. Cached entries don’t count. |
+| `STREETVIEW_MAX_PROBES` | 8 | How many jittered probe points to sample per ZIP before giving up (spreads searches deeper into the ZIP). |
+| `STREETVIEW_PROBE_STEP_METERS` | 450 | Base distance between probe rings. Combined with the seed it shapes how far we wander each attempt. |
+| `STREETVIEW_MAX_PROBE_RADIUS_METERS` | 4000 | Hard ceiling (in meters) for how far we’ll drift from the ZIP’s centroid when hunting for a pano. |
 | `STREETVIEW_CACHE_TTL_MS` | 30 days | Revalidate pano metadata after this window; keeps coverage fresh without hammering Google. |
 | `STREETVIEW_THROTTLE_MS` | 150 ms | Delay between metadata requests (be nice to the API). |
 | `STREETVIEW_IMAGE_CACHE_TTL_MS` | 12 h | Server-side cache duration for rendered Street View frames. |
