@@ -8,6 +8,9 @@ import { formatCurrency } from "@/lib/scoring";
 const TOTAL_ROUNDS = 5;
 const QUICK_CHOICES = [180000, 320000, 550000, 850000, 1200000, 2000000];
 const HEADING_OFFSETS = [0, 120];
+const MIN_GUESS = 50000;
+const MAX_GUESS = 2000000;
+const DEFAULT_GUESS = 420000;
 const SCORE_BANDS = [
   { label: "Laser accurate", error: "0 – 10% error", points: "≈ 4.5k – 5k pts" },
   { label: "Dialed in", error: "10 – 25%", points: "≈ 3k – 4.5k pts" },
@@ -64,7 +67,7 @@ export default function HomePage() {
   const [round, setRound] = useState<RoundPayload | null>(null);
   const [history, setHistory] = useState<HistoryEntry[]>([]);
   const [activeResult, setActiveResult] = useState<GuessResult | null>(null);
-  const [guessInput, setGuessInput] = useState("");
+  const [guessValue, setGuessValue] = useState(DEFAULT_GUESS);
   const [statusMessage, setStatusMessage] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shareFeedback, setShareFeedback] = useState<string | null>(null);
@@ -89,6 +92,35 @@ export default function HomePage() {
   const totalScoreDisplay = history.length ? totalScore.toLocaleString() : "0";
   const averageErrorDisplay = history.length ? `${(averageError * 100).toFixed(1)}%` : "—";
   const isPlaying = stage === "guess" || stage === "reveal" || stage === "loading";
+
+  const clampGuess = useCallback((raw: number) => {
+    const clamped = Math.min(MAX_GUESS, Math.max(MIN_GUESS, raw));
+    return Math.round(clamped / 1000) * 1000;
+  }, []);
+
+  const nudgeGuess = useCallback(
+    (delta: number) => {
+      setGuessValue((prev) => clampGuess(prev + delta));
+    },
+    [clampGuess]
+  );
+
+  const handleSliderChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      setGuessValue(clampGuess(Number(event.target.value)));
+    },
+    [clampGuess]
+  );
+
+  const handleInputChange = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const numeric = Number(event.target.value.replace(/[^0-9]/g, ""));
+      if (!Number.isNaN(numeric)) {
+        setGuessValue(clampGuess(numeric));
+      }
+    },
+    [clampGuess]
+  );
 
   const streetViewUrls = useMemo(() => {
     if (!round) return [];
@@ -129,7 +161,7 @@ export default function HomePage() {
       const payload = await fetchRound();
       setRound(payload);
       setActiveResult(null);
-      setGuessInput("");
+      setGuessValue(DEFAULT_GUESS);
       setImageryError(false);
       imageErrorCountRef.current = 0;
       setStatusMessage(null);
@@ -145,11 +177,11 @@ export default function HomePage() {
       setStage("loading");
       setHistory([]);
       setActiveResult(null);
-    setStatusMessage(null);
-    setShareFeedback(null);
+      setStatusMessage(null);
+      setShareFeedback(null);
+      setGuessValue(DEFAULT_GUESS);
       const payload = await fetchRound();
       setRound(payload);
-      setGuessInput("");
       setStage("guess");
     } catch (error) {
       setStatusMessage((error as Error).message);
@@ -159,7 +191,7 @@ export default function HomePage() {
 
   const handleGuessSubmit = async () => {
     if (!round) return;
-    const numeric = Number(guessInput.replace(/[^0-9]/g, ""));
+    const numeric = guessValue;
     if (!numeric || numeric < 1000) {
       setStatusMessage("Enter at least $1,000 for your guess");
       return;
@@ -188,7 +220,7 @@ export default function HomePage() {
       const payload = await fetchRound();
       setRound(payload);
       setActiveResult(null);
-      setGuessInput("");
+      setGuessValue(DEFAULT_GUESS);
       setStatusMessage(null);
       setStage("guess");
     } catch (error) {
@@ -198,7 +230,7 @@ export default function HomePage() {
   };
 
   const handleChip = (value: number) => {
-    setGuessInput(String(value));
+    setGuessValue(clampGuess(value));
   };
   const guessDisabled = stage === "loading" || stage === "reveal" || imageryError;
 
@@ -213,24 +245,12 @@ export default function HomePage() {
         ? "Full tally"
         : `Round ${displayRound || 1} of ${TOTAL_ROUNDS}`;
 
-  const progressTrail = useMemo(
-    () =>
-      Array.from({ length: TOTAL_ROUNDS }, (_, index) => {
-        const entry = history[index];
-        if (entry) {
-          return {
-            state: "done" as const,
-            tier: errorTier(entry.result.percentageError),
-            score: entry.result.score,
-          };
-        }
-        if (index === history.length && stage !== "summary") {
-          return { state: "active" as const };
-        }
-        return { state: "pending" as const };
-      }),
-    [history, stage]
-  );
+  const progressTrail = useMemo(() => {
+    return Array.from({ length: TOTAL_ROUNDS }, (_, index) => ({
+      state: history[index] ? "done" : index === history.length && stage !== "summary" ? "active" : "pending",
+      tier: history[index] ? errorTier(history[index]!.result.percentageError) : null,
+    }));
+  }, [history, stage]);
 
   const handleShare = async () => {
     const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on Home Value Guesser. Think you can read a block better? https://homevalueguesser.com`;
@@ -317,43 +337,21 @@ export default function HomePage() {
                     <p className="text-2xl font-semibold">{round?.location.zhviLabel ?? "Jan 2026"}</p>
                   </div>
                 </div>
-                <div className="mt-6 flex gap-2">
-                  {progressTrail.map((item, index) => {
-                    if (item.state === "done") {
-                      const tone =
-                        item.tier === "elite"
-                          ? "bg-[var(--jade)]"
-                          : item.tier === "solid"
-                            ? "bg-[var(--accent)]"
-                            : item.tier === "meh"
-                              ? "bg-[#c5a05a]"
-                              : "bg-[#a05151]";
-                      return (
-                        <div
-                          key={`round-${index}`}
-                          aria-label={`Round ${index + 1} complete`}
-                          className={`h-6 flex-1 rounded-full border border-[var(--border-strong)] ${tone}`}
-                        />
-                      );
-                    }
-                    if (item.state === "active") {
-                      return (
-                        <div
-                          key={`round-${index}`}
-                          aria-label={`Round ${index + 1} in progress`}
-                          className="h-6 flex-1 rounded-full border border-dashed border-[var(--border-strong)] bg-white"
-                          style={{ opacity: 0.8 }}
-                        />
-                      );
-                    }
-                    return (
-                      <div
-                        key={`round-${index}`}
-                        aria-label={`Round ${index + 1} pending`}
-                        className="h-6 flex-1 rounded-full border border-[var(--border-soft)] bg-white/60"
+                <div className="mt-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+                  {progressTrail.map((item, index) => (
+                    <div key={`round-${index}`} className="flex items-center gap-1">
+                      <span className="text-[var(--ink-muted)]">{index + 1}</span>
+                      <span
+                        className={`block h-[2px] w-10 rounded-full ${
+                          item.state === "done"
+                            ? "bg-[var(--ink)]"
+                            : item.state === "active"
+                              ? "bg-[var(--ink-muted)] animate-pulse"
+                              : "bg-[var(--border-soft)]"
+                        }`}
                       />
-                    );
-                  })}
+                    </div>
+                  ))}
                 </div>
               </div>
               <div className="space-y-4">
@@ -365,39 +363,74 @@ export default function HomePage() {
                     </span>
                   )}
                 </div>
-                <div className="flex items-center gap-4 rounded-2xl border border-[var(--border-strong)] bg-white px-5 py-4 shadow-[4px_4px_0_var(--border-strong)]">
-                  <span className="text-lg font-semibold text-[var(--accent-dark)]">$</span>
-                  <input
-                    type="text"
-                    inputMode="numeric"
-                    className="w-full bg-transparent text-3xl font-semibold tracking-wide text-[var(--ink)] outline-none"
-                    value={guessInput ? Number(guessInput).toLocaleString() : ""}
-                    onChange={(event) => {
-                      const digits = event.target.value.replace(/[^0-9]/g, "");
-                      setGuessInput(digits);
-                    }}
-                    placeholder="000,000"
-                    disabled={stage === "loading" || stage === "reveal"}
-                  />
-                  <button
-                    className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs uppercase tracking-widest text-[var(--ink)]"
-                    onClick={() => setGuessInput("")}
-                    type="button"
-                  >
-                    Clear
-                  </button>
-                </div>
-                <div className="flex flex-wrap gap-2">
-                  {QUICK_CHOICES.map((value) => (
-                    <button
-                      key={value}
-                      type="button"
-                      className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold tracking-wide text-[var(--ink-muted)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
-                      onClick={() => handleChip(value)}
-                    >
-                      {formatCurrency(value)}
-                    </button>
-                  ))}
+                <div className="space-y-4 rounded-3xl border border-[var(--border-soft)] bg-white/70 p-5">
+                  <div className="flex flex-wrap items-end gap-4">
+                    <div className="flex flex-col">
+                      <label className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Manual entry</label>
+                      <div className="flex items-center gap-2 rounded-2xl border border-[var(--border-strong)] bg-white px-4 py-2 shadow-[3px_3px_0_var(--border-strong)]">
+                        <span className="text-lg font-semibold text-[var(--accent-dark)]">$</span>
+                        <input
+                          type="text"
+                          inputMode="numeric"
+                          className="w-36 bg-transparent text-3xl font-semibold tracking-tight text-[var(--ink)] outline-none"
+                          value={guessValue.toLocaleString()}
+                          onChange={handleInputChange}
+                          aria-label="Manual guess entry"
+                          disabled={guessDisabled}
+                        />
+                      </div>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                      {[-50000, -10000, 10000, 50000].map((delta) => (
+                        <button
+                          key={delta}
+                          type="button"
+                          className="rounded-full border border-[var(--border-strong)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
+                          onClick={() => nudgeGuess(delta)}
+                          disabled={guessDisabled}
+                        >
+                          {delta > 0 ? `+${(delta / 1000).toFixed(0)}k` : `${(delta / 1000).toFixed(0)}k`}
+                        </button>
+                      ))}
+                      <button
+                        type="button"
+                        className="rounded-full border border-dashed border-[var(--border-strong)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]"
+                        onClick={() => setGuessValue(DEFAULT_GUESS)}
+                        disabled={guessDisabled}
+                      >
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="flex justify-between text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+                      <span>{formatCurrency(MIN_GUESS)}</span>
+                      <span>{formatCurrency(MAX_GUESS)}</span>
+                    </div>
+                    <input
+                      type="range"
+                      min={MIN_GUESS}
+                      max={MAX_GUESS}
+                      step={1000}
+                      value={guessValue}
+                      onChange={handleSliderChange}
+                      disabled={guessDisabled}
+                      className="slider mt-2 h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--border-soft)] accent-[var(--ink)]"
+                    />
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {QUICK_CHOICES.map((value) => (
+                      <button
+                        key={value}
+                        type="button"
+                        className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:-translate-y-0.5 hover:bg-[var(--ink)] hover:text-[var(--sand)]"
+                        onClick={() => handleChip(value)}
+                        disabled={guessDisabled}
+                      >
+                        {formatCurrency(value)}
+                      </button>
+                    ))}
+                  </div>
                 </div>
                 <div className="flex gap-4">
                   {stage === "guess" && (
