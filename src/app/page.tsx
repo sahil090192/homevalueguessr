@@ -97,8 +97,6 @@ export default function HomePage() {
   const [personalBest, setPersonalBest] = useState<PersonalBest | null>(null);
   const imageErrorCountRef = useRef(0);
 
-  const progress = (history.length / TOTAL_ROUNDS) * 100;
-
   const totalScore = useMemo(() => history.reduce((sum, entry) => sum + entry.result.score, 0), [history]);
 
   const averageError = useMemo(() => {
@@ -160,6 +158,7 @@ export default function HomePage() {
       };
     });
   }, [round]);
+
   useEffect(() => {
     setImageryError(false);
     imageErrorCountRef.current = 0;
@@ -315,59 +314,100 @@ export default function HomePage() {
   }, [hasCompletedRun, stage, history.length, totalScore, averageError]);
 
   return (
-    <div className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
+    <div className="relative min-h-screen overflow-hidden bg-[var(--sand)] text-[var(--ink)]">
+      <div
+        className="pointer-events-none absolute -left-24 top-12 hidden h-64 w-64 rotate-6 border-4 border-[var(--border-strong)] bg-[var(--citrus)] shadow-[18px_18px_0_var(--border-strong)] lg:block"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute -right-24 top-40 hidden h-72 w-72 -rotate-6 border-4 border-[var(--border-strong)] bg-[var(--sky)] shadow-[18px_18px_0_var(--border-strong)] lg:block"
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute inset-x-0 bottom-[-120px] h-[260px] bg-gradient-to-t from-[#ff3d00]/20 to-transparent" aria-hidden="true" />
+
       {stage === "intro" && (
-        <section className="mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-6 px-6 text-center">
-          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
-          <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight sm:text-6xl">
-            Two glances. One gut call. Guess the ZIP’s typical home value.
-          </h1>
-          <p className="max-w-2xl text-lg text-[var(--ink-muted)]">
-            We drop you on a random U.S. block with two crisp Street View frames. You channel your inner housing nerd and
-            estimate the ZIP’s median home value. Five rounds later, you’re either smug or humbled.
-          </p>
-          <button
-            onClick={handleStart}
-            className="rounded-full border-4 border-[var(--border-strong)] bg-gradient-to-r from-[#f26b38] to-[#f24976] px-12 py-5 text-2xl font-semibold uppercase tracking-[0.4em] text-white shadow-[10px_10px_0_var(--border-strong)] transition hover:-translate-y-1 hover:translate-x-1"
-          >
-            Play Home Value Guesser
-          </button>
-          <p className="text-sm uppercase tracking-[0.4em] text-[var(--ink-muted)]">5 rounds · 2 glimpses each · roast included</p>
-          <details className="rounded-2xl border border-dashed border-[var(--border-soft)] bg-white/70 p-4 text-left text-sm text-[var(--ink-muted)]">
-            <summary className="cursor-pointer text-xs uppercase tracking-[0.4em]">Scoring, if you’re curious</summary>
-            <div className="mt-3 space-y-2 text-xs leading-relaxed">
-              <p>
-                Score = max(0, 5000 − 2500 × |ln(guess / actual)|). Translation: missing an expensive ZIP hurts just as much as
-                butchering a modest one.
-              </p>
-              <ul className="space-y-1">
-                {SCORE_BANDS.map((band) => (
-                  <li key={band.label} className="flex justify-between">
-                    <span className="font-semibold">{band.label}</span>
-                    <span>{band.points}</span>
-                  </li>
-                ))}
-              </ul>
+        <section className="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-[1.1fr,0.9fr] lg:px-10">
+          <div className="flex flex-col gap-6">
+            <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
+            <div className="inline-flex w-fit items-center gap-3 rounded-full border-2 border-[var(--border-strong)] bg-white px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em]">
+              Neo-brutalist beta
             </div>
-          </details>
+            <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
+              Two feral Street View snaps. One gut-priced Zillow flex.
+            </h1>
+            <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-muted)]">
+              We teleport you to random U.S. blocks, you slap down a ZIP median guess, and the scoreboard either crowns you or
+              clowns you. Five rounds, zero mercy, endless roast potential.
+            </p>
+            <div className="flex flex-wrap gap-4">
+              <button
+                onClick={handleStart}
+                className="neo-button bg-[var(--ink)] px-12 py-5 text-lg text-[var(--sand)]"
+              >
+                Play Home Value Guesser
+              </button>
+              <div className="neo-chip border-dashed">
+                <span>5 rounds</span>
+                <span>2 views</span>
+                <span>Roast included</span>
+              </div>
+            </div>
+          </div>
+          <div className="neo-card neo-card--loud relative flex flex-col gap-4 p-8">
+            <div className="text-xs uppercase tracking-[0.5em] text-[var(--ink-muted)]">How it works</div>
+            <ul className="space-y-4 text-base font-semibold leading-relaxed">
+              <li className="flex items-start gap-4">
+                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white font-[family:var(--font-display)] text-xl">
+                  1
+                </span>
+                Drop in, eyeball two clashing Street View frames, and channel your inner assessor.
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white font-[family:var(--font-display)] text-xl">
+                  2
+                </span>
+                Slide or type your ZIP median guess anywhere between ${MIN_GUESS.toLocaleString()} and ${MAX_GUESS.toLocaleString()}.
+              </li>
+              <li className="flex items-start gap-4">
+                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white font-[family:var(--font-display)] text-xl">
+                  3
+                </span>
+                Eat the praise or the side-eye, rack points, and screenshot the receipts.
+              </li>
+            </ul>
+            <details className="rounded-3xl border-2 border-dashed border-[var(--border-strong)] bg-white/70 p-4 text-sm text-[var(--ink)]">
+              <summary className="cursor-pointer text-xs uppercase tracking-[0.4em]">Scoring cheat sheet</summary>
+              <div className="mt-3 space-y-2 text-xs leading-relaxed">
+                <p>
+                  Score = max(0, 5000 − 2500 × |ln(guess / actual)|). Log scale means blowing a luxe ZIP hurts as bad as tanking
+                  a sleepy suburb.
+                </p>
+                <ul className="space-y-1">
+                  {SCORE_BANDS.map((band) => (
+                    <li key={band.label} className="flex justify-between font-mono text-[12px]">
+                      <span>{band.label}</span>
+                      <span>{band.points}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </details>
+            <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 border-[3px] border-[var(--border-strong)] bg-[var(--electric)] shadow-[10px_10px_0_var(--border-strong)]" aria-hidden="true" />
+          </div>
         </section>
       )}
 
       {isPlaying && (
-        <div className="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10 lg:px-8">
-          <div className="grid gap-8 lg:grid-cols-[1.1fr,0.9fr]">
+        <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 lg:px-8">
+          <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr]">
             <section className="space-y-6">
-              <div className="rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] p-6 shadow-[8px_8px_0_var(--border-strong)]">
-                <div className="flex items-center justify-between text-xs uppercase tracking-widest text-[var(--ink-muted)]">
+              <div className="neo-card neo-card--loud relative overflow-hidden p-8">
+                <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
                   <span>{heading}</span>
-                  <span>
-                    {history.length}/{TOTAL_ROUNDS} streets
-                  </span>
+                  <span>Round {Math.min(stage === "guess" ? history.length + 1 : history.length, TOTAL_ROUNDS)} / {TOTAL_ROUNDS}</span>
+                  <span>{history.length}/{TOTAL_ROUNDS} streets</span>
                 </div>
-                <div className="mt-4 h-3 rounded-full bg-[#ddcdb6]">
-                  <div className="h-full rounded-full bg-[var(--accent)] transition-all" style={{ width: `${progress}%` }} />
-                </div>
-                <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+                <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                   <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Total Score</p>
                     <p className="text-2xl font-semibold">{totalScoreDisplay}</p>
@@ -388,29 +428,27 @@ export default function HomePage() {
                     <p className="text-2xl font-semibold">{round?.location.zhviLabel ?? "Jan 2026"}</p>
                   </div>
                 </div>
-                <p className="mt-6 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
-                  Round {Math.min(stage === "guess" ? history.length + 1 : history.length, TOTAL_ROUNDS)} / {TOTAL_ROUNDS}
-                </p>
+                <div className="pointer-events-none absolute -bottom-6 right-6 hidden h-24 w-24 rotate-[8deg] border-2 border-[var(--border-strong)] bg-white/40 shadow-[8px_8px_0_var(--border-strong)] sm:block" aria-hidden="true" />
               </div>
-              <div className="space-y-4">
+              <div className="space-y-4 rounded-[36px] border-[3px] border-[var(--border-strong)] bg-white/80 p-6 shadow-[10px_10px_0_var(--border-strong)]">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <label className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Your guess</label>
+                  <label className="text-xs uppercase tracking-[0.5em] text-[var(--ink-muted)]">Your gut call</label>
                   {round && (
-                    <span className="rounded-full border border-[var(--border-soft)] px-3 py-1 text-[10px] uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+                    <span className="neo-chip border-dashed text-[9px]">
                       Median target · ZIP {round.location.zip}
                     </span>
                   )}
                 </div>
-                <div className="space-y-4 rounded-3xl border border-[var(--border-soft)] bg-white/70 p-5">
-                  <div className="flex flex-wrap items-end gap-4">
+                <div className="space-y-5 rounded-[32px] border-[3px] border-dashed border-[var(--border-strong)] bg-white px-6 py-5">
+                  <div className="flex flex-wrap items-end gap-6">
                     <div className="flex flex-col">
-                      <label className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Manual entry</label>
-                      <div className="flex items-center gap-2 rounded-2xl border border-[var(--border-strong)] bg-white px-4 py-2 shadow-[3px_3px_0_var(--border-strong)]">
-                        <span className="text-lg font-semibold text-[var(--accent-dark)]">$</span>
+                      <span className="text-[11px] uppercase tracking-[0.4em] text-[var(--ink-muted)]">Manual entry</span>
+                      <div className="mt-2 flex items-center gap-3 rounded-[26px] border-[3px] border-[var(--border-strong)] bg-[var(--sand)] px-5 py-3 shadow-[4px_4px_0_var(--border-strong)]">
+                        <span className="text-2xl font-semibold text-[var(--accent-dark)]">$</span>
                         <input
                           type="text"
                           inputMode="numeric"
-                          className="w-36 bg-transparent text-3xl font-semibold tracking-tight text-[var(--ink)] outline-none"
+                          className="w-40 bg-transparent text-4xl font-semibold tracking-tight text-[var(--ink)] outline-none"
                           value={guessValue.toLocaleString()}
                           onChange={handleInputChange}
                           aria-label="Manual guess entry"
@@ -430,15 +468,15 @@ export default function HomePage() {
                     value={guessValue}
                     onChange={handleSliderChange}
                     disabled={guessDisabled}
-                    className="mt-2 h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--border-soft)] accent-[var(--ink)]"
+                    className="neo-slider cursor-pointer"
                   />
                 </div>
-                <div className="flex gap-4">
+                <div className="flex flex-col gap-3 sm:flex-row">
                   {stage === "guess" && (
                     <button
                       onClick={handleGuessSubmit}
                       disabled={isSubmitting || guessDisabled}
-                      className="flex-1 rounded-full border-2 border-[var(--border-strong)] bg-[var(--accent)] px-6 py-3 text-lg font-semibold uppercase tracking-wide text-white shadow-[4px_4px_0_var(--border-strong)] transition hover:-translate-y-0.5"
+                      className="neo-button flex-1 bg-[var(--accent)] px-8 py-4 text-base text-[var(--sand)] disabled:opacity-60"
                     >
                       {isSubmitting ? "Scoring..." : "Lock it in"}
                     </button>
@@ -446,7 +484,7 @@ export default function HomePage() {
                   {stage === "reveal" && (
                     <button
                       onClick={handleNext}
-                      className="flex-1 rounded-full border-2 border-[var(--border-strong)] bg-[var(--ink)] px-6 py-3 text-lg font-semibold uppercase tracking-wide text-[var(--sand)] shadow-[4px_4px_0_var(--border-strong)] transition hover:-translate-y-0.5"
+                      className="neo-button flex-1 bg-[var(--ink)] px-8 py-4 text-base text-[var(--sand)]"
                     >
                       {history.length >= TOTAL_ROUNDS ? "Finish game" : "Next street"}
                     </button>
@@ -455,7 +493,7 @@ export default function HomePage() {
               </div>
               {statusMessage && <p className="text-sm font-semibold text-[var(--accent-dark)]">{statusMessage}</p>}
               {stage === "reveal" && activeResult && (
-                <div className="rounded-3xl border border-[var(--border-strong)] bg-white px-6 py-5 shadow-[4px_4px_0_var(--border-strong)]">
+                <div className="rounded-[32px] border-[3px] border-[var(--border-strong)] bg-white px-6 py-5 shadow-[6px_6px_0_var(--border-strong)]">
                   <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood verdict</p>
                   <p className="mt-2 text-3xl font-semibold">
                     {activeResult.formattedActual} · {activeResult.city}, {activeResult.state} {activeResult.zip}
@@ -469,20 +507,20 @@ export default function HomePage() {
               )}
             </section>
 
-            <aside className="space-y-4">
-              <div className="grid gap-4 lg:grid-cols-2">
+            <aside className="space-y-6">
+              <div className="grid gap-6 lg:grid-cols-2">
                 {streetViewUrls.length
                   ? streetViewUrls.map((view) => (
                       <div
                         key={view.url}
-                        className="overflow-hidden rounded-[28px] border border-[var(--border-strong)] bg-black shadow-[12px_12px_0_var(--border-strong)]"
+                        className="neo-card relative overflow-hidden rounded-[30px] border-[3px] border-[var(--border-strong)] bg-black"
                       >
                         <Image
                           src={view.url}
                           alt={`Street view for ${round?.location.city ?? "current round"}, heading ${view.heading}°`}
                           width={640}
                           height={480}
-                          className="h-[260px] w-full object-cover sm:h-[320px]"
+                          className="h-[260px] w-full object-cover brightness-95 contrast-110 saturate-125 sm:h-[320px]"
                           priority
                           unoptimized
                           onError={flagImageryFailure}
@@ -490,6 +528,9 @@ export default function HomePage() {
                         <p className="bg-[var(--ink)] px-4 py-2 text-xs uppercase tracking-[0.4em] text-[var(--sand)]">
                           Heading {view.heading}°
                         </p>
+                        <div className="pointer-events-none absolute -right-6 top-6 hidden rotate-3 border-2 border-[var(--border-strong)] bg-[var(--citrus)] px-4 py-1 text-[11px] font-semibold uppercase tracking-[0.4em] shadow-[6px_6px_0_var(--border-strong)] sm:block">
+                          Street intel
+                        </div>
                       </div>
                     ))
                   : (
@@ -499,7 +540,7 @@ export default function HomePage() {
                     )}
               </div>
               {round && (
-                <div className="rounded-3xl border border-[var(--border-strong)] bg-white px-5 py-4 shadow-[6px_6px_0_var(--border-strong)]">
+                <div className="neo-card px-6 py-6">
                   <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Locale dossier</p>
                   <p className="mt-2 text-2xl font-semibold">
                     {round.location.city}, {round.location.state}
@@ -510,14 +551,14 @@ export default function HomePage() {
                 </div>
               )}
               {imageryError && (
-                <div className="rounded-3xl border border-dashed border-[var(--border-strong)] bg-white/80 px-5 py-4 shadow-[6px_6px_0_var(--border-strong)]">
+                <div className="rounded-[32px] border-2 border-dashed border-[var(--border-strong)] bg-white/80 px-5 py-4 shadow-[6px_6px_0_var(--border-strong)]">
                   <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Imagery bailed</p>
                   <p className="mt-2 text-sm text-[var(--ink)]">
                     Street View refused to render this ZIP. Swap in a fresh street so you’re not guessing blind.
                   </p>
                   <button
                     onClick={handleSwapRound}
-                    className="mt-3 rounded-full border border-[var(--border-strong)] bg-[var(--ink)] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-[var(--sand)] shadow-[3px_3px_0_var(--border-strong)]"
+                    className="neo-button mt-3 bg-[var(--ink)] px-6 py-3 text-xs text-[var(--sand)]"
                   >
                     Deal another street
                   </button>
@@ -526,12 +567,12 @@ export default function HomePage() {
             </aside>
           </div>
 
-          <section>
-            <div className="flex items center justify-between">
+          <section className="rounded-[36px] border-[3px] border-[var(--border-strong)] bg-white/80 px-6 py-5 shadow-[8px_8px_0_var(--border-strong)]">
+            <div className="flex flex-wrap items-center justify-between gap-3">
               <h2 className="font-[family:var(--font-display)] text-2xl font-semibold">Round recap</h2>
-              <p className="text-sm text-[var(--ink-muted)]">{history.length} logged</p>
+              <p className="text-sm uppercase tracking-[0.4em] text-[var(--ink-muted)]">{history.length} logged</p>
             </div>
-            <div className="mt-3 flex flex-wrap gap-3">
+            <div className="mt-4 flex flex-wrap gap-3">
               {history.length === 0 && (
                 <p className="rounded-full border border-dashed border-[var(--border-strong)] px-4 py-2 text-sm text-[var(--ink-muted)]">
                   Finish a round to see the receipts here.
@@ -550,7 +591,7 @@ export default function HomePage() {
                 return (
                   <div
                     key={result.roundId}
-                    className={`rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-wide ${tone}`}
+                    className={`rounded-full border-2 border-[var(--border-strong)] px-5 py-2 text-xs font-semibold uppercase tracking-[0.4em] shadow-[4px_4px_0_var(--border-strong)] ${tone}`}
                   >
                     R{index + 1} · +{result.score} pts · {(result.percentageError * 100).toFixed(1)}% err
                   </div>
@@ -562,35 +603,37 @@ export default function HomePage() {
       )}
 
       {stage === "summary" && (
-        <section className="mx-auto flex min-h-screen max-w-3xl flex-col items-center justify-center gap-6 px-6 text-center">
+        <section className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-8 px-6 py-16 text-center">
           <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
-          <h2 className="font-[family:var(--font-display)] text-4xl font-semibold">Final readout</h2>
-          <div className="w-full rounded-3xl border border-[var(--border-strong)] bg-white px-6 py-6 text-left shadow-[8px_8px_0_var(--border-strong)]">
-            <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Season report</p>
-            <p className="mt-3 text-4xl font-semibold">{totalScoreDisplay} pts</p>
-            <p className="mt-1 text-sm text-[var(--ink-muted)]">
-              Average error {averageErrorDisplay} across {history.length} blocks.
-            </p>
-            <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
-              Local high score · {personalBest ? `${personalBestDisplay} pts · ${personalBestErrorDisplay}` : "set yours next round"}
-            </p>
-          </div>
-          {summaryComment && (
-            <div className="score-flare w-full rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] px-6 py-5 text-left shadow-[6px_6px_0_var(--border-strong)]">
-              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood side-eye</p>
-              <p className="mt-2 text-xl font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
+          <h2 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight">Final readout</h2>
+          <div className="grid w-full gap-6 md:grid-cols-2">
+            <div className="neo-card neo-card--loud text-left">
+              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Season report</p>
+              <p className="mt-3 text-4xl font-semibold">{totalScoreDisplay} pts</p>
+              <p className="mt-1 text-sm text-[var(--ink-muted)]">
+                Average error {averageErrorDisplay} across {history.length} blocks.
+              </p>
+              <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+                Local high score · {personalBest ? `${personalBestDisplay} pts · ${personalBestErrorDisplay}` : "set yours next round"}
+              </p>
             </div>
-          )}
-          <div className="flex flex-col gap-3 sm:flex-row">
+            {summaryComment && (
+              <div className="score-flare neo-card text-left">
+                <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood side-eye</p>
+                <p className="mt-3 text-2xl font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
+              </div>
+            )}
+          </div>
+          <div className="flex flex-col gap-4 sm:flex-row">
             <button
               onClick={handleShare}
-              className="flex-1 rounded-full border-2 border-[var(--border-strong)] bg-[var(--ink)] px-8 py-3 text-lg font-semibold uppercase tracking-wide text-[var(--sand)] shadow-[5px_5px_0_var(--border-strong)] transition hover:-translate-y-0.5"
+              className="neo-button flex-1 bg-[var(--ink)] px-10 py-4 text-base text-[var(--sand)]"
             >
               Share the burn
             </button>
             <button
               onClick={handleStart}
-              className="flex-1 rounded-full border-2 border-[var(--border-strong)] bg-[var(--accent)] px-8 py-3 text-lg font-semibold uppercase tracking-wide text-white shadow-[5px_5px_0_var(--border-strong)] transition hover:-translate-y-0.5"
+              className="neo-button flex-1 bg-[var(--accent)] px-10 py-4 text-base text-[var(--sand)]"
             >
               Run it back
             </button>
@@ -600,5 +643,4 @@ export default function HomePage() {
       )}
     </div>
   );
-
 }
