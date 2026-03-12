@@ -6,7 +6,6 @@ import type { GuessResult, RoundPayload } from "@/types/game";
 import { formatCurrency } from "@/lib/scoring";
 
 const TOTAL_ROUNDS = 5;
-const QUICK_CHOICES = [180000, 320000, 550000, 850000, 1200000, 2000000];
 const HEADING_OFFSETS = [0, 120];
 const MIN_GUESS = 50000;
 const MAX_GUESS = 2000000;
@@ -43,6 +42,13 @@ type HistoryEntry = {
   result: GuessResult;
 };
 
+type PersonalBest = {
+  score: number;
+  averageError: number;
+  rounds: number;
+  recordedAt: number;
+};
+
 async function fetchRound(): Promise<RoundPayload> {
   const res = await fetch("/api/round", { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load round");
@@ -72,6 +78,7 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shareFeedback, setShareFeedback] = useState<string | null>(null);
   const [imageryError, setImageryError] = useState(false);
+  const [personalBest, setPersonalBest] = useState<PersonalBest | null>(null);
   const imageErrorCountRef = useRef(0);
 
   const progress = (history.length / TOTAL_ROUNDS) * 100;
@@ -91,19 +98,15 @@ export default function HomePage() {
   }, [averageError, history.length, totalScore]);
   const totalScoreDisplay = history.length ? totalScore.toLocaleString() : "0";
   const averageErrorDisplay = history.length ? `${(averageError * 100).toFixed(1)}%` : "—";
+  const personalBestDisplay = personalBest ? personalBest.score.toLocaleString() : "—";
+  const personalBestErrorDisplay = personalBest ? `${(personalBest.averageError * 100).toFixed(1)}%` : "—";
+  const personalBestRounds = personalBest?.rounds ?? TOTAL_ROUNDS;
   const isPlaying = stage === "guess" || stage === "reveal" || stage === "loading";
 
   const clampGuess = useCallback((raw: number) => {
     const clamped = Math.min(MAX_GUESS, Math.max(MIN_GUESS, raw));
     return Math.round(clamped / 1000) * 1000;
   }, []);
-
-  const nudgeGuess = useCallback(
-    (delta: number) => {
-      setGuessValue((prev) => clampGuess(prev + delta));
-    },
-    [clampGuess]
-  );
 
   const handleSliderChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -229,9 +232,6 @@ export default function HomePage() {
     }
   };
 
-  const handleChip = (value: number) => {
-    setGuessValue(clampGuess(value));
-  };
   const guessDisabled = stage === "loading" || stage === "reveal" || imageryError;
 
   const displayRound =
@@ -244,13 +244,6 @@ export default function HomePage() {
       : stage === "summary"
         ? "Full tally"
         : `Round ${displayRound || 1} of ${TOTAL_ROUNDS}`;
-
-  const progressTrail = useMemo(() => {
-    return Array.from({ length: TOTAL_ROUNDS }, (_, index) => ({
-      state: history[index] ? "done" : index === history.length && stage !== "summary" ? "active" : "pending",
-      tier: history[index] ? errorTier(history[index]!.result.percentageError) : null,
-    }));
-  }, [history, stage]);
 
   const handleShare = async () => {
     const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on Home Value Guesser. Think you can read a block better? https://homevalueguesser.com`;
@@ -269,6 +262,39 @@ export default function HomePage() {
       setShareFeedback("Share canceled. Roast remains private… for now.");
     }
   };
+
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = window.localStorage.getItem("homevalueguesser.personalBest");
+    if (!stored) return;
+    try {
+      const parsed = JSON.parse(stored) as PersonalBest;
+      if (typeof parsed.score === "number") {
+        setPersonalBest(parsed);
+      }
+    } catch {
+      // ignore corrupted payloads
+    }
+  }, []);
+
+  useEffect(() => {
+    if (stage !== "summary" || !history.length) return;
+    setPersonalBest((prev) => {
+      if (prev && prev.score >= totalScore) {
+        return prev;
+      }
+      const next: PersonalBest = {
+        score: totalScore,
+        averageError,
+        rounds: history.length,
+        recordedAt: Date.now(),
+      };
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("homevalueguesser.personalBest", JSON.stringify(next));
+      }
+      return next;
+    });
+  }, [stage, history.length, totalScore, averageError]);
 
   return (
     <div className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
@@ -323,7 +349,7 @@ export default function HomePage() {
                 <div className="mt-4 h-3 rounded-full bg-[#ddcdb6]">
                   <div className="h-full rounded-full bg-[var(--accent)] transition-all" style={{ width: `${progress}%` }} />
                 </div>
-                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                   <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Total Score</p>
                     <p className="text-2xl font-semibold">{totalScoreDisplay}</p>
@@ -333,26 +359,20 @@ export default function HomePage() {
                     <p className="text-2xl font-semibold">{averageErrorDisplay}</p>
                   </div>
                   <div>
+                    <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Personal best</p>
+                    <p className="text-2xl font-semibold">{personalBestDisplay}</p>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+                      {personalBest ? `${personalBestRounds} rounds · ${personalBestErrorDisplay}` : "Play to set one"}
+                    </p>
+                  </div>
+                  <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">ZHVI period</p>
                     <p className="text-2xl font-semibold">{round?.location.zhviLabel ?? "Jan 2026"}</p>
                   </div>
                 </div>
-                <div className="mt-6 flex items-center gap-3 text-[10px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
-                  {progressTrail.map((item, index) => (
-                    <div key={`round-${index}`} className="flex items-center gap-1">
-                      <span className="text-[var(--ink-muted)]">{index + 1}</span>
-                      <span
-                        className={`block h-[2px] w-10 rounded-full ${
-                          item.state === "done"
-                            ? "bg-[var(--ink)]"
-                            : item.state === "active"
-                              ? "bg-[var(--ink-muted)] animate-pulse"
-                              : "bg-[var(--border-soft)]"
-                        }`}
-                      />
-                    </div>
-                  ))}
-                </div>
+                <p className="mt-6 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+                  Round {Math.min(stage === "guess" ? history.length + 1 : history.length, TOTAL_ROUNDS)} / {TOTAL_ROUNDS}
+                </p>
               </div>
               <div className="space-y-4">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
@@ -380,57 +400,20 @@ export default function HomePage() {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-wrap gap-2">
-                      {[-50000, -10000, 10000, 50000].map((delta) => (
-                        <button
-                          key={delta}
-                          type="button"
-                          className="rounded-full border border-[var(--border-strong)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:bg-[var(--ink)] hover:text-[var(--sand)]"
-                          onClick={() => nudgeGuess(delta)}
-                          disabled={guessDisabled}
-                        >
-                          {delta > 0 ? `+${(delta / 1000).toFixed(0)}k` : `${(delta / 1000).toFixed(0)}k`}
-                        </button>
-                      ))}
-                      <button
-                        type="button"
-                        className="rounded-full border border-dashed border-[var(--border-strong)] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]"
-                        onClick={() => setGuessValue(DEFAULT_GUESS)}
-                        disabled={guessDisabled}
-                      >
-                        Reset
-                      </button>
-                    </div>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+                      Range {formatCurrency(MIN_GUESS)} – {formatCurrency(MAX_GUESS)}
+                    </p>
                   </div>
-                  <div>
-                    <div className="flex justify-between text-[10px] font-semibold uppercase tracking-[0.3em] text-[var(--ink-muted)]">
-                      <span>{formatCurrency(MIN_GUESS)}</span>
-                      <span>{formatCurrency(MAX_GUESS)}</span>
-                    </div>
-                    <input
-                      type="range"
-                      min={MIN_GUESS}
-                      max={MAX_GUESS}
-                      step={1000}
-                      value={guessValue}
-                      onChange={handleSliderChange}
-                      disabled={guessDisabled}
-                      className="slider mt-2 h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--border-soft)] accent-[var(--ink)]"
-                    />
-                  </div>
-                  <div className="flex flex-wrap gap-2">
-                    {QUICK_CHOICES.map((value) => (
-                      <button
-                        key={value}
-                        type="button"
-                        className="rounded-full border border-[var(--border-strong)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[var(--ink)] transition hover:-translate-y-0.5 hover:bg-[var(--ink)] hover:text-[var(--sand)]"
-                        onClick={() => handleChip(value)}
-                        disabled={guessDisabled}
-                      >
-                        {formatCurrency(value)}
-                      </button>
-                    ))}
-                  </div>
+                  <input
+                    type="range"
+                    min={MIN_GUESS}
+                    max={MAX_GUESS}
+                    step={1000}
+                    value={guessValue}
+                    onChange={handleSliderChange}
+                    disabled={guessDisabled}
+                    className="mt-2 h-2 w-full cursor-pointer appearance-none rounded-full bg-[var(--border-soft)] accent-[var(--ink)]"
+                  />
                 </div>
                 <div className="flex gap-4">
                   {stage === "guess" && (
@@ -570,10 +553,13 @@ export default function HomePage() {
             <p className="mt-1 text-sm text-[var(--ink-muted)]">
               Average error {averageErrorDisplay} across {history.length} blocks.
             </p>
+            <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+              Local high score · {personalBest ? `${personalBestDisplay} pts · ${personalBestErrorDisplay}` : "set yours next round"}
+            </p>
           </div>
           {summaryComment && (
             <div className="score-flare w-full rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] px-6 py-5 text-left shadow-[6px_6px_0_var(--border-strong)]">
-              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Snarky appraisal</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood side-eye</p>
               <p className="mt-2 text-xl font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
             </div>
           )}
