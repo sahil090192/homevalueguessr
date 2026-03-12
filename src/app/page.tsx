@@ -23,10 +23,26 @@ const PRAISE_QUOTES = [
   "Realtors hate how fast you spotted that neighborhood flex.",
 ];
 const ROAST_QUOTES = [
-  "You priced that cul-de-sac like every ranch came with a private helipad.",
-  "That guess missed so wide the MLS opened a missing-property case.",
-  "Zillow spit out its latte and asked if you were okay.",
-  "Mortgage bankers just added you to the entertainment column in their dashboards.",
+  "You priced that ranch like it came bundled with its own tech IPO.",
+  "Zillow just rage-quit and took a sabbatical after reading that guess.",
+  "The assessor’s office printed your number, framed it, and labeled it “fiction.”",
+  "Mortgage brokers are using your estimate as a cautionary bedtime story.",
+  "That valuation missed so hard the MLS filed a missing-property report.",
+  "You just tried to buy a cul-de-sac using Monopoly money and audacity.",
+  "HOA group chats are roasting your estimate harder than rogue lawn flamingos.",
+  "Even Zestimate’s confidence interval crawled under the couch to hide.",
+  "Your gut apparently lives three states away from this neighborhood.",
+  "Appraisers now cite your guess as the edge case for “absolutely not.”",
+  "Realtors screenshotted that number for their private meme archives.",
+  "You valued the driveway and forgot the house—bold minimalist move.",
+  "That swing was so wild the Fed is considering new disclosure forms.",
+  "Zillow’s API throttled itself just to avoid serving you again.",
+  "You just tried to flip a double-wide with Park Avenue comps.",
+  "County clerks whispered “bless their heart” when your score came in.",
+  "Even Redfin is texting “you good?” after that pricing faceplant.",
+  "You valued a cornfield like it had a helipad and valet parking.",
+  "The neighborhood Nextdoor thread is subtweeting your gut instincts.",
+  "This block hasn’t seen a whiff that far off since the housing bubble’s MySpace era.",
 ];
 
 const errorTier = (percentageError: number) => {
