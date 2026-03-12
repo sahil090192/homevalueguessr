@@ -42,6 +42,13 @@ type HistoryEntry = {
   result: GuessResult;
 };
 
+type PersonalBest = {
+  score: number;
+  averageError: number;
+  rounds: number;
+  recordedAt: number;
+};
+
 async function fetchRound(): Promise<RoundPayload> {
   const res = await fetch("/api/round", { cache: "no-store" });
   if (!res.ok) throw new Error("Failed to load round");
@@ -71,6 +78,7 @@ export default function HomePage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [shareFeedback, setShareFeedback] = useState<string | null>(null);
   const [imageryError, setImageryError] = useState(false);
+  const [personalBest, setPersonalBest] = useState<PersonalBest | null>(null);
   const imageErrorCountRef = useRef(0);
 
   const progress = (history.length / TOTAL_ROUNDS) * 100;
@@ -90,6 +98,9 @@ export default function HomePage() {
   }, [averageError, history.length, totalScore]);
   const totalScoreDisplay = history.length ? totalScore.toLocaleString() : "0";
   const averageErrorDisplay = history.length ? `${(averageError * 100).toFixed(1)}%` : "—";
+  const personalBestDisplay = personalBest ? personalBest.score.toLocaleString() : "—";
+  const personalBestErrorDisplay = personalBest ? `${(personalBest.averageError * 100).toFixed(1)}%` : "—";
+  const personalBestRounds = personalBest?.rounds ?? TOTAL_ROUNDS;
   const isPlaying = stage === "guess" || stage === "reveal" || stage === "loading";
 
   const clampGuess = useCallback((raw: number) => {
@@ -252,6 +263,39 @@ export default function HomePage() {
     }
   };
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const stored = window.localStorage.getItem("homevalueguesser.personalBest");
+    if (!stored) return;
+    try {
+      const parsed = JSON.parse(stored) as PersonalBest;
+      if (typeof parsed.score === "number") {
+        setPersonalBest(parsed);
+      }
+    } catch {
+      // ignore corrupted payloads
+    }
+  }, []);
+
+  useEffect(() => {
+    if (stage !== "summary" || !history.length) return;
+    setPersonalBest((prev) => {
+      if (prev && prev.score >= totalScore) {
+        return prev;
+      }
+      const next: PersonalBest = {
+        score: totalScore,
+        averageError,
+        rounds: history.length,
+        recordedAt: Date.now(),
+      };
+      if (typeof window !== "undefined") {
+        window.localStorage.setItem("homevalueguesser.personalBest", JSON.stringify(next));
+      }
+      return next;
+    });
+  }, [stage, history.length, totalScore, averageError]);
+
   return (
     <div className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
       {stage === "intro" && (
@@ -305,7 +349,7 @@ export default function HomePage() {
                 <div className="mt-4 h-3 rounded-full bg-[#ddcdb6]">
                   <div className="h-full rounded-full bg-[var(--accent)] transition-all" style={{ width: `${progress}%` }} />
                 </div>
-                <div className="mt-6 grid gap-4 sm:grid-cols-3">
+                <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
                   <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Total Score</p>
                     <p className="text-2xl font-semibold">{totalScoreDisplay}</p>
@@ -313,6 +357,13 @@ export default function HomePage() {
                   <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Avg Error</p>
                     <p className="text-2xl font-semibold">{averageErrorDisplay}</p>
+                  </div>
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Personal best</p>
+                    <p className="text-2xl font-semibold">{personalBestDisplay}</p>
+                    <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+                      {personalBest ? `${personalBestRounds} rounds · ${personalBestErrorDisplay}` : "Play to set one"}
+                    </p>
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">ZHVI period</p>
@@ -502,10 +553,13 @@ export default function HomePage() {
             <p className="mt-1 text-sm text-[var(--ink-muted)]">
               Average error {averageErrorDisplay} across {history.length} blocks.
             </p>
+            <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
+              Local high score · {personalBest ? `${personalBestDisplay} pts · ${personalBestErrorDisplay}` : "set yours next round"}
+            </p>
           </div>
           {summaryComment && (
             <div className="score-flare w-full rounded-3xl border border-[var(--border-strong)] bg-[var(--surface)] px-6 py-5 text-left shadow-[6px_6px_0_var(--border-strong)]">
-              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Snarky appraisal</p>
+              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood side-eye</p>
               <p className="mt-2 text-xl font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
             </div>
           )}
