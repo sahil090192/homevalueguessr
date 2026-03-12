@@ -118,6 +118,7 @@ export default function HomePage() {
   const personalBestErrorDisplay = personalBest ? `${(personalBest.averageError * 100).toFixed(1)}%` : "—";
   const personalBestRounds = personalBest?.rounds ?? TOTAL_ROUNDS;
   const isPlaying = stage === "guess" || stage === "reveal" || stage === "loading";
+  const hasCompletedRun = history.length >= TOTAL_ROUNDS;
 
   const clampGuess = useCallback((raw: number) => {
     const clamped = Math.min(MAX_GUESS, Math.max(MIN_GUESS, raw));
@@ -294,7 +295,8 @@ export default function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (stage !== "summary" || !history.length) return;
+    if (!hasCompletedRun) return;
+    if (!(stage === "reveal" || stage === "summary")) return;
     setPersonalBest((prev) => {
       if (prev && prev.score >= totalScore) {
         return prev;
@@ -310,7 +312,7 @@ export default function HomePage() {
       }
       return next;
     });
-  }, [stage, history.length, totalScore, averageError]);
+  }, [hasCompletedRun, stage, history.length, totalScore, averageError]);
 
   return (
     <div className="min-h-screen bg-[var(--sand)] text-[var(--ink)]">
