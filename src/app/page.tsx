@@ -314,73 +314,63 @@ export default function HomePage() {
   }, [hasCompletedRun, stage, history.length, totalScore, averageError]);
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[var(--sand)] text-[var(--ink)]">
-      <div
-        className="pointer-events-none absolute -left-24 top-12 hidden h-64 w-64 rotate-6 border-4 border-[var(--border-strong)] bg-[var(--citrus)] shadow-[18px_18px_0_var(--border-strong)] lg:block"
-        aria-hidden="true"
-      />
-      <div
-        className="pointer-events-none absolute -right-24 top-40 hidden h-72 w-72 -rotate-6 border-4 border-[var(--border-strong)] bg-[var(--sky)] shadow-[18px_18px_0_var(--border-strong)] lg:block"
-        aria-hidden="true"
-      />
-      <div className="pointer-events-none absolute inset-x-0 bottom-[-120px] h-[260px] bg-gradient-to-t from-[#ff3d00]/20 to-transparent" aria-hidden="true" />
-
+    <div className="min-h-screen text-[var(--ink)]">
       {stage === "intro" && (
-        <section className="relative z-10 mx-auto grid min-h-screen w-full max-w-6xl grid-cols-1 gap-12 px-6 py-16 lg:grid-cols-[1.1fr,0.9fr] lg:px-10">
-          <div className="flex flex-col gap-6">
+        <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 px-6 py-16 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+          <div className="flex flex-col gap-6 text-left">
             <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
-            <div className="inline-flex w-fit items-center gap-3 rounded-full border-2 border-[var(--border-strong)] bg-white px-6 py-2 text-xs font-semibold uppercase tracking-[0.4em]">
-              Neo-brutalist beta
-            </div>
-            <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight tracking-tight sm:text-6xl lg:text-7xl">
-              Two feral Street View snaps. One gut-priced Zillow flex.
+            <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
+              A doodled challenge for your pricing instincts.
             </h1>
             <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-muted)]">
-              We teleport you to random U.S. blocks, you slap down a ZIP median guess, and the scoreboard either crowns you or
-              clowns you. Five rounds, zero mercy, endless roast potential.
+              Two Street View snapshots drop in like stickers. You guess the ZIP’s median value before the timer doodles out. Finish five
+              blocks and unlock the sassiest scorecard in real estate.
             </p>
+            <ul className="space-y-3 text-base font-semibold">
+              <li className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white text-sm">1</span>
+                Fresh U.S. ZIP every round with real Zillow ZHVI data.
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white text-sm">2</span>
+                Guess with the slider or type it in—no calculators, just vibes.
+              </li>
+              <li className="flex items-center gap-3">
+                <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white text-sm">3</span>
+                Compare scores, collect roasts, brag with one tap.
+              </li>
+            </ul>
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={handleStart}
-                className="neo-button bg-[var(--ink)] px-12 py-5 text-lg text-[var(--sand)]"
+                className="neo-button bg-[var(--accent)] px-10 py-4 text-base text-[var(--ink)]"
               >
-                Play Home Value Guesser
+                Start guessing
               </button>
-              <div className="neo-chip border-dashed">
+              <div className="neo-chip bg-[var(--sand)]">
                 <span>5 rounds</span>
                 <span>2 views</span>
                 <span>Roast included</span>
               </div>
             </div>
+            <div className="flex gap-4">
+              <div className="h-16 w-16 rounded-[18px] border-2 border-[var(--border-strong)] bg-white" />
+              <div className="h-16 w-32 rounded-[18px] border-2 border-[var(--border-strong)] bg-[var(--sky)]" />
+            </div>
           </div>
-          <div className="neo-card neo-card--loud relative flex flex-col gap-4 p-8">
-            <div className="text-xs uppercase tracking-[0.5em] text-[var(--ink-muted)]">How it works</div>
-            <ul className="space-y-4 text-base font-semibold leading-relaxed">
-              <li className="flex items-start gap-4">
-                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white font-[family:var(--font-display)] text-xl">
-                  1
-                </span>
-                Drop in, eyeball two clashing Street View frames, and channel your inner assessor.
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white font-[family:var(--font-display)] text-xl">
-                  2
-                </span>
-                Slide or type your ZIP median guess anywhere between ${MIN_GUESS.toLocaleString()} and ${MAX_GUESS.toLocaleString()}.
-              </li>
-              <li className="flex items-start gap-4">
-                <span className="mt-1 inline-flex h-8 w-8 items-center justify-center rounded-full border-2 border-[var(--border-strong)] bg-white font-[family:var(--font-display)] text-xl">
-                  3
-                </span>
-                Eat the praise or the side-eye, rack points, and screenshot the receipts.
-              </li>
-            </ul>
-            <details className="rounded-3xl border-2 border-dashed border-[var(--border-strong)] bg-white/70 p-4 text-sm text-[var(--ink)]">
+          <div className="flex flex-col gap-6">
+            <div className="neo-card neo-card--loud p-6">
+              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Daily block teaser</p>
+              <p className="mt-2 text-3xl font-semibold">Suburban Atlanta</p>
+              <p className="text-sm text-[var(--ink-muted)]">Two-story craftsman · bold lawns · HOA energy</p>
+              <p className="mt-4 text-[12px] uppercase tracking-[0.4em] text-[var(--ink-muted)]">Median anchor</p>
+              <p className="text-4xl font-semibold text-[var(--ink)]">$???k</p>
+            </div>
+            <details className="neo-card border-dashed border-[var(--border-strong)] bg-white/70 p-5 text-left text-sm text-[var(--ink)]">
               <summary className="cursor-pointer text-xs uppercase tracking-[0.4em]">Scoring cheat sheet</summary>
               <div className="mt-3 space-y-2 text-xs leading-relaxed">
                 <p>
-                  Score = max(0, 5000 − 2500 × |ln(guess / actual)|). Log scale means blowing a luxe ZIP hurts as bad as tanking
-                  a sleepy suburb.
+                  Score = max(0, 5000 − 2500 × |ln(guess / actual)|). Log scale means blowing a luxe ZIP hurts just as much as lowballing a quiet one.
                 </p>
                 <ul className="space-y-1">
                   {SCORE_BANDS.map((band) => (
@@ -392,7 +382,6 @@ export default function HomePage() {
                 </ul>
               </div>
             </details>
-            <div className="pointer-events-none absolute -right-6 -top-6 h-24 w-24 border-[3px] border-[var(--border-strong)] bg-[var(--electric)] shadow-[10px_10px_0_var(--border-strong)]" aria-hidden="true" />
           </div>
         </section>
       )}
@@ -401,7 +390,7 @@ export default function HomePage() {
         <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-10 px-4 py-10 lg:px-8">
           <div className="grid gap-10 lg:grid-cols-[1.05fr,0.95fr]">
             <section className="space-y-6">
-              <div className="neo-card neo-card--loud relative overflow-hidden p-8">
+              <div className="neo-card neo-card--loud p-7">
                 <div className="flex flex-wrap items-center gap-3 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
                   <span>{heading}</span>
                   <span>Round {Math.min(stage === "guess" ? history.length + 1 : history.length, TOTAL_ROUNDS)} / {TOTAL_ROUNDS}</span>
@@ -428,9 +417,8 @@ export default function HomePage() {
                     <p className="text-2xl font-semibold">{round?.location.zhviLabel ?? "Jan 2026"}</p>
                   </div>
                 </div>
-                <div className="pointer-events-none absolute -bottom-6 right-6 hidden h-24 w-24 rotate-[8deg] border-2 border-[var(--border-strong)] bg-white/40 shadow-[8px_8px_0_var(--border-strong)] sm:block" aria-hidden="true" />
               </div>
-              <div className="space-y-4 rounded-[36px] border-[3px] border-[var(--border-strong)] bg-white/80 p-6 shadow-[10px_10px_0_var(--border-strong)]">
+              <div className="space-y-4 rounded-[36px] border-[3px] border-[var(--border-strong)] bg-[var(--sand)] p-6 shadow-[10px_10px_0_var(--border-strong)]">
                 <div className="flex flex-wrap items-baseline justify-between gap-2">
                   <label className="text-xs uppercase tracking-[0.5em] text-[var(--ink-muted)]">Your gut call</label>
                   {round && (

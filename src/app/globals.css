@@ -1,18 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  --sand: #fff7d1;
-  --ink: #0d0502;
-  --ink-muted: color-mix(in srgb, var(--ink) 60%, white 40%);
-  --accent: #ff3554;
-  --accent-dark: #c10032;
-  --jade: #22d57f;
-  --electric: #6757ff;
-  --citrus: #ffe95e;
-  --sky: #38d6ff;
-  --surface: #ffe8c8;
-  --border-strong: #130b06;
-  --border-soft: color-mix(in srgb, var(--border-strong) 40%, transparent);
+  --sun: #ffc93c;
+  --sand: #fff9ef;
+  --ink: #1b130b;
+  --ink-muted: color-mix(in srgb, var(--ink) 55%, white 45%);
+  --accent: #ffd447;
+  --accent-dark: #f4a300;
+  --jade: #24c18c;
+  --electric: #84b8ff;
+  --citrus: #ffef9d;
+  --sky: #9fe1ff;
+  --surface: #fff6ea;
+  --border-strong: #000000;
+  --border-soft: color-mix(in srgb, var(--border-strong) 35%, transparent);
 }
 
 @theme inline {
@@ -27,41 +28,13 @@
 }
 
 body {
-  background: var(--sand);
-  background-image:
-    radial-gradient(circle at 15% 20%, rgba(255, 222, 89, 0.8), transparent 38%),
-    radial-gradient(circle at 80% 0%, rgba(56, 214, 255, 0.35), transparent 45%),
-    linear-gradient(120deg, rgba(255, 53, 84, 0.12), transparent 60%);
+  background-color: var(--sun);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.25) 1px, transparent 1px);
+  background-size: 18px 18px;
   color: var(--ink);
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
   min-height: 100vh;
   position: relative;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    -30deg,
-    transparent,
-    transparent 22px,
-    rgba(0, 0, 0, 0.04) 22px,
-    rgba(0, 0, 0, 0.04) 44px
-  );
-  pointer-events: none;
-  mix-blend-mode: multiply;
-  opacity: 0.6;
-  z-index: -1;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: radial-gradient(circle at 70% 80%, rgba(103, 87, 255, 0.25), transparent 50%);
-  pointer-events: none;
-  z-index: -1;
 }
 
 ::selection {
@@ -90,14 +63,13 @@ body::after {
 
 .neo-card {
   border: 3px solid var(--border-strong);
-  border-radius: 32px;
-  box-shadow: 10px 10px 0 var(--border-strong);
+  border-radius: 28px;
+  box-shadow: 0 6px 0 var(--border-strong);
   background: var(--surface);
 }
 
 .neo-card--loud {
-  background: linear-gradient(130deg, var(--citrus), color-mix(in srgb, var(--citrus) 60%, white 40%));
-  box-shadow: 12px 12px 0 var(--border-strong);
+  background: var(--citrus);
 }
 
 .neo-chip {
@@ -116,7 +88,7 @@ body::after {
 .neo-button {
   border: 3px solid var(--border-strong);
   border-radius: 999px;
-  box-shadow: 6px 6px 0 var(--border-strong);
+  box-shadow: 0 6px 0 var(--border-strong);
   text-transform: uppercase;
   font-weight: 600;
   letter-spacing: 0.2em;
@@ -124,39 +96,39 @@ body::after {
 }
 
 .neo-button:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 10px 10px 0 var(--border-strong);
+  transform: translateY(-2px);
+  box-shadow: 0 9px 0 var(--border-strong);
 }
 
 .neo-slider {
   -webkit-appearance: none;
   appearance: none;
   width: 100%;
-  height: 18px;
+  height: 14px;
   border-radius: 999px;
   border: 2px solid var(--border-strong);
-  background: linear-gradient(90deg, var(--ink), var(--electric));
+  background: var(--sand);
   box-shadow: inset 0 0 0 2px white;
 }
 
 .neo-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 3px solid var(--border-strong);
   background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8);
   cursor: grab;
 }
 
 .neo-slider::-moz-range-thumb {
-  width: 32px;
-  height: 32px;
+  width: 26px;
+  height: 26px;
   border-radius: 50%;
   border: 3px solid var(--border-strong);
   background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8);
   cursor: grab;
 }
