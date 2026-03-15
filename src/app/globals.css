@@ -31,6 +31,31 @@ body {
   color: var(--ink);
   font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
   min-height: 100vh;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(circle at 12% 20%, rgba(215, 117, 88, 0.14), transparent 45%),
+    radial-gradient(circle at 80% 12%, rgba(123, 147, 115, 0.12), transparent 38%),
+    radial-gradient(circle at 30% 70%, rgba(167, 204, 196, 0.12), transparent 48%),
+    radial-gradient(circle at 78% 72%, rgba(255, 189, 137, 0.16), transparent 42%);
+  z-index: -2;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='340' height='340' viewBox='0 0 340 340' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23c47a56' stroke-width='5' stroke-linecap='round' opacity='0.25'%3E%3Cpath d='M28 40c24 28 61 45 86 28 19-13 16-44-4-48-26-6-48 36-34 84 8 28 28 58 62 64 31 5 64-12 94-5 30 6 52 40 45 70-6 26-35 42-58 33-42-17-34-87 2-122 36-35 92-37 128-6 26 22 34 62 24 94-12 39-46 66-84 74-39 8-81-2-117-22-33-19-61-47-78-82-14-29-19-62-7-91S60 12 86 7s52 18 60 45-5 57-28 72-52 15-76 2'/%3E%3Cpath d='M210 10c12 16 30 31 49 32 28 1 53-31 68-16 13 13-5 41-19 55-28 28-68 42-95 70-23 23-36 55-40 87-4 35 0 74-25 98-18 18-48 22-69 8s-29-44-18-66c12-24 41-33 66-44 31-14 63-33 79-65 15-31 12-70 27-101 14-30 43-51 74-61'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 480px;
+  z-index: -1;
+  opacity: 0.55;
 }
 
 ::selection {
