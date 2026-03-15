@@ -10,12 +10,6 @@ const HEADING_OFFSETS = [0, 120];
 const MIN_GUESS = 50000;
 const MAX_GUESS = 2000000;
 const DEFAULT_GUESS = 420000;
-const SCORE_BANDS = [
-  { label: "Laser accurate", error: "0 – 10% error", points: "≈ 4.5k – 5k pts" },
-  { label: "Dialed in", error: "10 – 25%", points: "≈ 3k – 4.5k pts" },
-  { label: "Close-ish", error: "25 – 50%", points: "≈ 1k – 3k pts" },
-  { label: "Wild swing", error: "50%+", points: "0 – 1k pts" },
-];
 const PRAISE_QUOTES = [
   "You're pricing blocks like you siphoned Zillow’s API straight into your veins.",
   "That median read was so clean the county assessor just asked you for notes.",
@@ -316,69 +310,31 @@ export default function HomePage() {
   return (
     <div className="min-h-screen text-[var(--ink)]">
       {stage === "intro" && (
-        <section className="mx-auto flex min-h-screen w-full max-w-6xl flex-col gap-8 px-6 py-16 lg:flex-row lg:items-center lg:justify-between lg:px-10">
-          <div className="flex flex-col gap-6 text-left">
-            <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
-            <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight tracking-tight sm:text-6xl">
-              Modern price play for extreme housing nerds.
-            </h1>
-            <p className="max-w-xl text-lg leading-relaxed text-[var(--ink-muted)]">
-              We drop you into a high-res slice of an American block. You make a confident ZIP median call, see how close you landed,
-              and collect points plus a little editorial shade. It’s quick, data-backed, and weirdly soothing.
+        <section className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center gap-10 px-6 py-16 text-center lg:px-10">
+          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
+          <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight sm:text-6xl">
+            Guess the ZIP median from two Street View snaps.
+          </h1>
+          <p className="max-w-2xl text-lg text-[var(--ink-muted)]">
+            Real Zillow ZHVI data, five quick rounds, instant bragging rights.
+          </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 text-sm uppercase tracking-[0.3em] text-[var(--ink-muted)]">
+            <span className="neo-chip">2 images</span>
+            <span className="neo-chip">5 rounds</span>
+            <span className="neo-chip">Roast finale</span>
+          </div>
+          <button
+            onClick={handleStart}
+            className="neo-button bg-[var(--accent)] px-12 py-4 text-base text-white"
+          >
+            Play now
+          </button>
+          <details className="neo-card border border-dashed border-[var(--border-soft)] bg-white/80 p-5 text-left text-sm text-[var(--ink)]">
+            <summary className="cursor-pointer text-xs uppercase tracking-[0.4em]">How scoring works</summary>
+            <p className="mt-3 text-xs leading-relaxed">
+              Score = max(0, 5000 − 2500 × |ln(guess / actual)|). Miss luxury, lose luxury points. High scores = tight reads.
             </p>
-            <ul className="space-y-3 text-base font-semibold text-[var(--ink-muted)]">
-              <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-[var(--accent-dark)]">1</span>
-                Fresh U.S. ZIP every round with live Zillow ZHVI medians.
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-[var(--accent-dark)]">2</span>
-                Two Street View frames + locale dossier keep context tight and focused.
-              </li>
-              <li className="flex items-center gap-3">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-white text-sm font-bold text-[var(--accent-dark)]">3</span>
-                Five rounds, smart scoring, and a tasteful roast at the end.
-              </li>
-            </ul>
-            <div className="flex flex-wrap gap-4">
-              <button
-                onClick={handleStart}
-                className="neo-button bg-[var(--accent)] px-10 py-4 text-base text-white"
-              >
-                Start guessing
-              </button>
-              <div className="neo-chip">
-                <span>5 rounds</span>
-                <span>2 views</span>
-                <span>Roast included</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex flex-col gap-6">
-            <div className="neo-card neo-card--loud p-6">
-              <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Daily block teaser</p>
-              <p className="mt-2 text-3xl font-semibold">Suburban Atlanta</p>
-              <p className="text-sm text-[var(--ink-muted)]">Two-story craftsman · bold lawns · HOA energy</p>
-              <p className="mt-4 text-[12px] uppercase tracking-[0.4em] text-[var(--ink-muted)]">Median anchor</p>
-              <p className="text-4xl font-semibold text-[var(--ink)]">$???k</p>
-            </div>
-            <details className="neo-card border-dashed border-[var(--border-strong)] bg-white/70 p-5 text-left text-sm text-[var(--ink)]">
-              <summary className="cursor-pointer text-xs uppercase tracking-[0.4em]">Scoring cheat sheet</summary>
-              <div className="mt-3 space-y-2 text-xs leading-relaxed">
-                <p>
-                  Score = max(0, 5000 − 2500 × |ln(guess / actual)|). Log scale means blowing a luxe ZIP hurts just as much as lowballing a quiet one.
-                </p>
-                <ul className="space-y-1">
-                  {SCORE_BANDS.map((band) => (
-                    <li key={band.label} className="flex justify-between font-mono text-[12px]">
-                      <span>{band.label}</span>
-                      <span>{band.points}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </details>
-          </div>
+          </details>
         </section>
       )}
 
