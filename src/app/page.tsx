@@ -555,11 +555,11 @@ export default function HomePage() {
       )}
 
       {stage === "summary" && (
-        <section className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-8 px-6 py-16 text-center">
+        <section className="relative z-10 mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center gap-8 px-6 py-16 text-center">
           <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">homevalueguessr</p>
           <h2 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight">Final readout</h2>
-          <div className="flex w-full flex-col gap-6 md:flex-row md:items-stretch md:justify-center">
-            <div className="neo-card neo-card--loud text-left md:flex-1">
+          <div className="grid w-full gap-6 md:grid-cols-2">
+            <div className="neo-card neo-card--loud text-left">
               <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Season report</p>
               <p className="mt-3 text-4xl font-semibold">{totalScoreDisplay} pts</p>
               <p className="mt-1 text-sm text-[var(--ink-muted)]">
@@ -570,13 +570,13 @@ export default function HomePage() {
               </p>
             </div>
             {summaryComment && (
-              <div className="score-flare neo-card text-left md:flex-1">
+              <div className="score-flare neo-card text-left">
                 <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood side-eye</p>
                 <p className="mt-3 text-2xl font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
               </div>
             )}
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
+          <div className="flex w-full flex-col gap-4 sm:flex-row sm:justify-center sm:gap-6">
             <button
               onClick={handleShare}
               className="neo-button flex-1 bg-[var(--ink)] px-10 py-4 text-base text-[var(--sand)]"
