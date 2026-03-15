@@ -1,15 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --sand: #f4ede1;
-  --ink: #1b1206;
-  --ink-muted: color-mix(in srgb, var(--ink) 70%, white 30%);
-  --accent: #f26b38;
-  --accent-dark: #c95124;
-  --jade: #0f8a5f;
-  --surface: #fff6eb;
-  --border-strong: #2f2010;
-  --border-soft: color-mix(in srgb, var(--border-strong) 50%, transparent);
+  --sand: #f6ede3;
+  --ink: #20120c;
+  --ink-muted: color-mix(in srgb, var(--ink) 55%, white 45%);
+  --accent: #d67558;
+  --accent-dark: #b95a3c;
+  --jade: #2b9b72;
+  --electric: #7a9ec9;
+  --citrus: #f4d5b5;
+  --sky: #dbe7f5;
+  --surface: #fff9f4;
+  --border-strong: color-mix(in srgb, var(--ink) 30%, black 70%);
+  --border-soft: color-mix(in srgb, var(--border-strong) 15%, transparent);
 }
 
 @theme inline {
@@ -24,9 +27,9 @@
 }
 
 body {
-  background: var(--sand);
+  background-image: linear-gradient(130deg, #fefbf8 0%, #f6ede3 55%, #edd8c7 100%);
   color: var(--ink);
-  font-family: var(--font-body), 'IBM Plex Sans', system-ui, sans-serif;
+  font-family: var(--font-body), "IBM Plex Sans", system-ui, sans-serif;
   min-height: 100vh;
 }
 
@@ -52,4 +55,76 @@ body {
 
 .score-flare {
   animation: score-slam 650ms cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.neo-card {
+  border: 1.5px solid var(--border-soft);
+  border-radius: 28px;
+  box-shadow: 0 25px 50px rgba(20, 10, 0, 0.08);
+  background: var(--surface);
+  backdrop-filter: blur(4px);
+}
+
+.neo-card--loud {
+  background: linear-gradient(135deg, var(--citrus), white);
+}
+
+.neo-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.7);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.neo-button {
+  border-radius: 999px;
+  box-shadow: 0 18px 30px rgba(214, 117, 88, 0.28);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  border: none;
+  transition: transform 200ms ease, box-shadow 200ms ease, filter 200ms ease;
+}
+
+.neo-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 22px 34px rgba(214, 117, 88, 0.32);
+}
+
+.neo-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, var(--accent), color-mix(in srgb, var(--accent) 40%, var(--electric)));
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
+}
+
+.neo-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: var(--ink);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  cursor: grab;
+}
+
+.neo-slider::-moz-range-thumb {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid white;
+  background: var(--ink);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+  cursor: grab;
 }

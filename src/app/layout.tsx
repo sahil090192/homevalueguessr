@@ -15,7 +15,7 @@ const body = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Home Value Guesser",
+  title: "homevalueguessr",
   description: "Guess US ZIP median home values from two quick Street View glances.",
 };
 
