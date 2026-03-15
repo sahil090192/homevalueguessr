@@ -250,13 +250,13 @@ export default function HomePage() {
       : Math.min(history.length, TOTAL_ROUNDS);
   const heading =
     stage === "intro"
-      ? "Home Value Guesser beta"
+      ? "homevalueguessr beta"
       : stage === "summary"
         ? "Full tally"
         : `Round ${displayRound || 1} of ${TOTAL_ROUNDS}`;
 
   const handleShare = async () => {
-    const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on Home Value Guesser. Think you can read a block better? https://homevalueguesser.com`;
+    const sharePayload = `I pulled ${totalScoreDisplay} pts with ${averageErrorDisplay} avg error on homevalueguessr. Think you can read a block better? https://homevalueguessr.com`;
     try {
       if (navigator.share) {
         await navigator.share({ text: sharePayload });
@@ -310,13 +310,13 @@ export default function HomePage() {
   return (
     <div className="min-h-screen text-[var(--ink)]">
       {stage === "intro" && (
-        <section className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center gap-10 px-6 py-16 text-center lg:px-10">
-          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
-          <h1 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight sm:text-6xl">
-            Guess the ZIP median from two Street View snaps.
+        <section className="mx-auto flex min-h-screen w-full max-w-5xl flex-col items-center justify-center gap-8 px-6 py-16 text-center lg:px-10">
+          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Zip median challenge</p>
+          <h1 className="font-[family:var(--font-display)] text-6xl font-semibold tracking-tight sm:text-7xl">
+            homevalueguessr
           </h1>
           <p className="max-w-2xl text-lg text-[var(--ink-muted)]">
-            Real Zillow ZHVI data, five quick rounds, instant bragging rights.
+            Two Street View snaps. One gut-priced guess. Real Zillow ZHVI.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4 text-sm uppercase tracking-[0.3em] text-[var(--ink-muted)]">
             <span className="neo-chip">2 images</span>
@@ -544,7 +544,7 @@ export default function HomePage() {
 
       {stage === "summary" && (
         <section className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-8 px-6 py-16 text-center">
-          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">Home Value Guesser</p>
+          <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">homevalueguessr</p>
           <h2 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight">Final readout</h2>
           <div className="grid w-full gap-6 md:grid-cols-2">
             <div className="neo-card neo-card--loud text-left">
