@@ -106,11 +106,13 @@ export default function HomePage() {
   }, [averageError, history.length, totalScore]);
   const totalScoreDisplay = history.length ? totalScore.toLocaleString() : "0";
   const averageErrorDisplay = history.length ? `${(averageError * 100).toFixed(1)}%` : "—";
+  const latestBeatsBest = history.length >= TOTAL_ROUNDS && totalScore > (personalBest?.score ?? 0);
   const personalBestDisplay = personalBest ? personalBest.score.toLocaleString() : "—";
   const personalBestErrorDisplay = personalBest ? `${(personalBest.averageError * 100).toFixed(1)}%` : "—";
+  const bestScoreForDisplay = latestBeatsBest ? totalScore.toLocaleString() : personalBestDisplay;
+  const bestErrorForDisplay = latestBeatsBest ? `${(averageError * 100).toFixed(1)}%` : personalBestErrorDisplay;
   const personalBestRounds = personalBest?.rounds ?? TOTAL_ROUNDS;
   const isPlaying = stage === "guess" || stage === "reveal" || stage === "loading";
-  const hasCompletedRun = history.length >= TOTAL_ROUNDS;
 
   const clampGuess = useCallback((raw: number) => {
     const clamped = Math.min(MAX_GUESS, Math.max(MIN_GUESS, raw));
@@ -225,6 +227,7 @@ export default function HomePage() {
 
   const handleNext = async () => {
     if (history.length >= TOTAL_ROUNDS) {
+      persistPersonalBest();
       setStage("summary");
       return;
     }
@@ -275,7 +278,7 @@ export default function HomePage() {
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const stored = window.localStorage.getItem("homevalueguesser.personalBest");
+    const stored = window.localStorage.getItem("homevalueguessr.personalBest");
     if (!stored) return;
     try {
       const parsed = JSON.parse(stored) as PersonalBest;
@@ -287,9 +290,8 @@ export default function HomePage() {
     }
   }, []);
 
-  useEffect(() => {
-    if (!hasCompletedRun) return;
-    if (!(stage === "reveal" || stage === "summary")) return;
+  const persistPersonalBest = useCallback(() => {
+    if (history.length < TOTAL_ROUNDS) return;
     setPersonalBest((prev) => {
       if (prev && prev.score >= totalScore) {
         return prev;
@@ -301,11 +303,17 @@ export default function HomePage() {
         recordedAt: Date.now(),
       };
       if (typeof window !== "undefined") {
-        window.localStorage.setItem("homevalueguesser.personalBest", JSON.stringify(next));
+        window.localStorage.setItem("homevalueguessr.personalBest", JSON.stringify(next));
       }
       return next;
     });
-  }, [hasCompletedRun, stage, history.length, totalScore, averageError]);
+  }, [averageError, history.length, totalScore]);
+
+  useEffect(() => {
+    if (stage === "summary") {
+      persistPersonalBest();
+    }
+  }, [stage, persistPersonalBest]);
 
   return (
     <div className="min-h-screen text-[var(--ink)]">
@@ -359,9 +367,13 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="text-xs uppercase tracking-wide text-[var(--ink-muted)]">Personal best</p>
-                    <p className="text-2xl font-semibold">{personalBestDisplay}</p>
+                    <p className="text-2xl font-semibold">{bestScoreForDisplay}</p>
                     <p className="text-[11px] uppercase tracking-[0.3em] text-[var(--ink-muted)]">
-                      {personalBest ? `${personalBestRounds} rounds · ${personalBestErrorDisplay}` : "Play to set one"}
+                      {latestBeatsBest
+                        ? "Just set · " + bestErrorForDisplay
+                        : personalBest
+                          ? `${personalBestRounds} rounds · ${personalBestErrorDisplay}`
+                          : "Play to set one"}
                     </p>
                   </div>
                   <div>
@@ -546,25 +558,25 @@ export default function HomePage() {
         <section className="relative z-10 mx-auto flex min-h-screen max-w-4xl flex-col items-center justify-center gap-8 px-6 py-16 text-center">
           <p className="text-xs uppercase tracking-[0.6em] text-[var(--ink-muted)]">homevalueguessr</p>
           <h2 className="font-[family:var(--font-display)] text-5xl font-semibold leading-tight">Final readout</h2>
-          <div className="grid w-full gap-6 md:grid-cols-2">
-            <div className="neo-card neo-card--loud text-left">
+          <div className="flex w-full flex-col gap-6 md:flex-row md:items-stretch md:justify-center">
+            <div className="neo-card neo-card--loud text-left md:flex-1">
               <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Season report</p>
               <p className="mt-3 text-4xl font-semibold">{totalScoreDisplay} pts</p>
               <p className="mt-1 text-sm text-[var(--ink-muted)]">
                 Average error {averageErrorDisplay} across {history.length} blocks.
               </p>
               <p className="mt-4 text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">
-                Local high score · {personalBest ? `${personalBestDisplay} pts · ${personalBestErrorDisplay}` : "set yours next round"}
+                Local high score · {personalBest || latestBeatsBest ? `${bestScoreForDisplay} pts · ${bestErrorForDisplay}` : "set yours next round"}
               </p>
             </div>
             {summaryComment && (
-              <div className="score-flare neo-card text-left">
+              <div className="score-flare neo-card text-left md:flex-1">
                 <p className="text-xs uppercase tracking-[0.4em] text-[var(--ink-muted)]">Neighborhood side-eye</p>
                 <p className="mt-3 text-2xl font-semibold text-[var(--accent-dark)]">{summaryComment}</p>
               </div>
             )}
           </div>
-          <div className="flex flex-col gap-4 sm:flex-row">
+          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
             <button
               onClick={handleShare}
               className="neo-button flex-1 bg-[var(--ink)] px-10 py-4 text-base text-[var(--sand)]"
